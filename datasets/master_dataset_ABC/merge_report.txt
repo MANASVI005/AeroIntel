@@ -1,0 +1,143 @@
+AeroIntel final A+B+C merge report
+===================================
+
+INPUT DATASETS
+- Dataset A: datasets/dataset_A/processed/
+- Dataset B: datasets/dataset_B/processed/
+- Dataset C: datasets/dataset_C/processed/
+- Dataset D was NOT included.
+- Dataset E was NOT included.
+- Dataset F was NOT included.
+- Existing master_dataset was NOT modified.
+- Source datasets A, B, and C were NOT modified.
+
+ORIGINAL COUNTS
+- Dataset A: 1148 images (806 train, 180 valid, 162 test)
+  Labels: 1148; annotations found: 2597; dimensions: {(512, 512): 1148}
+  Class IDs: {1: 2597}
+  Missing pairs: 0; empty labels: 0; corrupted images: 0; invalid annotations: 0
+- Dataset B: 1104 images (952 train, 102 valid, 50 test)
+  Labels: 1104; annotations found: 1662; dimensions: {(640, 640): 1104}
+  Class IDs: {0: 1662}
+  Missing pairs: 0; empty labels: 0; corrupted images: 0; invalid annotations: 0
+- Dataset C: 6803 images (5855 train, 598 valid, 350 test)
+  Labels: 6803; annotations found: 11786; dimensions: {(640, 640): 6803}
+  Class IDs: {0: 3797, 2: 4153, 3: 3836}
+  Missing pairs: 0; empty labels: 0; corrupted images: 0; invalid annotations: 0
+
+CLASS MAPPINGS
+- Dataset A: Corrosion source class 1 -> final class 1
+- Dataset B: Crack -> final class 0
+- Dataset C: Crack -> 0; Dent -> 2; Missing Fastener -> 3
+
+POLYGON CONVERSION
+- Polygon annotations converted to enclosing YOLO boxes: 715
+- No polygon annotations remain in the final dataset.
+
+DUPLICATE ANALYSIS
+- Duplicate filename entries: 0
+- Exact duplicate groups: 486
+- Exact duplicate images removed: 530
+- Exact duplicates with matching canonical annotations were kept once; conflicting annotations would stop the merge.
+- Approved curation exception:
+  - Dataset B conflicting duplicate excluded: D:\AeroIntel\datasets\dataset_B\processed\images\train\IMG_20230511_102157_jpg.rf.68a3ae0fea6fa21c2b21f83d54143f38.jpg (annotation conflicts with retained Dataset C annotation)
+  - Dataset C second identical copy excluded: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230511_102157_jpg.rf.56c8a47366b316f48e70e83c260a2609.jpg (redundant exact duplicate)
+  - Conflict SHA-256: 166c916d240aa72412ae56e88d9ba4ba53e372e4b23c88768a8a73ad52698185; retained Dataset C copy: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230511_102157_jpg.rf.33032bdaa44996f17103bd38fb9f47b1.jpg
+  - Dataset C conflicting duplicate excluded: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230511_102354_jpg.rf.4a5a58a01dfef80cb602b2276093d003.jpg (retained Dataset B Crack annotation)
+  - Dataset C second identical copy excluded: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230511_102354_jpg.rf.e15a8f3df844180534c4b4194fe73a87.jpg (redundant exact duplicate)
+  - Conflict SHA-256: a303b83569c313444d5f0919f905e81d60e6a422e3370dddc4b5aaed8b07a58d; retained Dataset B copy: D:\AeroIntel\datasets\dataset_B\processed\images\train\IMG_20230511_102354_jpg.rf.17be801498b371c1d4307744d975684f.jpg
+  - All copies excluded for SHA-256 f88dde5c97484538a53a2fcb18b6383ab32b8d44b77b555fd46991f22764e647: Excluded due to unresolved cross-dataset class disagreement after visual inspection.
+  - Dataset B copy excluded: D:\AeroIntel\datasets\dataset_B\processed\images\train\IMG_20230511_102719_jpg.rf.a43241285b70d9576d40099256ab10c6.jpg
+  - Dataset C first copy excluded: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230511_102719_jpg.rf.86dc13371af4627e256c110c655d0a27.jpg
+  - Dataset C second copy excluded as a redundant byte-identical copy: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230511_102719_jpg.rf.c1877c493030d8a20ab2b2e9f7abf1f1.jpg
+  - Dataset C contained two redundant byte-identical copies.
+  - Visual inspection found a clear circular recessed/deformed area consistent with a dent/impact deformation; no definite crack was visible. The Dataset C Dent label was therefore retained, the conflicting Dataset B Crack copy was excluded, and the second byte-identical Dataset C copy was excluded as redundant.
+  - Conflict SHA-256: 169222d4fd6ceec99334f6c9dd639b85a09f5253562570501540d924adc9973e; retained Dataset C copy: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230511_102729_jpg.rf.380c85422bc1af4d5596c931cc3a6b18.jpg
+  - Dataset B Crack copy excluded: D:\AeroIntel\datasets\dataset_B\processed\images\train\IMG_20230511_102729_jpg.rf.0533d9fc70b0db95318480d2b6daa811.jpg
+  - Dataset C second byte-identical copy excluded as redundant: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230511_102729_jpg.rf.beabf2aac022bfbfc3c7410823496401.jpg
+  - Dataset B and Dataset C bounding boxes are spatially identical.
+  - Visual inspection found a broad shallow surface depression/deformation in Region 1 and a smaller localized indentation/surface deformation in Region 2. No clear or definite crack was visible in either region. Dent was visually supported for Region 1 and more consistent for Region 2, although Region 2 retained moderate ambiguity. The B and C boxes covered effectively the same regions. The Dataset C Dent interpretation was therefore retained, the conflicting Dataset B Crack copy was excluded, and the second byte-identical Dataset C copy was excluded as redundant.
+  - Conflict SHA-256: 2137daacbd8f93a0822991e4c5d20036e60a046fe8071f63d1738232876b0a1f; retained Dataset C copy: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230511_102820_jpg.rf.57921124f2b008e1de3ec2612efb793c.jpg
+  - Dataset B Crack copy excluded: D:\AeroIntel\datasets\dataset_B\processed\images\train\IMG_20230511_102820_jpg.rf.474b5fc489d23e6061f87b3581d4f0cf.jpg
+  - Dataset C second byte- and label-identical copy excluded as redundant: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230511_102820_jpg.rf.aa90d5b54f3268331bf2d126de536f53.jpg
+  - Dataset B and Dataset C boxes covered effectively the same regions; Dataset C copies were byte- and label-identical.
+  - Visual inspection found a localized circular/oval surface depression or deformation near the panel/fastener area. No clear, definite linear crack was visible. The localized deformation was more consistent with a dent or indentation. The distinction retained moderate ambiguity, but the Dataset C Dent interpretation was visually better supported. The B and C bounding boxes effectively covered the same physical region, differing only by approximately 0.25 pixels on each side. Therefore, the Dataset C Dent copy was retained, the conflicting Dataset B Crack copy was excluded, and the second byte-identical Dataset C copy was excluded as redundant.
+  - Conflict SHA-256: bc62e3ec08246a89e64f982cd5e686c8c1d36466eeae89aa9d04286e9900c39f; retained Dataset C copy: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230511_102838_jpg.rf.04eb6eef223740ea392d90e3a2465a22.jpg
+  - Dataset B Crack copy excluded: D:\AeroIntel\datasets\dataset_B\processed\images\train\IMG_20230511_102838_jpg.rf.96da0f97c4d5f17bb8b9546c704957d9.jpg
+  - Dataset C second byte-identical copy excluded as redundant: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230511_102838_jpg.rf.712b85dff5e4a2e285ca9cacfd5c2f8a.jpg
+  - Image dimensions: 640 x 640.
+  - B pixel box: (166.25, 326.5, 319.75, 452.5).
+  - C pixel box: (166.0, 326.5, 320.0, 452.5).
+  - Box difference: C extends 0.25 pixels farther left and right.
+  - Dataset C copies are byte-identical; Dataset C labels are byte-identical.
+  - Exact-image cross-dataset conflict. Dataset B contains two Crack annotations with weak visual support and no clearly defined crack. Dataset C contains one Missing Fastener annotation covering a prominent circular opening/fastener-like feature that is visually more consistent with Missing Fastener. C retained; B excluded.
+  - Conflict SHA-256: 9216933bf7ce0b48536e6f481c7dc69e9be594279bd01fdc42d8d76152b2584c; retained Dataset C copy: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230511_102943_jpg.rf.a4c4594c19122b695ac7d6e4e83b527f.jpg
+  - Dataset B copy excluded with two Crack annotations: D:\AeroIntel\datasets\dataset_B\processed\images\train\IMG_20230511_102943_jpg.rf.55c12d2a726214a404d4c8f999204dff.jpg
+  - Exactly one Dataset B copy and one Dataset C copy were present; no third copy was assumed.
+  - Exact-image cross-dataset class conflict. Dataset B labels the shared feature as Crack, while Dataset C labels the same region as Dent. The C copies are redundant exact duplicates. C Dent retained; B Crack and redundant C copy excluded.
+  - Conflict SHA-256: ff712bbaaf7482a09d14f69d34708b856cdf91aa19633fc774dc42b71b7d1188; retained Dataset C copy: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230511_104900_jpg.rf.4617b268d47f90e385def35d928a828a.jpg
+  - Dataset B Crack copy excluded: D:\AeroIntel\datasets\dataset_B\processed\images\train\IMG_20230511_104900_jpg.rf.ead22cd6bb1c3a7906a55e467fcf8e6c.jpg
+  - Dataset C redundant exact duplicate excluded: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230511_104900_jpg.rf.b118b9dc7343bfce831b10913c4d4cb6.jpg
+  - Unresolved exact-image cross-dataset class conflict: Dataset B labels the feature as Crack while Dataset C labels the identical region as Missing Fastener. Excluded from final ABC training dataset rather than assigning an unsupported class.
+  - Conflict SHA-256: d380266a56bd6ac05b6f62d790d230bab979cc9724f74b64df225df4a4487dfc; Dataset B copy excluded: D:\AeroIntel\datasets\dataset_B\processed\images\train\IMG_20230512_120937_jpg.rf.e869e7c5141a2900391199862299c3a7.jpg
+  - Dataset C copy excluded: D:\AeroIntel\datasets\dataset_C\processed\train\images\IMG_20230512_120937_jpg.rf.479ddb97cbd5be8a1229bed494980c55.jpg
+  - Unresolved exact-image cross-dataset class conflict between Crack and Missing Fastener. Entire exact-image group excluded without assigning a class. SHA-256: 234fa653b43a581f70966d8d9a6a031df4821d9acc926d960ec8670bc23b8cca; sources: B (1 copy), C (2 copies); B annotations: ('0 0.53203125 0.5265625 0.1234375 0.1265625',); C annotations: ('3 0.53203125 0.5265625 0.1234375 0.1265625',); C copies are byte-identical and label-identical.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: 88bc7e0cb5adcada3b1cb365927b55020f26339da8e2369d7818f29006f4e24a; sources/copy structure: {'B': 1, 'C': 2}; exact conflicting annotations: B: ('0 0.7 0.4015625 0.2203125 0.2234375',); C: ('3 0.7 0.4015625 0.2203125 0.2234375',); C: ('3 0.7 0.4015625 0.2203125 0.2234375',); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: fb43e58ab0ea73929fd5577a1b561777eb2240deaf34aaf54347ef2966617c91; sources/copy structure: {'B': 1, 'C': 2}; exact conflicting annotations: B: ('0 0.54296875 0.6734375 0.4265625 0.253125',); C: ('2 0.54296875 0.6734375 0.4265625 0.253125',); C: ('2 0.54296875 0.6734375 0.4265625 0.253125',); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: a723b9a0e0d0f851ab9ce358a7f6b1d8c785b905c765f2e0d8152404fb72709b; sources/copy structure: {'B': 1, 'C': 2}; exact conflicting annotations: B: ('0 0.625 0.4453125 0.196875 0.18984375',); C: ('3 0.625 0.4453125 0.196875 0.190625',); C: ('3 0.625 0.4453125 0.196875 0.190625',); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: 0f552e093553bc5cd880506cd5be1d519d9d7489827fa7999bda78ed9f077e5f; sources/copy structure: {'B': 1, 'C': 1}; exact conflicting annotations: B: ('0 0.5796875 0.59296875 0.253125 0.2',); C: ('2 0.5796875 0.59296875 0.253125 0.2',); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: dc41ce045c11469e909a20490a7230ac9d472869543ee10e407ed2d5e0cf2903; sources/copy structure: {'B': 1, 'C': 2}; exact conflicting annotations: B: ('0 0.56015625 0.58359375 0.09296875 0.09296875',); C: ('0 0.56015625 0.58359375 0.09375 0.09375',); C: ('0 0.56015625 0.58359375 0.09375 0.09375',); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: 5ed2ea56548120cee22c040faf1ab9867c83e42aff568dcb64d24321431cdbb6; sources/copy structure: {'B': 1, 'C': 2}; exact conflicting annotations: B: ('0 0.521875 0.446875 0.18984375 0.26015625',); C: ('2 0.521875 0.446875 0.190625 0.259375',); C: ('2 0.521875 0.446875 0.190625 0.259375',); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: db4819c86ea7b3e345dadb36bbaa93bcf4456bf3c8e83e831ceab3412bc02281; sources/copy structure: {'B': 1, 'C': 2}; exact conflicting annotations: B: ('0 0.3296875 0.5484375 0.28671875 0.24296875', '0 0.65703125 0.725 0.1734375 0.18359375'); C: ('2 0.3296875 0.5484375 0.2875 0.24375', '2 0.65703125 0.725 0.1734375 0.184375'); C: ('2 0.3296875 0.5484375 0.2875 0.24375', '2 0.65703125 0.725 0.1734375 0.184375'); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: 097769b01d470eab2eb01ef9a5420dc670e714c616707b6c8744af363464e942; sources/copy structure: {'B': 1, 'C': 2}; exact conflicting annotations: B: ('0 0.521875 0.4015625 0.1296875 0.11640625', '0 0.68984375 0.3734375 0.2203125 0.1265625'); C: ('0 0.521875 0.4015625 0.1296875 0.1171875', '0 0.68984375 0.3734375 0.2203125 0.1265625'); C: ('0 0.521875 0.4015625 0.1296875 0.1171875', '0 0.68984375 0.3734375 0.2203125 0.1265625'); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: 960405e3a9440115e987fb2dd49d7c232821358eb92014db8f8fe6873bee2068; sources/copy structure: {'B': 1, 'C': 2}; exact conflicting annotations: B: ('0 0.63828125 0.53984375 0.21640625 0.11328125',); C: ('0 0.63828125 0.53984375 0.215625 0.1140625',); C: ('0 0.63828125 0.53984375 0.215625 0.1140625',); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: a368f6a987d134a58b77c9c4f5c7901b51fb1aa8957e0f19f959f55bf98fe948; sources/copy structure: {'B': 1, 'C': 2}; exact conflicting annotations: B: ('0 0.66484375 0.53515625 0.196875 0.21015625',); C: ('0 0.66484375 0.53515625 0.196875 0.2109375',); C: ('0 0.66484375 0.53515625 0.196875 0.2109375',); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: 3c3d0e15680d2af0f4c96150f5a1cbabb43adda3243f13d7b5ccc58553dd7a85; sources/copy structure: {'B': 1, 'C': 2}; exact conflicting annotations: B: ('0 0.61328125 0.578125 0.153125 0.15',); C: ('2 0.61328125 0.578125 0.153125 0.15',); C: ('2 0.61328125 0.578125 0.153125 0.15',); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: 726b8f7b9a94631c389354fbf966068a724b48820f889989776754e334e252a0; sources/copy structure: {'B': 1, 'C': 2}; exact conflicting annotations: B: ('0 0.6203125 0.66328125 0.28671875 0.26640625',); C: ('2 0.6203125 0.66328125 0.2875 0.265625',); C: ('2 0.6203125 0.66328125 0.2875 0.265625',); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: 29408fb0f95c3cbd9dc3fa7a50b10e73002159534826b8c5fde4ebe977e0feaf; sources/copy structure: {'B': 1, 'C': 1}; exact conflicting annotations: B: ('0 0.4046875 0.34296875 0.2234375 0.20703125',); C: ('3 0.4046875 0.34296875 0.2234375 0.2078125',); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: bab9fdd3fad775f019e1957bfa160c4b08e656f1043b6d5f06dc83a88832cda0; sources/copy structure: {'B': 1, 'C': 2}; exact conflicting annotations: B: ('0 0.48671875 0.50703125 0.19296875 0.1265625',); C: ('0 0.48671875 0.50703125 0.1921875 0.1265625',); C: ('0 0.48671875 0.50703125 0.1921875 0.1265625',); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: 9e998fb27fbc169ed361742403a62c2a9e046ae92a908376923588c3b561a800; sources/copy structure: {'B': 1, 'C': 2}; exact conflicting annotations: B: ('0 0.56328125 0.5734375 0.23359375 0.2734375',); C: ('0 0.56328125 0.5734375 0.234375 0.2734375',); C: ('0 0.56328125 0.5734375 0.234375 0.2734375',); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: 2df0686e14b11f23bbaf0180cc6fa9a8cd442856324b3dd5db766569c49ce40f; sources/copy structure: {'B': 1, 'C': 2}; exact conflicting annotations: B: ('0 0.5 0.53671875 0.16640625 0.16640625', '0 0.421875 0.371875 0.16328125 0.15'); C: ('2 0.5 0.53671875 0.1671875 0.1671875', '2 0.421875 0.371875 0.1640625 0.15'); C: ('2 0.5 0.53671875 0.1671875 0.1671875', '2 0.421875 0.371875 0.1640625 0.15'); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: e333c5bba8eeae5cdb83e2458d1f02157b953b25d34e87c759261ce060b1ee75; sources/copy structure: {'B': 1, 'C': 1}; exact conflicting annotations: B: ('0 0.5234375 0.61171875 0.31328125 0.28359375',); C: ('2 0.5234375 0.61171875 0.3140625 0.2828125',); reason: inconsistent or ambiguous exact-image ground truth.
+  - Unresolved exact-image annotation conflict excluded without assigning or modifying classes. SHA-256: 96611a9176712f9285204416a6289f00a4c57f082bf347b79160f5b90d19ef0b; sources/copy structure: {'C': 2}; exact conflicting annotations: C: ('0 0.39453792343749994 0.48909505234375 0.024406728124999943 0.056966145312499994', '2 0.63738487421875001 0.46549479218750001 0.71267647968750003 0.126953125'); C: ('2 0.34427115156249999 0.50057870390625003 0.11484574375000006 0.069444445312500047', '2 0.45159538828125001 0.48466435156249998 0.052070989062499962 0.049189815625000077', '2 0.61496383359374995 0.46802662109375004 0.11586652343749992 0.056423610937500035', '2 0.73581620703124995 0.45066550937500005 0.10848122968750007 0.044849537500000036', '2 0.90681305390625 0.41666666718750001 0.11362746406250002 0.03472222187500007'); reason: inconsistent or ambiguous exact-image ground truth.
+
+NEAR-DUPLICATE ANALYSIS
+- Method: deterministic 8x8 grayscale average hash (aHash)
+- Similarity threshold: Hamming distance <= 4
+- Near-duplicate groups: 1945
+- Images involved: 7216
+- Largest groups: 1386, 255, 132, 75, 58, 25, 23, 17, 14, 14
+- Groups spanning multiple source datasets: 693
+- Near-duplicates were grouped for splitting and not deleted.
+
+SPLIT METHODOLOGY
+- Fresh split from A+B+C after exact duplicate removal.
+- Target ratio: 80% train, 10% valid, 10% test.
+- Deterministic random seed: 42
+- Exact and near-duplicate groups were assigned as indivisible units.
+
+FINAL DATA
+- Train: 6820
+- Valid: 852
+- Test: 853
+- Total images: 8525
+- Total annotations: 15252
+- Class statistics:
+  - Crack: 5192 annotations / 3791 images
+  - Corrosion: 2597 annotations / 1148 images
+  - Dent: 3869 annotations / 2588 images
+  - Missing Fastener: 3594 annotations / 1571 images
+
+SOURCE CONTRIBUTION
+- Dataset A: 1148 images used, 2597 annotations used
+- Dataset B: 1078 images used, 1630 annotations used
+- Dataset C: 6299 images used, 11025 annotations used
+
+EXCLUSIONS
+- Images excluded: 530
+- Invalid annotations: 0
+- Corrupted images: 0
+- Missing pairs: 0
+
+VALIDATION
+- Final validation: PASS

@@ -1,0 +1,3 @@
+datasets/master_dataset_ABC/train/images/** filter=lfs diff=lfs merge=lfs -text
+datasets/master_dataset_ABC/valid/images/** filter=lfs diff=lfs merge=lfs -text
+datasets/master_dataset_ABC/test/images/** filter=lfs diff=lfs merge=lfs -text

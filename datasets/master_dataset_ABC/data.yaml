@@ -1,0 +1,10 @@
+train: train/images
+val: valid/images
+test: test/images
+
+nc: 4
+names:
+  0: Crack
+  1: Corrosion
+  2: Dent
+  3: Missing Fastener
