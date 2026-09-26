@@ -37,3 +37,8 @@ wandb/
 .cache/
 tmp/
 temp/
+eval_workspace/
+
+# Datasets and archives
+datasets/*.zip
+final_visual_test/

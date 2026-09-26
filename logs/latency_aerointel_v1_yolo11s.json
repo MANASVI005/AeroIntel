@@ -1,0 +1,8 @@
+{
+  "device": "colab cpu (proxy for laptop cpu)",
+  "n_images": 60,
+  "p50_ms": 284.5,
+  "p95_ms": 415.0,
+  "conf": 0.4,
+  "iou": 0.5
+}
