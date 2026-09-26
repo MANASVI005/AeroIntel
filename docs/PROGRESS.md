@@ -84,6 +84,9 @@
 - Created the living-docs system: `README.md` (status snapshot), `docs/DECISIONS.md` (D-001…D-015), `docs/PROGRESS.md` (this file), `docs/TECHNICAL_INTEGRATIONS.md` (stack, contracts, IT log).
 - Logged the v1 dataset merge and training decisions; flagged val-vs-test caveat and recall as the v2 lever.
 
+### 2026-09-26 — Frontend functional spec added (`FRONTEND_SPEC.md`)
+- Added repo-root `FRONTEND_SPEC.md`: complete v1 frontend functional reference — 4 API endpoints (E1–E4) with exact request/response shapes, 8 pages with layouts/data slots/states, frontend behavior rules, and build order. Supersedes the earlier frontend inspo doc (visual theme now owned by the design track in Canva/Stitch).
+
 ### 2026-09-26 — Model evaluation, export & collaborator guide
 - Verified test-split evaluation (mAP50 = 0.613) and CPU latency benchmarks.
 - Created `VERIFICATION_GUIDE.md` for collaborators to test inference and re-run training.
