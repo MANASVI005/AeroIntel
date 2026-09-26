@@ -4,6 +4,8 @@
 
 **Companion docs:** `VERIFICATION_GUIDE.md` (how to run the model), `docs/TECHNICAL_INTEGRATIONS.md` (system contracts).
 
+**Handoff trio for Stitch:** this spec (data + pages) + Canva images (visuals/theme) + `mockApi.js` (working fixtures). See **`STITCH_GUIDE.md`** for the paste-ready per-page Stitch prompts and the post-export wiring steps — start there if you are the person feeding Stitch.
+
 ---
 
 ## 1. Backend endpoints (the complete v1 surface)
