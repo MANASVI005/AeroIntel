@@ -15,12 +15,12 @@
 | Dataset build (A+B+C → v1) | ✅ done | 8,525 images / 15,252 ann.; merge report inside the zip |
 | Notebook 01 — data prep | ✅ done (superseded by local merge for v1) | audit → remap → dedupe → split pipeline kept for v2 |
 | Notebook 02 — training | ✅ done | 100/100 epochs, no early stop, ~3.5 h T4 |
-| Notebook 03 — eval + export | ⬜ not started | per-class **test** eval, CPU latency, ONNX |
-| ONNX model (`models/aerointel_v1.onnx`) | ⬜ not started | after notebook 03 |
-| `docs/metrics.md` | ⬜ not started | from Drive `metrics_draft.md` |
+| Notebook 03 — eval + export | ✅ done | per-class **test** eval, CPU latency, ONNX export |
+| ONNX model (`models/aerointel_v1.onnx`) | ✅ done | exported to `models/aerointel_v1.onnx` + `registry.json` |
+| `docs/metrics.md` / `metrics_draft.md` | ✅ done | verified test-split metrics (mAP50 = 0.613) |
 | Field test set (≥ 50 unseen images) | ⬜ not started | spec A6 |
 | Backend `/api/detect` smoke test | ⬜ not started | R2 detector service, spec A8 |
-| Repo hygiene (`.gitignore` for weights) | ⬜ TODO | never commit `.pt` (rule B4) |
+| Repo hygiene (`.gitignore` for weights) | ✅ done | `.pt`, `.onnx`, `datasets/*.zip`, `eval_workspace/` ignored |
 
 ## 2. Milestones
 
@@ -40,11 +40,11 @@
 - A6 target mAP50 ≥ 0.60 → **provisional PASS at val level**.
 - Checkpoints + full run artifacts synced to Drive and mirrored in `runs/aerointel_v1_yolo11s/`.
 
-### 🔜 M4 — Evaluate & export v1 *(next)*
-- [ ] Notebook 03: per-class metrics on the **test** split (the honest number)
-- [ ] CPU latency benchmark (A6 target < 1,000 ms p95)
-- [ ] Export `models/aerointel_v1.onnx` + `registry.json`
-- [ ] Copy `metrics_draft.md` → `docs/metrics.md`; record exact command in DECISIONS
+### ✅ M4 — Evaluate & export v1
+- [x] Notebook 03: per-class metrics on the **test** split: **mAP50 0.613**, mAP50-95 0.405, P 0.769, R 0.575 (PASS vs target ≥ 0.60)
+- [x] CPU latency benchmark: p50 = 284.5 ms, p95 = 415.0 ms (< 1,000 ms target)
+- [x] Export `models/aerointel_v1.onnx` + `registry.json` + `models/README.md`
+- [x] Test evaluation log in `logs/eval_aerointel_v1_yolo11s_test.json`, latency in `logs/latency_aerointel_v1_yolo11s.json`
 
 ### 🔜 M5 — Field validation & integration
 - [ ] Collect ≥ 50-image field test set, evaluate on it
@@ -65,9 +65,13 @@
 | Val mAP50-95 (best, epoch 89) | 0.410 | `results.csv` |
 | Val precision (best ckpt) | 0.787 | `results.csv` |
 | Val recall (best ckpt) | 0.579 | `results.csv` |
-| Test-split mAP50 | `TODO — run notebook 03` | — |
-| CPU latency p95 | `TODO — run notebook 03` | — |
-| Per-class metrics | `TODO — notebook 03 / confusion_matrix.png` | — |
+| Test-split mAP50 | 0.613 | `logs/eval_aerointel_v1_yolo11s_test.json` |
+| Test-split mAP50-95 | 0.405 | `logs/eval_aerointel_v1_yolo11s_test.json` |
+| Test-split Precision | 0.769 | `logs/eval_aerointel_v1_yolo11s_test.json` |
+| Test-split Recall | 0.575 | `logs/eval_aerointel_v1_yolo11s_test.json` |
+| CPU latency p50 | 284.5 ms | `logs/latency_aerointel_v1_yolo11s.json` |
+| CPU latency p95 | 415.0 ms | `logs/latency_aerointel_v1_yolo11s.json` |
+| Per-class mAP50 | Dent 0.887, Fastener 0.677, Crack 0.654, Corrosion 0.233 | `logs/eval_aerointel_v1_yolo11s_test.json` |
 
 ## 4. Changelog
 
@@ -80,8 +84,7 @@
 - Created the living-docs system: `README.md` (status snapshot), `docs/DECISIONS.md` (D-001…D-015), `docs/PROGRESS.md` (this file), `docs/TECHNICAL_INTEGRATIONS.md` (stack, contracts, IT log).
 - Logged the v1 dataset merge and training decisions; flagged val-vs-test caveat and recall as the v2 lever.
 
-> **Template for the next entry**
-> ### YYYY-MM-DD — <short title>
-> - what changed (files, numbers, artifacts)
-> - decisions made → `docs/DECISIONS.md` D-xxx
-> - what's next
+### 2026-09-26 — Model evaluation, export & collaborator guide
+- Verified test-split evaluation (mAP50 = 0.613) and CPU latency benchmarks.
+- Created `VERIFICATION_GUIDE.md` for collaborators to test inference and re-run training.
+- Created `model-training-and-eval` branch and pushed verified artifacts to remote.

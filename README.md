@@ -2,27 +2,29 @@
 
 Vision ML project that detects visible aircraft surface damage (crack, corrosion, dent, missing fastener) from photos, using an Ultralytics YOLO11 detector trained on Google Colab.
 
-**Current status: `aerointel_v1_yolo11s` trained (100/100 epochs). Test-split evaluation, ONNX export, and backend integration are the next milestones.**
+**Current status: `aerointel_v1_yolo11s` trained (100/100 epochs). Test-split evaluation (mAP50 = 0.613) and ONNX export completed.**
+
+> 💡 **Collaborator Quickstart:** Pulling this branch to test or train the model? Follow the step-by-step instructions in [VERIFICATION_GUIDE.md](VERIFICATION_GUIDE.md).
 
 ---
 
 ## 1. Status snapshot
-
 | Item | Value |
 |---|---|
 | Model | YOLO11s (`runs/aerointel_v1_yolo11s/`) |
 | Dataset | AeroIntel-ABC-v1 (`datasets/aerointel_dataset_v1_colab.zip`) — 8,525 images, 15,252 annotations |
 | Classes | 4 frozen: `0 crack, 1 corrosion, 2 dent, 3 missing_fastener` |
 | Training result (val split) | best **mAP50 0.623** / **mAP50-95 0.410**, P 0.787, R 0.579 |
-| A6 target (mAP50 ≥ 0.60) | **PASS at val level** — test split still to be measured honestly |
+| Test result (held-out test split) | **mAP50 0.613** / **mAP50-95 0.405**, P 0.769, R 0.575 (PASS vs A6 target ≥ 0.60) |
 | Train time | ~3.5 h on a free Colab T4 |
-| Exported model | ❌ not yet (notebook 03 pending) |
+| Exported model | ✅ `models/aerointel_v1.onnx` + `registry.json` |
 | Field test set (≥ 50 unseen images) | ❌ not yet collected |
 
 ## 2. Repository structure
 
 ```
 ├── README.md                        # this file
+├── VERIFICATION_GUIDE.md            # collaborator testing, verification & training guide
 ├── docs/
 │   ├── DECISIONS.md                 # every technical decision + rationale (append-only)
 │   ├── PROGRESS.md                  # status dashboard, milestones, changelog
