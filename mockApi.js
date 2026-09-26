@@ -7,6 +7,9 @@
  * "GOING LIVE" at the bottom). No other file changes.
  *
  * Fixtures are plain objects — if you need raw JSON, copy them as-is.
+ *
+ * Stitch workflow: see STITCH_GUIDE.md (per-page prompts + wiring steps).
+ * The exact field names here match the Stitch prompts — do not rename.
  */
 
 /** Simulated latency (ms) so skeletons/spinners get exercised */
