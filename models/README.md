@@ -14,10 +14,9 @@ The metadata for current models is stored in `models/registry.json`.
   - 2: Dent
   - 3: Missing Fastener
 
-## Storage Location
-Model weights and exported ONNX binaries are stored in Google Drive under:
-`Drive/AeroIntel/models/aerointel_v1.onnx`
-and training checkpoints in:
-`Drive/AeroIntel/runs/aerointel_v1_yolo11s/weights/{best.pt, last.pt}`
+## Availability in this Branch
+- **`models/aerointel_v1.onnx`** (37.9 MB) is committed directly to this branch (`model-training-and-eval`) so collaborators can test inference immediately upon `git pull` without manual downloads.
+- Raw training checkpoints (`best.pt`, `last.pt`) remain in Google Drive under:
+  `Drive/AeroIntel/runs/aerointel_v1_yolo11s/weights/{best.pt, last.pt}`
 
 To generate or export a new ONNX binary, run `ml/colab/03_eval_export.ipynb`.

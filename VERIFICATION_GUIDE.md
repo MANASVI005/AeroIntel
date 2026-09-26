@@ -51,17 +51,11 @@ pip install ultralytics onnx onnxruntime opencv-python matplotlib
 
 ## 3. Obtaining the Model Weights
 
-Per repository rule B4 (documented in `docs/DECISIONS.md`), large binary weights (`.pt` and `.onnx`) are not stored in Git.
+- **`models/aerointel_v1.onnx` is already bundled directly in this branch!**  
+  As soon as you pull `model-training-and-eval`, you have the model ready in `models/aerointel_v1.onnx` and can run inference immediately (see Section 4).
 
-You can obtain the trained model in one of two ways:
-
-### Option A: From Google Drive (Recommended)
-Copy the pre-trained weights from the shared Google Drive folder:
-- **ONNX Model:** `Drive/AeroIntel/models/aerointel_v1.onnx` → place into local `models/aerointel_v1.onnx`
-- **PyTorch Weights:** `Drive/AeroIntel/runs/aerointel_v1_yolo11s/weights/best.pt` → place into local `runs/aerointel_v1_yolo11s/weights/best.pt`
-
-### Option B: Re-export from Colab
-Run `ml/colab/03_eval_export.ipynb` on Google Colab, which exports `aerointel_v1.onnx` directly from the training checkpoint.
+- **For PyTorch checkpoints (`best.pt` / `last.pt`):**  
+  Raw training checkpoints are stored in Google Drive under `Drive/AeroIntel/runs/aerointel_v1_yolo11s/weights/best.pt` to keep the Git repo size manageable. You can also re-export or inspect them using `ml/colab/03_eval_export.ipynb`.
 
 ---
 
