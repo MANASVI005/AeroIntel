@@ -1,22 +1,17 @@
-# AeroIntel — Stitch Generation Guide
+# AeroIntel — Stitch Prompts (copy-paste file)
 
-**How to use the three handoff files in Stitch:**
+**This is the ONLY file you need open while working in Stitch.** Give Stitch: ① the prompts below, ② the matching Canva image attached to each page. That's all.
 
-| File | Role in Stitch |
-|---|---|
-| `FRONTEND_SPEC.md` | Source of truth for pages, layouts, data fields, states — the per-page prompts below are condensed from it |
-| Canva images (PNG per page) | Attach as the visual reference for each generation — **the image defines the theme** |
-| `mockApi.js` | NOT pasted into Stitch — wired in after export (see §3) |
+**Do NOT paste `mockApi.js` into Stitch** — it's data-layer code for the frontend developer, used after the Stitch code is exported (see footer).
 
-**Workflow:** generate in Stitch page-by-page (order in §2) → export code → wire `mockApi.js` (§3) → done.
-
-**Two rules for every generation:**
-1. Always attach the matching Canva image and say "match the attached reference image."
-2. Always keep the exact data field names from the prompts (`class_name`, `confidence`, `inference_ms`, `bbox`, `inference_ms`) — the code must bind to the mock API without renaming.
+**How to run (3 steps):**
+1. Paste the **Master prompt** (§1) as the first message — no image attached.
+2. For each page in the order below: **attach that page's Canva image** + paste its prompt.
+3. Export the code → hand to the frontend dev with `mockApi.js`.
 
 ---
 
-## 1. Master style prompt (paste ONCE as the first message, no image)
+## 1. Master prompt — paste ONCE first (no image)
 
 ```
 We are designing "AeroIntel", an AI-powered aircraft damage inspection web app.
@@ -31,18 +26,18 @@ Status colors: green = online/completed, amber = pending/loading, red = error.
 Damage-class color coding used everywhere (chips, table rows, legend, chart bars):
 crack = red, corrosion = orange, dent = yellow, missing_fastener = purple.
 Tone: clean aviation-industrial SaaS, data-dense but breathable.
+Match the theme of the reference images I will attach to the next messages.
 ```
-
-After this, generate screens in the order below. For each: attach the page's Canva image + paste the prompt.
 
 ---
 
-## 2. Per-page prompts (in generation order)
+## 2. Page prompts — paste in this order, each with its Canva image attached
 
-### 2.1 New Inspection (P2) — generate FIRST, it's the core
-Attach: Canva image of New Inspection.
+### 2.1 New Inspection ▶ generate FIRST (core page)
+📎 Attach: Canva image of New Inspection.
 ```
 Screen: "New Inspection" — image upload and detection launch page.
+Match the attached reference image for theme and layout.
 Layout top-to-bottom:
 1. Page header: H1 "New Inspection", subtitle "Capture an image, run AI detection.",
    primary button on the right.
@@ -62,10 +57,11 @@ Also show the detecting state: same screen but the preview area covered by a
 skeleton shimmer with a small spinner and text "Running detection…".
 ```
 
-### 2.2 Inspection Result (P3) — the hero page
-Attach: Canva image of Inspection Result.
+### 2.2 Inspection Result ▶ the hero page
+📎 Attach: Canva image of Inspection Result.
 ```
 Screen: "Inspection Result" — detection review page.
+Match the attached reference image for theme and layout.
 Layout: two columns.
 LEFT (60%): image viewer card with an aircraft wing photo, overlaid bounding
 boxes drawn in class colors (red crack, orange corrosion, yellow dent, purple
@@ -84,10 +80,11 @@ location shown as pixel sizes like "384 × 172 px", status pill "Open".
 Footer actions: primary "New Inspection", secondary "Download annotated image".
 ```
 
-### 2.3 Dashboard (P1)
-Attach: Canva image of Dashboard.
+### 2.3 Dashboard
+📎 Attach: Canva image of Dashboard.
 ```
 Screen: "Dashboard" — landing overview.
+Match the attached reference image for theme and layout.
 Top-to-bottom:
 1. Header: H1 "Dashboard", subtitle "Overview of your aircraft inspections."
 2. Row of 4 stat cards: "Inspections" (12, small up-arrow), "Defects detected"
@@ -100,10 +97,11 @@ Top-to-bottom:
    2026-09-24", and a green status dot labeled "Service online".
 ```
 
-### 2.4 Model Performance (P7)
-Attach: Canva image of Model Performance.
+### 2.4 Model Performance
+📎 Attach: Canva image of Model Performance.
 ```
 Screen: "Model Performance" — metrics dashboard.
+Match the attached reference image for theme and layout.
 1. Header: H1 "Model Performance", badge "aerointel_v1 · ONNX · 640 px".
 2. KPI row of 5 cards: Precision 0.769, Recall 0.575, mAP50 0.613,
    mAP50-95 0.405, Latency "p50 285 ms · p95 415 ms".
@@ -119,10 +117,11 @@ Screen: "Model Performance" — metrics dashboard.
    test split (853 images). Corrosion is single-source data — targeted for v2."
 ```
 
-### 2.5 Settings (P8 — v1 subset only)
-Attach: Canva image of Settings.
+### 2.5 Settings (v1 subset only)
+📎 Attach: Canva image of Settings.
 ```
 Screen: "Settings" — preferences page, two-column layout.
+Match the attached reference image for theme and layout.
 LEFT: settings nav list (Preferences active, Aircraft profile, Storage,
 Notifications — last three show a small "Phase 2" tag and are disabled).
 RIGHT: "Preferences" card with:
@@ -134,10 +133,11 @@ Below: read-only "Model info" card (aerointel_v1, yolo11-onnx, 640 px,
 exported 2026-09-24) and a service status row with green dot.
 ```
 
-### 2.6 Inspection History (P4 — v2, design only)
-Attach: Canva image of Inspection History.
+### 2.6 Inspection History (Phase 2 — design only)
+📎 Attach: Canva image of Inspection History.
 ```
 Screen: "Inspection History" — searchable records table (Phase 2 feature).
+Match the attached reference image for theme and layout.
 1. Header + filter bar: dropdowns Aircraft ID, Component, Defect Type (multi),
    Date range, Status; free-text search field.
 2. Dense results table: columns Inspection ID | Date | Aircraft | Model |
@@ -148,10 +148,11 @@ Screen: "Inspection History" — searchable records table (Phase 2 feature).
 Add a "Phase 2" tag chip next to the page title.
 ```
 
-### 2.7 AeroMemory (P5 — v2, design only)
-Attach: Canva image of AeroMemory.
+### 2.7 AeroMemory (Phase 2 — design only)
+📎 Attach: Canva image of AeroMemory.
 ```
 Screen: "AeroMemory" — historical comparison (Phase 2 feature).
+Match the attached reference image for theme and layout.
 1. Header + selector row of 3 dropdowns: Aircraft ID (VT-ALB), Aircraft Model
    (Boeing 737), Component (Wing).
 2. Two image cards side by side labeled "PREVIOUS INSPECTION" and "CURRENT
@@ -165,10 +166,11 @@ Screen: "AeroMemory" — historical comparison (Phase 2 feature).
 Add a "Phase 2" tag chip next to the page title.
 ```
 
-### 2.8 Inspection Report (P6 — v2, design only)
-Attach: Canva image of Inspection Report.
+### 2.8 Inspection Report (Phase 2 — design only)
+📎 Attach: Canva image of Inspection Report.
 ```
 Screen: "Inspection Report" — printable one-inspection summary (Phase 2).
+Match the attached reference image for theme and layout.
 1. Report header block: Inspection ID INS-0143, Aircraft ID VT-ALB, Model
    Boeing 737, Component Wing, Date 2025-09-24, model badge
    "aerointel_v1 v1".
@@ -183,32 +185,13 @@ Add a "Phase 2" tag chip next to the page title.
 
 ---
 
-## 3. After export — wiring `mockApi.js` into the Stitch code
+## 3. After Stitch export — for the frontend dev (not for Stitch)
 
-Stitch outputs static UI. Make it live in 4 steps (frontend dev task, ~1 hour):
-
-1. **Add the file:** drop `mockApi.js` into the project (e.g. `src/services/mockApi.js`).
-2. **Create the service layer** (`src/services/api.js`):
-   ```js
-   export { default as api } from "./mockApi";   // later: swap to the real fetch client
-   ```
-3. **Bind each screen** (element → call/field):
-
-   | Stitch screen | Call | Bind |
-   |---|---|---|
-   | Dashboard stat cards | `api.getMetrics()` | `overall.mAP50`, `latency.p50_ms` |
-   | Dashboard model card | `api.getModel()` + `api.getHealth()` | `name`, `type`, `imgsz`, `status` |
-   | New Inspection CTA | `api.detectImage(file, { conf, iou })` | navigate to Result with response |
-   | Result boxes | response `detections[].bbox` | scale: `x1 * (display_w / natural_w)` etc. |
-   | Result list rows | response `detections[]` | `class_name`, `confidence` |
-   | Result latency badge | response | `inference_ms` |
-   | Confidence slider | client-side filter | `detections.filter(d => d.confidence >= v)` — **never re-call detect** |
-   | Performance KPIs/table | `api.getMetrics()` | `overall`, `per_class`, `latency` |
-   | Settings model info | `api.getModel()` | read-only rows |
-
-4. **Test every state** with the built-in fixtures:
-   - loading → all calls simulate latency (skeletons show)
-   - empty → `api.detectImage(file, { force: "empty" })`
-   - errors → `force: "too_large" | "bad_type" | "server_error"`
-
-When the real backend lands: replace the `api.js` re-export with the real fetch client (template is at the bottom of `mockApi.js`) — zero component changes.
+1. Add `mockApi.js` to the project (e.g. `src/services/`).
+2. Re-export it as the app's `api` and bind screens to it — the binding
+   table and state-testing commands are in the header comment of
+   `mockApi.js` itself.
+3. Field names in the generated UI (`class_name`, `confidence`,
+   `inference_ms`, `bbox`) already match the mock — no renaming needed.
+4. When the real backend exists, swap one import (template at the bottom
+   of `mockApi.js`).
