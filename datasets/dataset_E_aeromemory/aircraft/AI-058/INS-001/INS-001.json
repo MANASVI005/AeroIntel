@@ -1,0 +1,37 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-058",
+  "component_id": "COMP-08",
+  "panel_id": "PANEL-18",
+  "region_id": "REGION-018",
+  "inspection_id": "INS-001",
+  "inspection_index": 1,
+  "date": "2026-01-01",
+  "previous_inspection_id": null,
+  "next_inspection_id": "INS-002",
+  "scenario": "corrosion_new",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\B_IMG_20230511_104210_jpg.rf.8764d0983126274fa3667318ae9c3b99.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-058\\INS-001\\INS-001.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

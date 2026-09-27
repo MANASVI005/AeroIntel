@@ -1,0 +1,78 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-186",
+  "component_id": "COMP-06",
+  "panel_id": "PANEL-06",
+  "region_id": "REGION-026",
+  "inspection_id": "INS-005",
+  "inspection_index": 5,
+  "date": "2026-05-01",
+  "previous_inspection_id": "INS-004",
+  "next_inspection_id": "INS-006",
+  "scenario": "missing_fastener_repaired",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\C_IMG_20230511_103505_jpg.rf.38ea38bc4814237f92aba9f50f9e1c18.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-186\\INS-005\\INS-005.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 3,
+      "defect_type": "Missing Fastener",
+      "bbox_px": [
+        344,
+        245,
+        404,
+        305
+      ],
+      "bbox_yolo": [
+        0.365234,
+        0.268555,
+        0.058594,
+        0.058594
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "diameter_mm": 6
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "stable",
+        "previous_measurement": 6.0,
+        "current_measurement": 6.0,
+        "measurement_change": 0.0
+      },
+      "severity": "Medium",
+      "decision_support": "Continue monitoring and retain historical record"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "stable",
+      "previous_measurement": 6.0,
+      "current_measurement": 6.0,
+      "measurement_change": 0.0
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

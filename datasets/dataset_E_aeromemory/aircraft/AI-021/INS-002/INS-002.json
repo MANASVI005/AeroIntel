@@ -1,0 +1,199 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-021",
+  "component_id": "COMP-01",
+  "panel_id": "PANEL-01",
+  "region_id": "REGION-021",
+  "inspection_id": "INS-002",
+  "inspection_index": 2,
+  "date": "2026-01-31",
+  "previous_inspection_id": "INS-001",
+  "next_inspection_id": "INS-003",
+  "scenario": "multi_defect_stable",
+  "source_panel_image": "datasets\\master_dataset_ABC\\valid\\images\\B_IMG_20230511_105130_jpg.rf.86a5517aebc21f34e414994f2fce25de.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-021\\INS-002\\INS-002.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 0,
+      "defect_type": "Crack",
+      "bbox_px": [
+        562,
+        762,
+        702,
+        780
+      ],
+      "bbox_yolo": [
+        0.617188,
+        0.75293,
+        0.136719,
+        0.017578
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "length_mm": 14,
+        "width_mm": 0.9
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "stable",
+        "previous_measurement": 14.0,
+        "current_measurement": 14.0,
+        "measurement_change": 0.0
+      },
+      "severity": "Medium",
+      "decision_support": "Continue monitoring and retain historical record"
+    },
+    {
+      "defect_id": "D02",
+      "class_id": 1,
+      "defect_type": "Corrosion",
+      "bbox_px": [
+        642,
+        706,
+        747,
+        785
+      ],
+      "bbox_yolo": [
+        0.678223,
+        0.728027,
+        0.102539,
+        0.077148
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "area_mm2": 110,
+        "severity_index": 0.45
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D02",
+        "state": "stable",
+        "previous_measurement": 110.0,
+        "current_measurement": 110.0,
+        "measurement_change": 0.0
+      },
+      "severity": "Medium",
+      "decision_support": "Continue monitoring and retain historical record"
+    },
+    {
+      "defect_id": "D03",
+      "class_id": 2,
+      "defect_type": "Dent",
+      "bbox_px": [
+        151,
+        427,
+        351,
+        577
+      ],
+      "bbox_yolo": [
+        0.245117,
+        0.490234,
+        0.195312,
+        0.146484
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "width_mm": 20,
+        "height_mm": 15,
+        "depth_mm": 2
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D03",
+        "state": "stable",
+        "previous_measurement": 2.0,
+        "current_measurement": 2.0,
+        "measurement_change": 0.0
+      },
+      "severity": "Medium",
+      "decision_support": "Continue monitoring and retain historical record"
+    },
+    {
+      "defect_id": "D04",
+      "class_id": 3,
+      "defect_type": "Missing Fastener",
+      "bbox_px": [
+        300,
+        456,
+        360,
+        516
+      ],
+      "bbox_yolo": [
+        0.322266,
+        0.474609,
+        0.058594,
+        0.058594
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "diameter_mm": 6
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D04",
+        "state": "stable",
+        "previous_measurement": 6.0,
+        "current_measurement": 6.0,
+        "measurement_change": 0.0
+      },
+      "severity": "Medium",
+      "decision_support": "Continue monitoring and retain historical record"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "stable",
+      "previous_measurement": 14.0,
+      "current_measurement": 14.0,
+      "measurement_change": 0.0
+    },
+    {
+      "defect_id": "D02",
+      "state": "stable",
+      "previous_measurement": 110.0,
+      "current_measurement": 110.0,
+      "measurement_change": 0.0
+    },
+    {
+      "defect_id": "D03",
+      "state": "stable",
+      "previous_measurement": 2.0,
+      "current_measurement": 2.0,
+      "measurement_change": 0.0
+    },
+    {
+      "defect_id": "D04",
+      "state": "stable",
+      "previous_measurement": 6.0,
+      "current_measurement": 6.0,
+      "measurement_change": 0.0
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

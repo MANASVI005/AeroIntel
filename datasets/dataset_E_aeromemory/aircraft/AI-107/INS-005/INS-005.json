@@ -1,0 +1,49 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-107",
+  "component_id": "COMP-07",
+  "panel_id": "PANEL-07",
+  "region_id": "REGION-027",
+  "inspection_id": "INS-005",
+  "inspection_index": 5,
+  "date": "2026-05-01",
+  "previous_inspection_id": "INS-004",
+  "next_inspection_id": "INS-006",
+  "scenario": "corrosion_resolved",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\C_IMG_20230513_100021_jpg.rf.a8cb28a57717e3ab640ef96b1c10066a.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-107\\INS-005\\INS-005.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [],
+  "resolved_from_previous": [
+    {
+      "defect_id": "D01",
+      "state": "resolved",
+      "measurement_change": null
+    }
+  ],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "resolved",
+      "measurement_change": null
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

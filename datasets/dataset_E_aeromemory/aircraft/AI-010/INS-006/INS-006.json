@@ -1,0 +1,79 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-010",
+  "component_id": "COMP-10",
+  "panel_id": "PANEL-10",
+  "region_id": "REGION-010",
+  "inspection_id": "INS-006",
+  "inspection_index": 6,
+  "date": "2026-05-31",
+  "previous_inspection_id": "INS-005",
+  "next_inspection_id": null,
+  "scenario": "corrosion_new",
+  "source_panel_image": "datasets\\master_dataset_ABC\\test\\images\\C_IMG_0297_jpg.rf.838a9b3be03bdb46a57e0b2064cac677.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-010\\INS-006\\INS-006.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 1,
+      "defect_type": "Corrosion",
+      "bbox_px": [
+        656,
+        508,
+        748,
+        578
+      ],
+      "bbox_yolo": [
+        0.685547,
+        0.530273,
+        0.089844,
+        0.068359
+      ],
+      "status": "active",
+      "progression_status": "increased",
+      "measurements": {
+        "area_mm2": 85,
+        "severity_index": 0.4
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "increased",
+        "previous_measurement": 70.0,
+        "current_measurement": 85.0,
+        "measurement_change": 15.0
+      },
+      "severity": "Medium",
+      "decision_support": "Schedule engineer review and monitor progression"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "increased",
+      "previous_measurement": 70.0,
+      "current_measurement": 85.0,
+      "measurement_change": 15.0
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

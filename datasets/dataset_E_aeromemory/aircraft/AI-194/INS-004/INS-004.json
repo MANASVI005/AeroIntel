@@ -1,0 +1,79 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-194",
+  "component_id": "COMP-04",
+  "panel_id": "PANEL-14",
+  "region_id": "REGION-034",
+  "inspection_id": "INS-004",
+  "inspection_index": 4,
+  "date": "2026-04-01",
+  "previous_inspection_id": "INS-003",
+  "next_inspection_id": "INS-005",
+  "scenario": "crack_fast_progression",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\A_lisgtningstrike-39-_jpg.rf.f1dba4ac6ff6e8b8add14b004b989eb1.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-194\\INS-004\\INS-004.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 0,
+      "defect_type": "Crack",
+      "bbox_px": [
+        302,
+        379,
+        502,
+        398
+      ],
+      "bbox_yolo": [
+        0.392578,
+        0.379395,
+        0.195312,
+        0.018555
+      ],
+      "status": "active",
+      "progression_status": "increased",
+      "measurements": {
+        "length_mm": 20,
+        "width_mm": 0.94
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "increased",
+        "previous_measurement": 16.0,
+        "current_measurement": 20.0,
+        "measurement_change": 4.0
+      },
+      "severity": "Medium",
+      "decision_support": "Schedule engineer review and monitor progression"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "increased",
+      "previous_measurement": 16.0,
+      "current_measurement": 20.0,
+      "measurement_change": 4.0
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}
