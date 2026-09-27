@@ -37,3 +37,6 @@ wandb/
 .cache/
 tmp/
 temp/
+*.db
+*.sqlite
+*.sqlite3

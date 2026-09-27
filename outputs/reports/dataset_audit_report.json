@@ -1,0 +1,60 @@
+{
+  "counts": {
+    "train": {
+      "images": 6820,
+      "labels": 6820
+    },
+    "valid": {
+      "images": 852,
+      "labels": 852
+    },
+    "test": {
+      "images": 853,
+      "labels": 853
+    }
+  },
+  "missing_labels": {
+    "train": 0,
+    "valid": 0,
+    "test": 0
+  },
+  "orphan_labels": {
+    "train": 0,
+    "valid": 0,
+    "test": 0
+  },
+  "corrupted_images": 0,
+  "corrupted_files": [],
+  "invalid_annotations": 0,
+  "invalid_annotation_details": [],
+  "empty_label_files": 0,
+  "class_counts": {
+    "train": {
+      "0": 4314,
+      "1": 1731,
+      "2": 3161,
+      "3": 2787
+    },
+    "valid": {
+      "0": 416,
+      "1": 439,
+      "2": 378,
+      "3": 408
+    },
+    "test": {
+      "0": 462,
+      "1": 427,
+      "2": 330,
+      "3": 399
+    }
+  },
+  "total_boxes": {
+    "train": 11993,
+    "valid": 1641,
+    "test": 1618
+  },
+  "dimensions_summary": {
+    "512x512": 1148,
+    "640x640": 7377
+  }
+}
