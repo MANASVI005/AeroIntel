@@ -1,0 +1,100 @@
+AeroIntel Dataset D processing report
+======================================
+Dataset name: aircraft_skin_defects
+Dataset version: Version 20 (5 classes grayscale no augmentation)
+Source folder: D:\AeroIntel\datasets\dataset_D
+
+Original image count:
+  Train: 292
+  Valid: 40
+  Test: 40
+  Total: 372
+
+Original classes and IDs:
+  0: crack
+  1: dent
+  2: missing-head
+  3: paint-peel-off
+  4: scratch
+
+Original annotation counts by class:
+  0 (crack): 206
+  1 (dent): 977
+  2 (missing-head): 3185
+  3 (paint-peel-off): 888
+  4 (scratch): 385
+
+Mapping performed:
+  crack (0) -> Crack (0)
+  dent (1) -> Dent (2)
+  missing-head (2) -> Missing Fastener (3)
+  paint-peel-off (3) -> removed
+  scratch (4) -> removed
+  Corrosion (1) -> no annotations created
+
+Scratch annotations removed: 385
+Paint-peel-off annotations removed: 888
+Images excluded because they contained only unwanted classes: 37
+
+Final class distribution:
+  Crack: 206 annotations / 124 images
+  Corrosion: 0 annotations / 0 images
+  Dent: 977 annotations / 255 images
+  Missing Fastener: 3185 annotations / 259 images
+
+Excluded files/images: 37
+Corrupted images: 0
+Empty labels: 8
+Invalid annotations: 0
+Missing image-label pairs: 0
+Quarantine count: 74
+
+Warnings:
+  None
+
+File actions:
+  invalid label quarantined: train/hunter_00046_jpg.rf.e14deb49832dd0c346e82a17419a3346.txt: empty label file
+  excluded image with no valid target annotations: train/hunter_00046_jpg.rf.e14deb49832dd0c346e82a17419a3346.jpg
+  excluded image with no valid target annotations: train/hunter_00049_jpg.rf.3f239256318f49a16123e2c0e92896f6.jpg
+  excluded image with no valid target annotations: train/hunter_00051_jpg.rf.6013f1f7283cdb886057a75f74fffcd8.jpg
+  excluded image with no valid target annotations: train/hunter_00057_jpg.rf.0afb9f1ec98ed7fe7c3afb71a19956dc.jpg
+  excluded image with no valid target annotations: train/hunter_00058_jpg.rf.82c6137b5f3b085bcebc12f8a43a1109.jpg
+  excluded image with no valid target annotations: train/hunter_00076_jpg.rf.b154449b944b19e167000d2ccaba22c7.jpg
+  excluded image with no valid target annotations: train/hunter_00077_jpg.rf.f39d3788feba035987ba653f7729ced1.jpg
+  excluded image with no valid target annotations: train/hunter_00079_jpg.rf.1c7fe148b954c0b85eefd19a622d11f8.jpg
+  excluded image with no valid target annotations: train/hunter_00080_jpg.rf.80f0ae075f27bf1bdca0d435163afb57.jpg
+  invalid label quarantined: train/hunter_00081_jpg.rf.993468cab92b13cbde6e54dde487161a.txt: empty label file
+  excluded image with no valid target annotations: train/hunter_00081_jpg.rf.993468cab92b13cbde6e54dde487161a.jpg
+  invalid label quarantined: train/hunter_00082_jpg.rf.b9ae22470d1e10ff7a0475b8f5a8d06f.txt: empty label file
+  excluded image with no valid target annotations: train/hunter_00082_jpg.rf.b9ae22470d1e10ff7a0475b8f5a8d06f.jpg
+  excluded image with no valid target annotations: train/hunter_00136_jpg.rf.cbf695e6b3533f44a0a04d2a8b896f14.jpg
+  excluded image with no valid target annotations: train/hunter_00169_jpg.rf.243b06efc57b0acac7cca1910e4543f6.jpg
+  excluded image with no valid target annotations: train/hunter_00172_jpg.rf.902e280747a5c777364fc8f04a465adc.jpg
+  excluded image with no valid target annotations: train/hunter_00173_jpg.rf.4c7cf6f19d769ba72c43d69e8d57f7fe.jpg
+  invalid label quarantined: train/hunter_00175_jpg.rf.9fff7608bc7bc9f8af0d095eb3b8aad8.txt: empty label file
+  excluded image with no valid target annotations: train/hunter_00175_jpg.rf.9fff7608bc7bc9f8af0d095eb3b8aad8.jpg
+  excluded image with no valid target annotations: train/hunter_00194_jpg.rf.c8bf414808b46866383204cc073436a5.jpg
+  excluded image with no valid target annotations: train/IMG_20230413_123132_jpg.rf.cc98fa7314b561fc386f07d3c9824e67.jpg
+  excluded image with no valid target annotations: train/IMG_20230413_123307_jpg.rf.65e4eea5f5c78883712672482ab22067.jpg
+  excluded image with no valid target annotations: train/IMG_20230413_124243_jpg.rf.66e1b8eda79f507a11b6b1d6d4be2f43.jpg
+  excluded image with no valid target annotations: train/IMG_20230413_125315_jpg.rf.f8a962cdec377201943642e9143a1427.jpg
+  excluded image with no valid target annotations: train/IMG_20230413_125320_jpg.rf.0aef49dd11e9fc994f29fee382edeb9f.jpg
+  excluded image with no valid target annotations: train/IMG_20230413_125326_jpg.rf.a338a2bf4bcef748dd5a13e52fffb031.jpg
+  excluded image with no valid target annotations: train/IMG_20230413_125824_jpg.rf.568af067857b5ad1ef3ec75705321de4.jpg
+  excluded image with no valid target annotations: train/IMG_20230413_130157_jpg.rf.0240e5110bcc80867a3ff91cd05408dd.jpg
+  invalid label quarantined: valid/hunter_00047_jpg.rf.11df584354d9f41505e63366541ead88.txt: empty label file
+  excluded image with no valid target annotations: valid/hunter_00047_jpg.rf.11df584354d9f41505e63366541ead88.jpg
+  excluded image with no valid target annotations: valid/hunter_00056_jpg.rf.d97bf99a38b3b4fd23f0e50cac4b9323.jpg
+  excluded image with no valid target annotations: valid/hunter_00170_jpg.rf.03936d98589513d0e88edb0f8025d097.jpg
+  excluded image with no valid target annotations: valid/hunter_00171_jpg.rf.fc87a210efaeb4d3503b178bf808fc13.jpg
+  excluded image with no valid target annotations: valid/IMG_20230413_124730_jpg.rf.08d4b3eddae861eee6fcd16cf752e98b.jpg
+  invalid label quarantined: valid/IMG_20230413_125008_jpg.rf.77ad964523028b29531761b74dc4c5e5.txt: empty label file
+  excluded image with no valid target annotations: valid/IMG_20230413_125008_jpg.rf.77ad964523028b29531761b74dc4c5e5.jpg
+  excluded image with no valid target annotations: test/hunter_00020_jpg.rf.633b7c348349099b19e6268fc605f4d3.jpg
+  invalid label quarantined: test/hunter_00048_jpg.rf.d5946dcff7d267634d42fd6d377544d4.txt: empty label file
+  excluded image with no valid target annotations: test/hunter_00048_jpg.rf.d5946dcff7d267634d42fd6d377544d4.jpg
+  excluded image with no valid target annotations: test/hunter_00050_jpg.rf.d58af87035f220167e94be1971799126.jpg
+  excluded image with no valid target annotations: test/hunter_00053_jpg.rf.8701c50b380c6640b4bd0fa29212903e.jpg
+  invalid label quarantined: test/IMG_20230413_125129_jpg.rf.e1ed25c5c57d9a26d2cb037430926e64.txt: empty label file
+  excluded image with no valid target annotations: test/IMG_20230413_125129_jpg.rf.e1ed25c5c57d9a26d2cb037430926e64.jpg
+  excluded image with no valid target annotations: test/IMG_20230413_130605_jpg.rf.c389229e21e6b6acc615bd72581df57d.jpg
