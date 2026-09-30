@@ -86,9 +86,11 @@
 
 **Stage 3 — End-to-end verification**
 - [ ] 3.1 Full loop: create inspection → upload real dataset image → detections + AeroMemory states → report; all states (loading/empty/error/offline) exercised
+- [x] **GLTF hero swap** ✅ done (2026-09-30, session 1) — see session log cont. 17.
 - [ ] 3.2 Update all .md files; ask user about commit/push
 
 - **2026-09-30 (session 1, cont. 16):** FRONTEND DECLARED COMPLETE & COMMITTED (user request: "finish all the frontend so we have something to test on, update docs, 1 commit"). Cleanup: removed temporary `/theme-test` route + `ThemeTest.tsx`, unused `Placeholder.tsx` and scaffold `DashboardPlaceholder.tsx`; App.tsx imports trimmed. Full verification sweep: tsc clean, vite build clean, ALL 11 routes HTTP 200 (`/`, `/dashboard`, `/inspections/new`, `/inspections`, `/aeromemory`, `/reports`, `/reports/11`, `/model-performance`, `/settings`, `/mobile`, `/inspections/11`), backend `/health` healthy + DB connected, `/api/metrics` + `/api/inspections` 200. Docs updated (this file + `docs/PROGRESS.md`). Single commit made per user instruction; not pushed. Remaining todos (all deferred by user): 1.10 mobile restyle, 2.2 seed script, 2.3 AeroMemory compare endpoint, GLTF hero swap.
+- **2026-09-30 (session 1, cont. 17):** GLTF HERO SWAP done (user asked after the push). CesiumAir 404'd upstream (moved out of glTF-Sample-Models) — but the team's own `G4_LARC_AIR_0824.glb` (locked in STITCH_GUIDE §hero all along) turned out to be a valid glTF 2.0 file already tracked in the repo: single merged mesh, 6 embedded materials/textures, no required extensions (Maya 2023 Babylon export). `Hero3DAircraft.tsx` rewritten: three.js r147 + non-module `GLTFLoader` from jsDelivr (r125 had no non-module GLTFLoader; r150+ removed it), model normalized (Box3 center + 22-unit fit) inside a pivot group so orbit/float/shadow behavior is identical; sRGB output for PBR textures; loading spinner overlay; procedural Stitch plane kept as automatic fallback if the GLB/CDN fails. Verified: tsc + build clean, `/` 200, GLB serves 200 (11,112,476 bytes). `frontend/public/models/CREDITS.md` added — license/provenance confirmation flagged as an action item (NASA LaRC-related, permissive but unverified). Not committed yet (user gates commits).
 
 ## Session log
 

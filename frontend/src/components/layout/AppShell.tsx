@@ -51,11 +51,13 @@ export const AppShell: React.FC<AppShellProps> = ({ children }) => {
       <aside className="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between py-6 px-4">
         <div className="flex flex-col gap-6">
           <div className="flex items-center gap-3 px-3">
-            <img
-              src="/brand/aerointel-logo.png"
-              alt="AeroIntel"
-              className="h-9 w-auto object-contain"
-            />
+            <a href="/" aria-label="AeroIntel — go to landing page" className="flex items-center">
+              <img
+                src="/brand/aerointel-logo.png"
+                alt="AeroIntel"
+                className="h-9 w-auto object-contain"
+              />
+            </a>
             <div className="flex flex-col">
               <span className="font-caption-data text-caption-data text-on-surface-variant">
                 Smart Inspection. Safer Skies.
