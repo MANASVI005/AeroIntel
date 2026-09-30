@@ -32,8 +32,14 @@ runs/
 wandb/
 *.pt
 *.onnx
+!models/aerointel_v1.onnx
 
 # Temporary/cache files
 .cache/
 tmp/
 temp/
+eval_workspace/
+
+# Datasets and archives
+datasets/*.zip
+final_visual_test/

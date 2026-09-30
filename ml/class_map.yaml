@@ -1,0 +1,27 @@
+# AeroIntel class schema (spec A6 / B3 contract #2)
+# IDs are FROZEN. Never change or reorder them after training starts.
+classes:
+  0: crack
+  1: corrosion
+  2: dent
+  3: missing_fastener
+
+# Remap table used by 03_remap (and by the Colab notebook 01_data_prep).
+# Key = source dataset folder name (as it appears in datasets/raw/ or datasets/raw_uploads/).
+# Value = mapping of THAT dataset's original class id -> AeroIntel class id.
+# Classes not listed are DROPPED, and the drop is logged. Do not invent mappings.
+# Fill these in week 1 after running the audit. Mark uncertain ones in docs/DECISIONS.md.
+sources:
+  roboflow_aircraft_corrosion:
+    0: corrosion            # single-class corrosion export (verify id on the dataset page)
+
+  dataset_b: {}
+    # 0: crack
+    # 3: missing_fastener
+
+  dataset_c: {}
+    # 0: dent
+
+  dataset_d: {}
+    # 0: crack
+    # 1: corrosion

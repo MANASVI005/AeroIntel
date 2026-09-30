@@ -1,0 +1,15 @@
+{
+  "name": "aerointel_v1",
+  "type": "yolo11-onnx",
+  "path": "models/aerointel_v1.onnx",
+  "classes": {
+    "0": "crack",
+    "1": "corrosion",
+    "2": "dent",
+    "3": "missing_fastener"
+  },
+  "version": "v1",
+  "imgsz": 640,
+  "trained_from": "aerointel_v1_yolo11s",
+  "exported_at": "2026-09-24T19:36:06.967545"
+}
