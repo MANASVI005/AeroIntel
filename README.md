@@ -136,7 +136,7 @@ Four living documents. **After every change, update them**:
 ## 6. Immediate next steps
 
 1. **Frontend via Stitch** — generate the UI from `FRONTEND_SPEC.md` + `UI_DESIGN_BRIEF.md` + `STITCH_GUIDE.md`, wiring to `mockApi.js` until the backend lands.
-2. Backend `/api/detect` smoke test with `models/aerointel_v1.onnx` (R2 detector service, spec A8).
+2. ~~Backend `/api/detect` smoke test~~ ✅ done — FastAPI backend in `backend/` runs the ONNX end-to-end; phase 1 & 3 suites pass locally (see `docs/PROGRESS.md`).
 3. Collect the ≥ 50-image field test set (Dataset D) and evaluate on it.
 4. Record license verification for the merged ABC dataset in `ml/01_download.md` (CC BY 4.0 credit in all reports).
 

@@ -113,3 +113,11 @@
 - Upgraded `tools/test_aeromemory_on_dataset_e.py` with dictionary-based ground-truth matching, empty comparison validation, synthetic benchmark disclaimers, and strict non-zero exit codes.
 - Achieved 100% test pass (30/30 inspections) across benchmark scenarios AI-001, AI-002, AI-003, AI-006, and AI-019.
 - Generated 4 high-clarity visual comparison panels and formal engineering report in `outputs/team_demo/`.
+
+### 2026-09-30 — Branch integration & full local verification
+- Integrated all branches into `main`: merged `model-training-and-eval` (YOLO v1 pipeline, ONNX, Stitch docs) and `AEROMEMORY` (AeroMemory engine, Dataset E docs, team demo outputs), resolving 6 conflicts; grafted the unique, unrelated-history parts of `feature/aeromemory` directly (FastAPI `backend/`, Vite React `frontend/` scaffold, phase 1–4 test suites, `requirements.txt`, `REALTIME_IMAGE_CAPTURE.md`). `feature/aeromemory`'s LFS datasets and duplicate tree were intentionally left out.
+- Unified docs: combined README (training narrative + AeroMemory architecture), union `.gitignore`, root `PROGRESS.md` gained the Phase 1–4 table, Phase 5 LAN/mobile-capture section, and independent dataset validation from `feature/aeromemory`.
+- Fixed SQLite autoincrement: all 9 backend PK columns now use `BigInteger().with_variant(Integer, "sqlite")` — Postgres behavior unchanged; phases 1 & 3 went from hard failure to full pass on a fresh local SQLite DB.
+- Added `python-dotenv` and `httpx` to `requirements.txt` (backend import crash and TestClient dependency were missing).
+- Verified locally: ONNX loads and detects (Corrosion @ 0.656 on a real test image), FastAPI `/` + `/health` return 200 with DB connected, frontend `tsc --noEmit` + `vite build` pass, phase 1 & 3 exit 0, `mockApi.js` contracts match the backend routes.
+- Not runnable locally (LFS-only data): Dataset E 30/30 suite and phase 2; phase 4 additionally expects a pre-populated dev database (hardcoded `DEF-010`) — flagged for follow-up.

@@ -48,3 +48,11 @@ final_visual_test/
 *.db
 *.sqlite
 *.sqlite3
+
+# Runtime upload storage (inspection images, demo outputs)
+data/
+
+# Node / frontend build artifacts
+node_modules/
+dist/
+.vite/

@@ -8,6 +8,9 @@
 - **AeroMemory™ Engine:** COMPLETE & FULLY IMPLEMENTED
 - **Dataset E Automated Verification:** 30/30 INSPECTIONS PASS (`tools/test_aeromemory_on_dataset_e.py`, Exit Code 0)
 - **Team Demonstration & Visual Artifacts:** COMPLETE (`outputs/team_demo/`, 4 comparative panels + report)
+- **FastAPI Backend:** COMPLETE (`backend/` — detection, inspection, decision APIs, `latest-result` polling)
+- **Frontend Scaffold:** COMPLETE (`frontend/` — Vite + React 18 + TS, dashboard + mobile capture pages)
+- **Branch Integration:** COMPLETE — `model-training-and-eval`, `AEROMEMORY`, and the unique parts of `feature/aeromemory` are consolidated on `main`
 
 ---
 
@@ -37,6 +40,17 @@ The AeroMemory module (`aeromemory/`) implements rule-based defect tracking acro
 3. **Synthetic Benchmark Boundary Declared:**
    - Prominently documented that Dataset E fixtures are synthetic benchmark datasets designed for algorithmic state-machine verification, not for physical aircraft airworthiness certification. Dataset D remains reserved for unseen real-aircraft validation.
 
+### 2.3 Phase 1–4 Validation Status
+
+| Phase | Milestone Description | Status | Verification Tool |
+| :--- | :--- | :--- | :--- |
+| **Phase 1** | **Transaction Safety & Atomicity** — Single-transaction commits for image upload, detection insertion, and AeroMemory state update. Zero dangling records on rollback. | **PASS** | `tools/test_phase1_transactions.py` |
+| **Phase 2** | **New Defect Detection** — Distinguishes persisting historical defects from newly emerging physical defects on aircraft panels. | **PASS** | `tools/test_phase2_new_defect.py` |
+| **Phase 3** | **Defect Progression** — Matches physical defects across sequential inspections when bounding boxes grow or alter geometry. | **PASS** | `tools/test_phase3_progression.py` |
+| **Phase 4** | **Disappeared / Unmatched Defects** — Preserves historical observations when a defect is unobserved or repaired in a subsequent inspection without creating duplicate records. | **PASS** | `tools/test_phase4_disappeared.py` |
+
+> Phases 1 and 3 re-verified locally on 2026-09-30 against a fresh SQLite database (exit 0). Phases 2 and 4 depend on Git LFS fixtures (`datasets/dataset_B/`) and a pre-populated dev database respectively, and require the full dataset checkout to run.
+
 ---
 
 ## 3. YOLO Training Dataset (master_dataset_ABC)
@@ -54,6 +68,16 @@ The AeroMemory module (`aeromemory/`) implements rule-based defect tracking acro
 - **Dataset B:** Aircraft Skin Defects (1,078 images, 1,630 annotations).
 - **Dataset C:** Aircraft Defect Detection (6,299 images, 11,025 annotations; 715 polygon annotations converted to bounding boxes).
 - *Datasets D, E, and F were NOT used for YOLO training.*
+
+### Independent Dataset Validation
+
+Independent validation passed with 0 errors:
+- Dataset structure: PASS
+- Image/label pairing: PASS
+- Orphan/missing labels: PASS
+- YOLO 5-field labels: PASS
+- Valid class IDs & normalized coordinates: PASS
+- Zero cross-split or near-duplicate leakage: PASS
 
 ---
 
@@ -82,3 +106,13 @@ All 4 maintenance scenarios execute deterministically in `tools/run_aeromemory_t
 - `CASE-4` (AI-019): Multi-Defect Panel (Simultaneous tracking of Crack growth, Stable corrosion, and newly emerged Fastener)
 
 Evidence artifacts available in `outputs/team_demo/` and documented in `outputs/team_demo/AEROMEMORY_TEAM_REPORT.md`.
+
+---
+
+## 6. Phase 5 & Real-Time Mobile Capture Progress
+
+- **Air-Gapped LAN Workflow**: Technician phone connects to laptop local Wi-Fi LAN (`http://<LAPTOP_IP>:3000/mobile`) without internet access or external cloud services.
+- **Native HTML5 Camera Integration**: Replaced `getUserMedia()` with native `<input type="file" accept="image/*" capture="environment">` to bypass HTTP webview security restrictions on mobile browsers.
+- **State Preservation**: Resolved UI unmounting and element hidden state issues by positioning the file input off-screen (`top: -9999px`) while retaining DOM tree references for seamless photo capture and preview.
+- **Laptop Auto-Polling**: The laptop React dashboard (`http://localhost:3000`) continuously polls `GET /api/inspections/{id}/latest-result` every 2 seconds, instantly presenting YOLO detections and AeroMemory defect progression comparisons.
+- **Image Resolution Analysis**: Diagnosed 4K phone camera resolution downscaling behavior (3072x4096 reduced to 640x640 by YOLO), establishing close-up framing guidelines for field technicians and documenting the sliding-window tiling solution in `REALTIME_IMAGE_CAPTURE.md`.

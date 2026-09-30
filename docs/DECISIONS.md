@@ -130,3 +130,13 @@ Frozen in `runs/aerointel_v1_yolo11s/args.yaml`: pretrained `yolo11s.pt`, epochs
 
 - **Decision:** Dataset E is formally classified as a synthetic benchmark dataset (10 px/mm calibration, simulated defect progressions, and repair scenarios). It is used exclusively to verify algorithmic state-machine transitions, IoU/centroid proximity thresholds, delta calculations, and database persistence.
 - **Why:** Synthetically placed and scaled defect overlays validate temporal state-machine logic, but do not establish physical production airworthiness or real-aircraft sensor reliability. Real-aircraft generalization is reserved for evaluation on Dataset D.
+
+## D-020 — Graft, don't merge, `feature/aeromemory` `[accepted]`
+
+- **Decision:** `feature/aeromemory` (unrelated git root) is not merged into `main`. Its unique artifacts — `backend/`, `frontend/`, phase 1–4 test tools, `requirements.txt`, `REALTIME_IMAGE_CAPTURE.md` — were checked out directly onto `main` as a fresh commit. Its LFS dataset binaries and duplicate tree remain only on that branch.
+- **Why:** Merging unrelated histories would drag in duplicated trees and LFS objects while `git diff`/`log` across the history stays broken. Grafting keeps `main` a clean superset with sane history. `aeromemory/*.py` content is identical across branches apart from BOM characters, so nothing engine-side was lost.
+
+## D-021 — SQLite-compatible primary keys via dialect variant `[accepted]`
+
+- **Decision:** Backend model primary keys use `BigInteger().with_variant(Integer, "sqlite")` instead of bare `BigInteger`.
+- **Why:** SQLite only autoincrements `INTEGER PRIMARY KEY`; the bare `BigInteger` PKs made every INSERT fail with `NOT NULL constraint failed` on SQLite, blocking local runs of the phase test suites. The variant emits `BIGINT` on PostgreSQL (production behavior unchanged) while enabling fully local verification of the API and AeroMemory phases.

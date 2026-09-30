@@ -22,7 +22,9 @@ class Base(DeclarativeBase):
 class Aircraft(Base):
     __tablename__ = "aircraft"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    id: Mapped[int] = mapped_column(
+        BigInteger().with_variant(Integer, "sqlite"), primary_key=True
+    )
     aircraft_code: Mapped[str] = mapped_column(String(100), unique=True, nullable=False)
     aircraft_type: Mapped[str | None] = mapped_column(String(100))
     registration_number: Mapped[str | None] = mapped_column(String(100))
@@ -45,7 +47,9 @@ class Aircraft(Base):
 class Component(Base):
     __tablename__ = "component"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    id: Mapped[int] = mapped_column(
+        BigInteger().with_variant(Integer, "sqlite"), primary_key=True
+    )
     aircraft_id: Mapped[int] = mapped_column(
         BigInteger,
         ForeignKey("aircraft.id", ondelete="CASCADE"),
@@ -78,7 +82,9 @@ class Component(Base):
 class Panel(Base):
     __tablename__ = "panel"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    id: Mapped[int] = mapped_column(
+        BigInteger().with_variant(Integer, "sqlite"), primary_key=True
+    )
     component_id: Mapped[int] = mapped_column(
         BigInteger,
         ForeignKey("component.id", ondelete="CASCADE"),
@@ -111,7 +117,9 @@ class Panel(Base):
 class Inspection(Base):
     __tablename__ = "inspection"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    id: Mapped[int] = mapped_column(
+        BigInteger().with_variant(Integer, "sqlite"), primary_key=True
+    )
     panel_id: Mapped[int] = mapped_column(
         BigInteger,
         ForeignKey("panel.id", ondelete="CASCADE"),
@@ -154,7 +162,9 @@ class Inspection(Base):
 class InspectionImage(Base):
     __tablename__ = "inspection_image"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    id: Mapped[int] = mapped_column(
+        BigInteger().with_variant(Integer, "sqlite"), primary_key=True
+    )
     inspection_id: Mapped[int] = mapped_column(
         BigInteger,
         ForeignKey("inspection.id", ondelete="CASCADE"),
@@ -183,7 +193,9 @@ class InspectionImage(Base):
 class Detection(Base):
     __tablename__ = "detection"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    id: Mapped[int] = mapped_column(
+        BigInteger().with_variant(Integer, "sqlite"), primary_key=True
+    )
     inspection_image_id: Mapped[int] = mapped_column(
         BigInteger,
         ForeignKey("inspection_image.id", ondelete="CASCADE"),
@@ -217,7 +229,9 @@ class Detection(Base):
 class DecisionSupport(Base):
     __tablename__ = "decision_support"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    id: Mapped[int] = mapped_column(
+        BigInteger().with_variant(Integer, "sqlite"), primary_key=True
+    )
     detection_id: Mapped[int] = mapped_column(
         BigInteger,
         ForeignKey("detection.id", ondelete="CASCADE"),
@@ -241,7 +255,9 @@ class DecisionSupport(Base):
 class TrackedDefect(Base):
     __tablename__ = "tracked_defect"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    id: Mapped[int] = mapped_column(
+        BigInteger().with_variant(Integer, "sqlite"), primary_key=True
+    )
     defect_code: Mapped[str] = mapped_column(
         String(100),
         unique=True,
@@ -353,7 +369,9 @@ class TrackedDefect(Base):
 class DefectObservation(Base):
     __tablename__ = "defect_observation"
 
-    id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
+    id: Mapped[int] = mapped_column(
+        BigInteger().with_variant(Integer, "sqlite"), primary_key=True
+    )
     tracked_defect_id: Mapped[int] = mapped_column(
         BigInteger,
         ForeignKey("tracked_defect.id", ondelete="CASCADE"),
