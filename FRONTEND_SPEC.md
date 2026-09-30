@@ -1,11 +1,12 @@
 # AeroIntel — Frontend Functional Spec
 
+> **Status: superseded.** The authoritative functional spec is now **`docs/FRONTEND_PRODUCT_SPEC.md`** (full screen/navigation/product spec from the frontend brief, including the landing page with the 3D hero and the theme-from-reference-image rule). The Stitch prompts live in `STITCH_GUIDE.md`. This file remains as the v1 data-contract reference (endpoints + shapes) for the pre-backend mock layer.
+
 **What this is:** the complete functional reference for building the AeroIntel frontend — pages, layouts, endpoints, data shapes, interactions, and states. Visual theme is owned separately (Canva); this doc defines **what every page contains and where its data comes from**.
 
 **Companion docs:** `VERIFICATION_GUIDE.md` (how to run the model), `docs/TECHNICAL_INTEGRATIONS.md` (system contracts).
 
 **Handoff trio for Stitch:** this spec (data + pages) + Canva images (visuals/theme) + `mockApi.js` (working fixtures). See **`STITCH_GUIDE.md`** for the paste-ready per-page Stitch prompts and the post-export wiring steps — start there if you are the person feeding Stitch.
-
 ---
 
 ## 1. Backend endpoints (the complete v1 surface)
