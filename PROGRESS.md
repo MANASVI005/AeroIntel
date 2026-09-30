@@ -1,102 +1,58 @@
-# AeroIntel - Project Progress
+# AeroIntel - Project Progress & Milestones
 
-## 1. Current Status
+## 1. Executive Summary
 
-- DATASET PREPARATION: COMPLETE
-- FINAL TRAINING DATASET: READY
-- INDEPENDENT VALIDATION: PASSED
-- MODEL TRAINING: NOT STARTED
+- **DATASET PREPARATION**: COMPLETE (`datasets/master_dataset_ABC/`)
+- **YOLO ONNX MODEL INTEGRATION**: COMPLETE (`models/aerointel_v1.onnx`)
+- **AEROMEMORY ENGINE VALIDATION (PHASES 1–4)**: PASSED (All 4 automated suites verified)
+- **LOCAL EDGE FASTAPI BACKEND**: COMPLETE
+- **TWO-DEVICE AIR-GAPPED LAN ARCHITECTURE (PHASE 5)**: COMPLETE
+- **MOBILE CAMERA CAPTURE FIX**: COMPLETE (`<input capture="environment">` native file bridge)
 
-The final training dataset is:
+---
 
-`datasets/master_dataset_ABC/`
+## 2. AeroMemory Validation Status (Phases 1–4)
 
-## 2. Final Dataset
+| Phase | Milestone Description | Status | Verification Tool |
+| :--- | :--- | :--- | :--- |
+| **Phase 1** | **Transaction Safety & Atomicity** — Single-transaction commits for image upload, detection insertion, and AeroMemory state update. Zero dangling records on rollback. | **PASS** | `tools/test_phase1_transactions.py` |
+| **Phase 2** | **New Defect Detection** — Distinguishes persisting historical defects from newly emerging physical defects on aircraft panels. | **PASS** | `tools/test_phase2_new_defect.py` |
+| **Phase 3** | **Defect Progression** — Matches physical defects across sequential inspections when bounding boxes grow or alter geometry. | **PASS** | `tools/test_phase3_progression.py` |
+| **Phase 4** | **Disappeared / Unmatched Defects** — Preserves historical observations when a defect is unobserved or repaired in a subsequent inspection without creating duplicate records. | **PASS** | `tools/test_phase4_disappeared.py` |
 
-- Total images: 8,525
-- Train: 6,820
-- Valid: 852
-- Test: 853
-- Total annotations: 15,252
+---
 
-Classes:
+## 3. Phase 5 & Real-Time Mobile Capture Progress
 
-- `0 = Crack`
-- `1 = Corrosion`
-- `2 = Dent`
-- `3 = Missing Fastener`
+- **Air-Gapped LAN Workflow**: Technician phone connects to laptop local Wi-Fi LAN (`http://<LAPTOP_IP>:3000/mobile`) without internet access or external cloud services.
+- **Native HTML5 Camera Integration**: Replaced `getUserMedia()` with native `<input type="file" accept="image/*" capture="environment">` to bypass HTTP webview security restrictions on mobile browsers.
+- **State Preservation**: Resolved UI unmounting and element hidden state issues by positioning the file input off-screen (`top: -9999px`) while retaining DOM tree references for seamless photo capture and preview.
+- **Laptop Auto-Polling**: The laptop React dashboard (`http://localhost:3000`) continuously polls `GET /api/inspections/{id}/latest-result` every 2 seconds, instantly presenting YOLO detections and AeroMemory defect progression comparisons.
+- **Image Resolution Analysis**: Diagnosed 4K phone camera resolution downscaling behavior (3072x4096 reduced to 640x640 by YOLO), establishing close-up framing guidelines for field technicians and documenting the sliding-window tiling solution in `REALTIME_IMAGE_CAPTURE.md`.
 
-Class statistics:
+---
 
-- Crack: 5,192 annotations / 3,791 images
-- Corrosion: 2,597 annotations / 1,148 images
-- Dent: 3,869 annotations / 2,588 images
-- Missing Fastener: 3,594 annotations / 1,571 images
+## 4. Final Training Dataset Summary (`datasets/master_dataset_ABC/`)
 
-## 3. Dataset Sources
+- **Total Images**: 8,525
+  - **Train (80%)**: 6,820 images
+  - **Valid (10%)**: 852 images
+  - **Test (10%)**: 853 images
+- **Total Annotations**: 15,252
+- **Supported Defect Classes**:
+  - `0`: Crack (5,192 annotations / 3,791 images)
+  - `1`: Corrosion (2,597 annotations / 1,148 images)
+  - `2`: Dent (3,869 annotations / 2,588 images)
+  - `3`: Missing Fastener (3,594 annotations / 1,571 images)
 
-### Dataset A
+---
 
-- Aircraft Corrosion YOLO
-- 1,148 final images
-- 2,597 annotations
-- Contributes Corrosion
+## 5. Independent Dataset Validation
 
-### Dataset B
-
-- Aircraft Skin Defects
-- 1,078 final images
-- 1,630 annotations
-
-### Dataset C
-
-- Aircraft Defect Detection
-- 6,299 final images
-- 11,025 annotations
-- 715 polygon annotations converted to YOLO bounding boxes
-
-Datasets D, E, and F were NOT used for YOLO training.
-
-## 4. Final Split
-
-- 80% train
-- 10% validation
-- 10% test
-
-The split was freshly generated with seed `42`.
-
-The final dataset is leakage-controlled. Exact duplicate images do not cross train, validation, and test splits. Near-duplicate groups were also prevented from crossing splits.
-
-## 5. Validation Status
-
-Independent validation passed with 0 errors.
-
+Independent validation passed with 0 errors:
 - Dataset structure: PASS
 - Image/label pairing: PASS
 - Orphan/missing labels: PASS
 - YOLO 5-field labels: PASS
-- Valid class IDs: PASS
-- Valid normalized coordinates: PASS
-- Bounding boxes inside images: PASS
-- Empty labels: PASS
-- Corrupt images: PASS
-- Exact cross-split leakage: PASS
-- Near-duplicate split leakage: PASS
-- `data.yaml`: PASS
-- Ultralytics-compatible structure: PASS
-
-## 6. Conflict Curation
-
-Several exact-image annotation conflicts were identified during the A+B+C merge. Approved conflicts were handled using narrowly guarded rules. Unresolved ambiguous conflicts were excluded rather than assigning unsupported labels.
-
-All decisions are recorded in:
-
-`datasets/master_dataset_ABC/merge_report.txt`
-
-## 7. Important Dataset Rule
-
-Do NOT train directly from Dataset A, Dataset B, Dataset C, the old `master_dataset`, Dataset D, Dataset E, or Dataset F.
-
-The official AeroIntel training dataset is:
-
-`datasets/master_dataset_ABC/`
+- Valid class IDs & normalized coordinates: PASS
+- Zero cross-split or near-duplicate leakage: PASS
