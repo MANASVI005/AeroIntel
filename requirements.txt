@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+sqlalchemy
+psycopg[binary]
+opencv-python
+onnxruntime
+ultralytics
+onnx
+python-multipart
+pydantic
+pydantic-settings
