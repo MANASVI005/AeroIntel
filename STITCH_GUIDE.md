@@ -1,15 +1,20 @@
-# AeroIntel — Stitch Prompts (copy-paste file)
+# AeroIntel — STITCH MASTER FILE (prompts + real backend reference)
 
-**This is the ONLY file you need open while working in Stitch.** Give Stitch: ① the prompts below, ② the reference image (sky-blue AeroIntel dashboard) attached where indicated. That's all.
+**This is the ONLY file you need.** It contains: ① how to feed Stitch, ② the master prompt, ③ all 11 screen prompts, ④ the complete real backend reference (every endpoint that actually exists in `backend/`, with exact request/response shapes from the code), ⑤ post-export wiring notes.
 
-**Do NOT paste `mockApi.js` into Stitch** — it's data-layer code for the frontend developer, used after the Stitch code is exported (see §4).
+---
 
-**How to run (3 steps):**
-1. Paste the **Master prompt** (§1) as the first message — **attach the reference image** (the sky-blue landing/dashboard mock).
-2. For each page in the order below: paste its prompt. Attach the reference image again on the first 2–3 screens so the theme locks in.
-3. Export the code → hand to the frontend dev with `mockApi.js` (§4).
+## 0. How to feed Stitch — one page at a time, NOT the whole file
 
-**Theme rule (important):** No colors, fonts or theme are hard-coded anywhere in these prompts. Stitch must derive the ENTIRE visual system from the attached reference image.
+**Send ONE prompt per message, in order.** Do not paste this whole file into Stitch.
+
+1. **Message 1:** Master prompt (§1) + **attach the reference image** (sky-blue landing/dashboard mock).
+2. **Message 2…12:** one screen prompt at a time (§2.1 → §2.11). Re-attach the reference image on the first 2–3 screens to lock the theme. Wait for each screen to finish before sending the next.
+3. Keep everything in **one Stitch thread** — the master prompt's theme rules carry over to every later screen.
+4. **Do not paste** §3 (backend reference) or §4 (wiring) into Stitch — those are for you and the frontend developer. Stitch only needs the master prompt + screen prompts + the image.
+5. The values inside the screen prompts (48 inspections, 92% crack, 285 ms…) are already aligned with the real backend/data — no need to send Stitch anything else.
+
+Stitch will render the 3D hero as a placeholder — that's expected; the real model gets wired in code (§4).
 
 ---
 
@@ -57,9 +62,9 @@ Mobile Capture.
 
 ---
 
-## 2. Page prompts — paste in this order
+## 2. Screen prompts — paste ONE PER MESSAGE, in this order
 
-### 2.1 Landing ▶ generate FIRST (hero with 3D rotating aircraft)
+### 2.1 Landing ▶ FIRST (hero with 3D rotating aircraft)
 ```
 Screen: "Landing" — public hero page, match the attached reference image
 exactly (top glassy pill navbar: "AeroIntel" logo left; Dashboard, Inspection,
@@ -354,42 +359,157 @@ frame). Match the reference image theme, simplified for a technician's phone.
 
 ---
 
-## 3. Screen → navigation map (for you, not for Stitch)
+## 3. REAL BACKEND REFERENCE (for you + the frontend dev — do NOT paste into Stitch)
 
-```
-Landing — Start Detection → New Inspection
-Dashboard — View / alert / thumbnail → Inspection Result
-Dashboard — Start New Inspection → New Inspection
-New Inspection — Use Photo → Processing → Inspection Result
-Inspection Result — Compare with History / View AeroMemory → AeroMemory
-Inspection Result — Generate Report → Inspection Report
-Inspection History — View → Inspection Result · Compare → AeroMemory
-AeroMemory — timeline node → Inspection Result · Generate Report → Reports
-Reports — View → Inspection Report — Generate PDF → local PDF
+Everything below is extracted from the actual FastAPI code in `backend/` (verified running 2026-09-30). Base URL: `http://localhost:8000`.
+
+Run locally:
+```bash
+export DATABASE_URL="sqlite:///./aerointel_test.db"   # or postgres URL
+PYTHONPATH=backend python -m app.db.init_db           # create tables (first time)
+cd backend && uvicorn app.main:app --reload --port 8000
 ```
 
-## 4. After Stitch export — for the frontend dev (not for Stitch)
+### 3.1 Endpoint map
 
-1. Add `mockApi.js` to the project (e.g. `src/services/`) and bind screens to
-   it — field names used in the prompts (`class_name`, `confidence`,
-   `inference_ms`, `bbox`, AeroMemory states) match the mock and the real
-   backend.
-2. **DEMO_MODE:** until the backend is wired, run against demo data
-   (`DEMO-AC-001`, `DEMO-INS-001`…). Swap `mockApi` → real `api` with ONE
-   import change (template at the bottom of `mockApi.js`).
-3. **Golden rule:** the frontend visualizes backend intelligence, never
-   recomputes it. Detection, confidence, matching, progression state,
-   historical comparison and decision support all arrive from FastAPI /
-   AeroMemory — React only displays them. Never fabricate mm values: show
-   pixel deltas unless the backend sends a calibration.
-4. Real endpoints already live in `backend/`:
-   `POST /api/inspections/{id}/images` (upload → detect → compare),
-   `GET /api/inspections/{id}/latest-result` (2-second polling),
-   `GET /api/health` (drives the Settings → System Status card).
-5. The 3D hero model ships in the repo:
-   `frontend/public/models/G4_LARC_AIR_0824.glb`. Wire it with
-   three.js / `@react-three/fiber` (auto-rotate + OrbitControls, no zoom
-   limits UI). `frontend/public/videos/aircraft.mp4` is available as a
-   fallback hero background.
-6. The full functional specification (every page, state, transition) is in
-   `docs/FRONTEND_PRODUCT_SPEC.md`.
+| # | Method | Path | Purpose | Used by screen |
+|---|---|---|---|---|
+| A | `GET` | `/` | API info ping | — |
+| B | `GET` | `/health` | DB + service health | Dashboard dot, Settings → System Status |
+| C | `POST` | `/api/detect` | Stateless one-shot detection (no save) | quick-try tools |
+| D | `POST` | `/api/inspections` | Create an inspection record | New Inspection step 1 |
+| E | `GET` | `/api/inspections` | List inspections (desc) | Dashboard, History tables |
+| F | `POST` | `/api/inspections/{id}/images` | **THE core endpoint**: upload → save → YOLO → AeroMemory, one atomic commit | New Inspection (Use Photo) |
+| G | `GET` | `/api/inspections/{id}/latest-result` | Latest image + detections + AeroMemory states | Result page, dashboard 2 s polling, mobile |
+| H | `POST` | `/api/decisions/{detection_id}` | Run decision engine on one detection | Result → Decision Support card |
+
+### 3.2 Endpoint details (exact shapes from code)
+
+**B — `GET /health`** →
+```json
+{ "status": "healthy", "database": "connected" }
+```
+(503 with `status: "unhealthy"` when DB is down. Poll on load + every 30 s.)
+
+**C — `POST /api/detect`** — multipart form, field name **`file`** (not `image`). JPG/JPEG/PNG/BMP/WEBP only (else 400). Stateless: nothing stored.
+```json
+{
+  "filename": "wing.jpg",
+  "count": 2,
+  "detections": [
+    { "class_id": 0, "class_name": "Crack", "confidence": 0.92,
+      "bbox": { "x": 120, "y": 340, "width": 360, "height": 270 } }
+  ]
+}
+```
+
+**D — `POST /api/inspections`** — JSON body:
+```json
+{ "panel_id": 1, "inspection_code": "INSP-1043", "inspector_name": "A. Sharma", "notes": "" }
+```
+→ returns the created record `{id, panel_id, inspection_code, inspection_date, inspector_name, status: "completed", notes}`. **409** if `inspection_code` already exists.
+
+**E — `GET /api/inspections`** → array, newest first:
+```json
+[ { "id": 12, "panel_id": 1, "inspection_code": "INSP-1043",
+    "inspection_date": "2026-09-30T14:53:29", "inspector_name": "A. Sharma",
+    "status": "completed",
+    "panel_code": "PNL-01", "aircraft_code": "VT-ALB" } ]
+```
+
+**F — `POST /api/inspections/{id}/images`** — multipart form, field name **`file`**. This is the whole pipeline in one call: saves image to `data/inspections/{inspection_code}/`, validates with OpenCV, runs YOLO, stores image + detections, runs AeroMemory matching, single atomic commit (rollback deletes the file on failure).
+
+Response `200`:
+```json
+{
+  "inspection_id": 12,
+  "inspection_code": "INSP-1043",
+  "inspection_image_id": 34,
+  "original_filename": "wing.jpg",
+  "stored_path": "data/inspections/INSP-1043/3cb5a043….jpg",
+  "image_width": 1600,
+  "image_height": 1200,
+  "count": 2,
+  "detections": [
+    { "id": 101, "class_id": 0, "class_name": "Crack", "confidence": 0.92,
+      "bbox": { "x": 120, "y": 340, "width": 360, "height": 270 } }
+  ],
+  "aeromemory": {
+    "matched_count": 1,
+    "new_count": 1,
+    "comparisons": [
+      { "defect_id": "DEF-010", "defect_type": "Crack",
+        "state": "increased", "severity": "High",
+        "match_confidence": 0.87 },
+      { "defect_id": "DEF-011", "defect_type": "Corrosion",
+        "state": "new", "severity": "Medium",
+        "match_confidence": 0.0 }
+    ]
+  }
+}
+```
+Errors: 404 unknown inspection · 400 bad/empty/unreadable image or unsupported format · 500 processing failure (rolled back).
+
+**G — `GET /api/inspections/{id}/latest-result`** → same shape as F, plus:
+```json
+{ "has_result": true, … }
+```
+No image yet → `{ "has_result": false, "message": "No inspection image uploaded yet…" }` (not an error — mobile shows "waiting" state). Poll every ~2 s from the dashboard.
+
+**H — `POST /api/decisions/{detection_id}`** →
+```json
+{
+  "id": 7,
+  "detection_id": 101,
+  "severity": "High",
+  "progression_status": "New / Baseline",
+  "recommended_action": "…deterministic maintenance recommendation…",
+  "reasoning": "…rule-based explanation…"
+}
+```
+Errors: 404 unknown detection · 409 decision already exists (records are immutable — read the existing one instead of re-POSTing).
+
+### 3.3 Enum / string contracts (display EXACTLY these — never translate in the UI)
+
+| Field | Possible values (exact strings) |
+|---|---|
+| `class_id` / `class_name` | `0` Crack · `1` Corrosion · `2` Dent · `3` Missing Fastener (map by **ID**, never by string) |
+| AeroMemory `state` (comparisons) | `new` · `stable` · `increased` · `decreased` · `resolved` |
+| TrackedDefect `status` | `New` · `Monitored` · `Progressing` · `Repaired` · `Closed` |
+| `severity` | `Low` · `Medium` · `High` · `Critical` |
+| Inspection `status` | `completed` (v1; extend later) |
+
+UI badge mapping suggestion: `new`→"NEW DEFECT" (info), `stable`→"STABLE" (neutral), `increased`→"PROGRESSING" (attention), `decreased`→"IMPROVING" (positive), `resolved`→"REPAIRED" (positive), no row → "NO HISTORICAL MATCH" (muted).
+
+### 3.4 Verified model facts (safe to hardcode in the Model Performance screen copy)
+
+- Model: `aerointel_v1` · YOLO11s · ONNX · imgsz 640 · exported 2026-09-24
+- Test split (853 images): Precision **0.769** · Recall **0.575** · mAP50 **0.613** · mAP50-95 **0.405**
+- Per class (P / R / mAP50): Crack 0.757/0.619/0.654 · Corrosion 0.565/0.213/0.233 · Dent 0.913/0.861/0.887 · Missing Fastener 0.839/0.607/0.677
+- CPU latency (60 images): p50 **284.5 ms** · p95 **415 ms**
+- Dataset: 8,525 images · 15,252 annotations · split 6,820 / 852 / 853
+
+### 3.5 Known data-shape discrepancies (frontend dev must reconcile)
+
+1. **bbox format:** the real backend returns `{x, y, width, height}` (top-left + size). The pre-backend `mockApi.js` fixtures use `{x1, y1, x2, y2}`. When binding to the real API, convert once in the service layer: `x2 = x + width`, `y2 = y + height` (or update the mock to match).
+2. **Upload field name:** real endpoints take the file as form field **`file`**; `mockApi.js`'s "GOING LIVE" template says `image`. Use `file`.
+3. **Health shape:** real `/health` returns `{status, database}`, not `{status, model_loaded}` — bind the Settings status card to the real shape.
+4. **Metrics source:** there is no `GET /api/metrics` endpoint in the backend yet — the numbers in §3.4 come from `logs/eval_aerointel_v1_yolo11s_test.json` and `logs/latency_aerointel_v1_yolo11s.json`. Serve them statically or add the endpoint later.
+
+### 3.6 Golden rules
+
+1. **Frontend visualizes backend intelligence, never recomputes it.** Progression state, matching, severity, decision support: computed by FastAPI/AeroMemory — React displays.
+2. **Never fabricate mm values.** Backend v1 has no physical calibration → show pixel deltas; if a calibration exists later, the backend will send it.
+3. Boxes are drawn client-side by scaling bbox coords: `left = x * display_w / image_width` (image dims come in the response).
+4. The confidence slider on Result is a **client-side filter** of returned detections — do not re-call the API on slider change.
+5. Decision-support wording is fixed: *"AI result is decision support only. Final decision must be made by a qualified maintenance engineer."* Never "aircraft unsafe/approved".
+
+---
+
+## 4. After Stitch export — wiring notes for the frontend dev
+
+1. Bind screens to `mockApi.js` first (field names align with §3; see §3.5 for the 3 shape fixes), then swap `mockApi` → real `api` with one import change (template at the bottom of `mockApi.js`).
+2. Endpoints already live and tested: F (upload pipeline) and G (polling) power the entire New Inspection → Result → AeroMemory loop; B powers the System Status card; E fills Dashboard/History tables; H fills the Decision Support card.
+3. **3D hero:** use `frontend/public/models/G4_LARC_AIR_0824.glb` with three.js / `@react-three/fiber` — auto-rotate + OrbitControls (damping on, no zoom UI), gentle vertical float, soft shadow. `frontend/public/videos/aircraft.mp4` is the fallback hero background.
+4. Mobile capture keeps the native `<input type="file" accept="image/*" capture="environment">` bridge (see `REALTIME_IMAGE_CAPTURE.md`) — phones POST to the same endpoint F.
+5. Full functional spec (every page, state, transition): `docs/FRONTEND_PRODUCT_SPEC.md`.
