@@ -1,5 +1,9 @@
 # AeroIntel: Aircraft Defect Detection & Longitudinal Memory System
 
+> **⭐ THIS IS THE INTEGRATED MAIN — use this branch for all further work.**
+> It consolidates **everything** from `model-training-and-eval`, `AEROMEMORY`, and `feature/aeromemory`: the YOLO v1 training pipeline + ONNX model, the AeroMemory™ engine, the FastAPI backend, the React frontend scaffold, phase 1–4 test suites, and all three datasets (`master_dataset_ABC`, `dataset_D`, `dataset_E_aeromemory` via LFS). The old feature branches are retained only for history — **do not start new work from them.**
+> Quick start: backend — `PYTHONPATH=backend python -m app.db.init_db` then `uvicorn app.main:app` (see `STITCH_GUIDE.md` §3); frontend — `cd frontend && npm install && npm run dev`; Stitch UI — `STITCH_GUIDE.md`.
+
 AeroIntel is an intelligent aircraft structural inspection system that combines edge-optimized deep learning defect detection (YOLO11) with a longitudinal memory engine (**AeroMemory™**) to track defect evolution, compute growth metrics, and generate automated airworthiness decision support.
 
 **Current status:** `aerointel_v1` YOLO11s trained (100/100 epochs, test-split mAP50 = 0.613) and bundled as `models/aerointel_v1.onnx`. AeroMemory engine implemented and verified on Dataset E (30/30 automated checks pass).

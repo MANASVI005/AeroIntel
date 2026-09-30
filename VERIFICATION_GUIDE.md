@@ -28,7 +28,7 @@ Requires Python 3.9+:
 # Clone and checkout the branch
 git clone https://github.com/MANASVI005/AeroIntel.git
 cd AeroIntel
-git checkout feature/aeromemory
+git checkout main
 
 # Create and activate virtual environment
 python -m venv .venv
@@ -54,7 +54,7 @@ pip install ultralytics onnx onnxruntime opencv-python matplotlib
 ## 3. Obtaining the Model Weights
 
 - **`models/aerointel_v1.onnx` is bundled directly in this branch!**  
-  As soon as you pull `feature/aeromemory`, you have the model ready in `models/aerointel_v1.onnx` and can run inference immediately.
+  As soon as you pull `main`, you have the model ready in `models/aerointel_v1.onnx` and can run inference immediately.
 
 - **For PyTorch checkpoints (`best.pt` / `last.pt`):**  
   Raw training checkpoints are stored in Google Drive under `Drive/AeroIntel/runs/aerointel_v1_yolo11s/weights/best.pt` to keep the Git repo size manageable. You can also re-export or inspect them using `ml/colab/03_eval_export.ipynb`.
