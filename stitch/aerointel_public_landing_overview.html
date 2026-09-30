@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>AeroIntel - Intelligent Aircraft Defect Detection</title>
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'aero-sky': '#D6EBF8',
+            'aero-sky-light': '#EBF5FC',
+            'aero-navy': '#0D1E32',
+            'aero-slate': '#738BA0',
+            'aero-blue': '#3B82F6',
+            'aero-cyan': '#73C7D8',
+            'aero-ocean': '#0284C7',
+            'aero-darkblue': '#1E3A5F',
+            'aero-gold': '#F5C443',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+          },
+          boxShadow: {
+            'aero-card': '0 8px 30px rgba(13, 30, 50, 0.04)',
+            'aero-card-hover': '0 12px 36px rgba(13, 30, 50, 0.08)',
+            'aero-button': '0 4px 18px rgba(71, 126, 179, 0.18)',
+          }
+        }
+      }
+    }
+  </script>
+<!-- Typography & Global Layout Styles -->
+<style data-purpose="typography">
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      color: #0D1E32;
+    }
+  </style>
+<!-- Atmosphere and Background Gradient Styles -->
+<style data-purpose="background-atmosphere">
+    .sky-canvas {
+      background: radial-gradient(circle at 50% 25%, #FFFFFF 0%, #D8EBF9 50%, #CDE6F7 100%);
+      background-attachment: fixed;
+    }
+
+    .cloud-overlay {
+      background-image: 
+        radial-gradient(circle at 18% 38%, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.4) 22%, transparent 48%),
+        radial-gradient(circle at 82% 40%, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.35) 24%, transparent 52%),
+        radial-gradient(circle at 50% 48%, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.5) 30%, transparent 60%);
+      mix-blend-mode: soft-light;
+    }
+
+    .hero-cloud-mist {
+      background: radial-gradient(ellipse 95% 60% at 50% 46%, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.2) 65%, transparent 100%);
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body class="sky-canvas min-h-screen text-[#0D1E32] relative overflow-x-hidden">
+<!-- BEGIN: Floating Navigation -->
+<header class="w-full sticky top-0 z-50 bg-[#E8F3FA]/70 backdrop-blur-md border-b border-white/50 transition-all">
+<div class="max-w-[1280px] mx-auto px-6 h-20 flex items-center justify-between">
+<!-- Brand Logo -->
+<a class="flex items-center space-x-2 group" href="#">
+<img alt="AeroIntel Logo" class="h-10 w-auto object-contain transition-transform group-hover:scale-[1.02]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ5f8gg7jFmgDY82Qe4mE-lQEQ_J9D8lQ_v2jtSb49DdfVgI6wG-rx5mvnlK2F_ijJE4K5YTxlrRUqJ1OWkD-WlGZo-0BgbL5T_EcOtF0utnzNRnvjRpHYNvrSCoIdOz9XblihylZHvJGl96uzQxqTA3s6BPZosV_2HHiAE7SKNNTif7lLZslneCVEM_ATL32lOnkd3DIwMlAxnR9LM7t0L3fctEFmVMAl-6SOwSae8DBPJBKGld-V0A"/>
+</a>
+<!-- Center Links -->
+<nav class="hidden md:flex items-center space-x-12" data-purpose="primary-navigation">
+<a class="text-[15px] font-semibold text-[#0D1E32] hover:text-[#0284C7] transition-colors" href="#dashboard">Dashboard</a>
+<a class="text-[15px] font-medium text-[#465E73] hover:text-[#0D1E32] transition-colors" href="#inspection">Inspection</a>
+<a class="text-[15px] font-medium text-[#465E73] hover:text-[#0D1E32] transition-colors" href="#settings">Settings</a>
+</nav>
+<!-- Right Menu Trigger -->
+<div class="flex items-center space-x-3 cursor-pointer group" data-purpose="mobile-menu-trigger">
+<span class="text-[15px] font-semibold text-[#18314F]">Menu</span>
+<button aria-label="Open navigation menu" class="flex flex-col justify-center items-center gap-[5px] w-8 h-8 rounded-lg group-hover:bg-white/40 transition">
+<span class="w-6 h-[3px] bg-[#1E3A5F] rounded-full"></span>
+<span class="w-6 h-[3px] bg-[#1E3A5F] rounded-full"></span>
+<span class="w-6 h-[3px] bg-[#1E3A5F] rounded-full"></span>
+</button>
+</div>
+</div>
+</header>
+<!-- END: Floating Navigation -->
+<!-- BEGIN: Hero Section -->
+<section class="relative pt-24 pb-28 md:pt-36 md:pb-40 flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+<!-- Ethereal cloud mist effect behind hero text -->
+<div class="absolute inset-0 cloud-overlay pointer-events-none"></div>
+<div class="absolute inset-0 hero-cloud-mist"></div>
+<div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+<!-- Super-headline / Subtitle -->
+<h2 class="text-2xl md:text-[34px] font-bold tracking-tight text-[#748C9E] mb-2 leading-tight">
+        An Edge AI Inspection Assistant
+      </h2>
+<!-- Main Bold Headline -->
+<h1 class="text-3xl md:text-[44px] font-extrabold text-[#050D18] tracking-tight mb-9 leading-tight">
+        for Intelligent Aircraft Defect Detection
+      </h1>
+<!-- CTA Button -->
+<a class="inline-flex items-center justify-center gap-3 bg-white/95 hover:bg-white text-[#6E889D] hover:text-[#1E3A5F] text-[19px] font-bold px-10 py-4 rounded-full shadow-aero-button border border-white/70 backdrop-blur-sm transition-all duration-200 transform hover:-translate-y-0.5 active:translate-y-0" href="#inspection">
+<span>Start Detection</span>
+<svg class="w-5 h-5 text-[#6E889D] transition-transform group-hover:translate-x-1" fill="currentColor" viewbox="0 0 20 20">
+<path clip-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" fill-rule="evenodd"></path>
+</svg>
+</a>
+</div>
+</section>
+<!-- END: Hero Section -->
+<!-- BEGIN: Main Dashboard Container -->
+<main class="max-w-[1240px] mx-auto px-6 pb-24 relative z-10" id="dashboard">
+<!-- Dashboard Title Header -->
+<section class="mb-10">
+<h3 class="text-3xl font-extrabold text-[#091523] tracking-tight">Dashboard</h3>
+<p class="text-[17px] font-medium text-[#7A90A2] mt-1">Overview of your Aircraft Inspection</p>
+<hr class="mt-5 border-t border-[#8BA2B5]/40"/>
+</section>
+<!-- BEGIN: Quick KPI Metric Cards -->
+<section class="grid grid-cols-2 lg:grid-cols-4 gap-5 md:gap-7 mb-10" data-purpose="metrics-summary">
+<!-- Card 1: Total Inspection -->
+<div class="bg-white/95 rounded-[28px] py-7 px-6 text-center shadow-aero-card border border-white/80 transition-transform duration-200 hover:-translate-y-1">
+<span class="block text-base font-bold text-[#2A4359] mb-1">Total Inspection</span>
+<span class="block text-4xl lg:text-5xl font-extrabold text-[#235882] tracking-tight">345</span>
+</div>
+<!-- Card 2: Defects Detected -->
+<div class="bg-white/95 rounded-[28px] py-7 px-6 text-center shadow-aero-card border border-white/80 transition-transform duration-200 hover:-translate-y-1">
+<span class="block text-base font-bold text-[#2A4359] mb-1">Defects Detected</span>
+<span class="block text-4xl lg:text-5xl font-extrabold text-[#235882] tracking-tight">206</span>
+</div>
+<!-- Card 3: Resolved -->
+<div class="bg-white/95 rounded-[28px] py-7 px-6 text-center shadow-aero-card border border-white/80 transition-transform duration-200 hover:-translate-y-1">
+<span class="block text-base font-bold text-[#2A4359] mb-1">Resolved</span>
+<span class="block text-4xl lg:text-5xl font-extrabold text-[#235882] tracking-tight">24</span>
+</div>
+<!-- Card 4: Pending -->
+<div class="bg-white/95 rounded-[28px] py-7 px-6 text-center shadow-aero-card border border-white/80 transition-transform duration-200 hover:-translate-y-1">
+<span class="block text-base font-bold text-[#2A4359] mb-1">Pending</span>
+<span class="block text-4xl lg:text-5xl font-extrabold text-[#235882] tracking-tight">11</span>
+</div>
+</section>
+<!-- END: Quick KPI Metric Cards -->
+<!-- BEGIN: Recent Inspection Table Section -->
+<section class="bg-white/95 rounded-[32px] p-8 shadow-aero-card border border-white/80 mb-8" data-purpose="table-card">
+<div class="flex items-center justify-between mb-6">
+<h4 class="text-xl font-bold text-[#0D1E32]">Recent Inspection</h4>
+<span class="text-xs font-semibold px-3 py-1 bg-sky-50 text-[#0284C7] rounded-full">Updated 10m ago</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse" id="inspections-table">
+<thead>
+<tr class="border-b border-[#EEF2F6] text-[14px] font-bold text-[#21384E]">
+<th class="pb-4 pl-3">ID</th>
+<th class="pb-4">Aircraft ID</th>
+<th class="pb-4">Model</th>
+<th class="pb-4">Component</th>
+<th class="pb-4">Date</th>
+<th class="pb-4 text-center">Status</th>
+<th class="pb-4 text-center">Defects</th>
+<th class="pb-4 text-right pr-4">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#F1F5F9] text-[14px] font-medium text-[#465E73]">
+<!-- Row 1 -->
+<tr class="hover:bg-[#F8FBFE] transition-colors">
+<td class="py-4 pl-3 font-semibold text-[#0D1E32]">#INS-8902</td>
+<td class="py-4 font-mono font-bold text-[#1E3A5F]">N702TW</td>
+<td class="py-4">Airbus A320neo</td>
+<td class="py-4">Wing Spar Left</td>
+<td class="py-4 text-[#6A8196]">Oct 24, 2025</td>
+<td class="py-4 text-center">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600 border border-emerald-200">
+                  Resolved
+                </span>
+</td>
+<td class="py-4 text-center font-bold text-[#0D1E32]">0</td>
+<td class="py-4 text-right pr-4">
+<button class="text-xs font-bold text-[#0284C7] hover:text-[#0D1E32] transition">View Details</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="hover:bg-[#F8FBFE] transition-colors">
+<td class="py-4 pl-3 font-semibold text-[#0D1E32]">#INS-8901</td>
+<td class="py-4 font-mono font-bold text-[#1E3A5F]">JA841A</td>
+<td class="py-4">Boeing 787-9</td>
+<td class="py-4">Engine Cowling (L)</td>
+<td class="py-4 text-[#6A8196]">Oct 23, 2025</td>
+<td class="py-4 text-center">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-600 border border-amber-200">
+                  Pending
+                </span>
+</td>
+<td class="py-4 text-center font-bold text-[#D97706]">2</td>
+<td class="py-4 text-right pr-4">
+<button class="text-xs font-bold text-[#0284C7] hover:text-[#0D1E32] transition">View Details</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="hover:bg-[#F8FBFE] transition-colors">
+<td class="py-4 pl-3 font-semibold text-[#0D1E32]">#INS-8898</td>
+<td class="py-4 font-mono font-bold text-[#1E3A5F]">A6-EOE</td>
+<td class="py-4">Airbus A380-800</td>
+<td class="py-4">Fuselage Panel 14B</td>
+<td class="py-4 text-[#6A8196]">Oct 23, 2025</td>
+<td class="py-4 text-center">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-rose-50 text-rose-600 border border-rose-200">
+                  Defects Found
+                </span>
+</td>
+<td class="py-4 text-center font-bold text-[#E11D48]">5</td>
+<td class="py-4 text-right pr-4">
+<button class="text-xs font-bold text-[#0284C7] hover:text-[#0D1E32] transition">View Details</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="hover:bg-[#F8FBFE] transition-colors">
+<td class="py-4 pl-3 font-semibold text-[#0D1E32]">#INS-8894</td>
+<td class="py-4 font-mono font-bold text-[#1E3A5F]">VH-XZP</td>
+<td class="py-4">Boeing 737-800</td>
+<td class="py-4">Horizontal Stabilizer</td>
+<td class="py-4 text-[#6A8196]">Oct 22, 2025</td>
+<td class="py-4 text-center">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600 border border-emerald-200">
+                  Resolved
+                </span>
+</td>
+<td class="py-4 text-center font-bold text-[#0D1E32]">0</td>
+<td class="py-4 text-right pr-4">
+<button class="text-xs font-bold text-[#0284C7] hover:text-[#0D1E32] transition">View Details</button>
+</td>
+</tr>
+<!-- Row 5 -->
+<tr class="hover:bg-[#F8FBFE] transition-colors">
+<td class="py-4 pl-3 font-semibold text-[#0D1E32]">#INS-8890</td>
+<td class="py-4 font-mono font-bold text-[#1E3A5F]">B-2088</td>
+<td class="py-4">Boeing 777-300ER</td>
+<td class="py-4">Nose Landing Gear</td>
+<td class="py-4 text-[#6A8196]">Oct 21, 2025</td>
+<td class="py-4 text-center">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-blue-50 text-blue-600 border border-blue-200">
+                  In Inspection
+                </span>
+</td>
+<td class="py-4 text-center font-bold text-[#0D1E32]">1</td>
+<td class="py-4 text-right pr-4">
+<button class="text-xs font-bold text-[#0284C7] hover:text-[#0D1E32] transition">View Details</button>
+</td>
+</tr>
+<!-- Row 6 -->
+<tr class="hover:bg-[#F8FBFE] transition-colors">
+<td class="py-4 pl-3 font-semibold text-[#0D1E32]">#INS-8887</td>
+<td class="py-4 font-mono font-bold text-[#1E3A5F]">F-WWCF</td>
+<td class="py-4">Airbus A350-900</td>
+<td class="py-4">Rudder Trailing Edge</td>
+<td class="py-4 text-[#6A8196]">Oct 20, 2025</td>
+<td class="py-4 text-center">
+<span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-600 border border-emerald-200">
+                  Resolved
+                </span>
+</td>
+<td class="py-4 text-center font-bold text-[#0D1E32]">0</td>
+<td class="py-4 text-right pr-4">
+<button class="text-xs font-bold text-[#0284C7] hover:text-[#0D1E32] transition">View Details</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- END: Recent Inspection Table Section -->
+<!-- BEGIN: Analytics Cards (2 Column Layout) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-7 mb-8" data-purpose="analytics-section">
+<!-- Left Card: Defect Overview (Donut Chart) -->
+<article class="lg:col-span-5 bg-white/95 rounded-[32px] p-7 shadow-aero-card border border-white/80 flex flex-col justify-between" data-purpose="defect-overview-card">
+<h4 class="text-lg font-bold text-[#0D1E32] mb-4 text-center">Defect Overview</h4>
+<div class="flex flex-col sm:flex-row items-center justify-around gap-6 my-auto">
+<!-- Donut SVG Visualization -->
+<div class="relative w-44 h-44 flex items-center justify-center">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 160 160">
+<!-- Background Circle Track -->
+<circle cx="80" cy="80" fill="transparent" r="54" stroke="#F1F5F9" stroke-width="22"></circle>
+<!-- Crack (Cyan #73C7D8, 55%) -->
+<!-- Circumference = 2 * PI * 54 = 339.29 -->
+<!-- 55% = 186.61 -->
+<circle cx="80" cy="80" fill="transparent" r="54" stroke="#73C7D8" stroke-dasharray="186.61 339.29" stroke-dashoffset="0" stroke-width="22"></circle>
+<!-- Dent (Ocean Blue #0284C7, 15%) -->
+<!-- 15% = 50.89 -->
+<circle cx="80" cy="80" fill="transparent" r="54" stroke="#0284C7" stroke-dasharray="50.89 339.29" stroke-dashoffset="-186.61" stroke-width="22"></circle>
+<!-- Corrosion (Navy #1E3A5F, 25%) -->
+<!-- 25% = 84.82 -->
+<circle cx="80" cy="80" fill="transparent" r="54" stroke="#1E3A5F" stroke-dasharray="84.82 339.29" stroke-dashoffset="-237.5" stroke-width="22"></circle>
+<!-- Missing Fastener (Amber Gold #F5C443, 5%) -->
+<!-- 5% = 16.96 -->
+<circle cx="80" cy="80" fill="transparent" r="54" stroke="#F5C443" stroke-dasharray="16.96 339.29" stroke-dashoffset="-322.32" stroke-width="22"></circle>
+</svg>
+<!-- Center Cutout Label -->
+<div class="absolute text-center">
+<span class="text-xs font-semibold text-[#8FA3B5] block uppercase tracking-wider">Total</span>
+<span class="text-2xl font-black text-[#0D1E32]">206</span>
+</div>
+</div>
+<!-- Donut Legend -->
+<div class="flex flex-col space-y-2.5 text-sm font-semibold text-[#3E5569]">
+<div class="flex items-center space-x-2.5">
+<span class="w-3.5 h-3.5 rounded-full bg-[#73C7D8]"></span>
+<span>Crack <span class="text-[#8498A9] font-normal text-xs ml-1">55%</span></span>
+</div>
+<div class="flex items-center space-x-2.5">
+<span class="w-3.5 h-3.5 rounded-full bg-[#0284C7]"></span>
+<span>Dent <span class="text-[#8498A9] font-normal text-xs ml-1">15%</span></span>
+</div>
+<div class="flex items-center space-x-2.5">
+<span class="w-3.5 h-3.5 rounded-full bg-[#1E3A5F]"></span>
+<span>Corrosion <span class="text-[#8498A9] font-normal text-xs ml-1">25%</span></span>
+</div>
+<div class="flex items-center space-x-2.5">
+<span class="w-3.5 h-3.5 rounded-full bg-[#F5C443]"></span>
+<span>Missing Fastener <span class="text-[#8498A9] font-normal text-xs ml-1">5%</span></span>
+</div>
+</div>
+</div>
+</article>
+<!-- Right Card: Inspection Perfection (Trend Line Chart) -->
+<article class="lg:col-span-7 bg-white/95 rounded-[32px] p-7 shadow-aero-card border border-white/80 flex flex-col justify-between" data-purpose="perfection-trend-card">
+<div class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4">
+<h4 class="text-lg font-bold text-[#0D1E32]">Inspection Perfection</h4>
+<!-- Interactive Legend -->
+<div class="flex items-center space-x-5 text-xs font-bold mt-2 sm:mt-0">
+<span class="flex items-center gap-1.5 text-[#2C62C9]">
+<span class="w-3 h-3 rounded-full bg-[#3B82F6]"></span>
+              Inspection
+            </span>
+<span class="flex items-center gap-1.5 text-[#0E8A9C]">
+<span class="w-3 h-3 rounded-full bg-[#0284C7]"></span>
+              Defect
+            </span>
+</div>
+</div>
+<!-- SVG Line Chart with Axis and Trend Points -->
+<div class="w-full h-52 relative pt-2 pb-1">
+<svg class="w-full h-full" preserveaspectratio="none" viewbox="0 0 540 180">
+<!-- Grid Lines -->
+<line stroke="#F1F5F9" stroke-dasharray="4 4" stroke-width="1.5" x1="35" x2="520" y1="20" y2="20"></line>
+<line stroke="#F1F5F9" stroke-dasharray="4 4" stroke-width="1.5" x1="35" x2="520" y1="70" y2="70"></line>
+<line stroke="#F1F5F9" stroke-dasharray="4 4" stroke-width="1.5" x1="35" x2="520" y1="120" y2="120"></line>
+<line stroke="#E2E8F0" stroke-width="1.5" x1="35" x2="520" y1="150" y2="150"></line>
+<!-- Y-Axis Labels -->
+<text fill="#94A3B8" font-size="11" font-weight="700" x="18" y="24">20</text>
+<text fill="#94A3B8" font-size="11" font-weight="700" x="18" y="74">10</text>
+<text fill="#94A3B8" font-size="11" font-weight="700" x="24" y="153">0</text>
+<!-- Line 1: Inspection (Blue: 2021=17, 2022=15, 2023=14, 2024=16, 2025=22) -->
+<!-- Coordinates: (50, 48), (160, 68), (280, 78), (400, 58), (510, 18) -->
+<path d="M 50 48 Q 110 68 160 68 T 280 78 T 400 58 T 510 18" fill="none" stroke="#3B82F6" stroke-linecap="round" stroke-width="3.5"></path>
+<!-- Line 2: Defect (Cyan: 2021=8, 2022=12, 2023=13, 2024=10, 2025=20) -->
+<!-- Coordinates: (50, 110), (160, 90), (280, 85), (400, 100), (510, 30) -->
+<path d="M 50 110 Q 110 95 160 90 T 280 85 T 400 100 T 510 30" fill="none" stroke="#0284C7" stroke-linecap="round" stroke-width="3"></path>
+<!-- Inspection Data Dots -->
+<circle cx="50" cy="48" fill="#3B82F6" r="4.5" stroke="#FFFFFF" stroke-width="2"></circle>
+<circle cx="160" cy="68" fill="#3B82F6" r="4.5" stroke="#FFFFFF" stroke-width="2"></circle>
+<circle cx="280" cy="78" fill="#3B82F6" r="4.5" stroke="#FFFFFF" stroke-width="2"></circle>
+<circle cx="400" cy="58" fill="#3B82F6" r="4.5" stroke="#FFFFFF" stroke-width="2"></circle>
+<circle cx="510" cy="18" fill="#3B82F6" r="5" stroke="#FFFFFF" stroke-width="2"></circle>
+<!-- Defect Data Dots -->
+<circle cx="50" cy="110" fill="#0284C7" r="4.5" stroke="#FFFFFF" stroke-width="2"></circle>
+<circle cx="160" cy="90" fill="#0284C7" r="4.5" stroke="#FFFFFF" stroke-width="2"></circle>
+<circle cx="280" cy="85" fill="#0284C7" r="4.5" stroke="#FFFFFF" stroke-width="2"></circle>
+<circle cx="400" cy="100" fill="#0284C7" r="4.5" stroke="#FFFFFF" stroke-width="2"></circle>
+<circle cx="510" cy="30" fill="#0284C7" r="4.5" stroke="#FFFFFF" stroke-width="2"></circle>
+<!-- X-Axis Years -->
+<text fill="#0D1E32" font-size="12" font-weight="700" x="38" y="174">2021</text>
+<text fill="#0D1E32" font-size="12" font-weight="700" x="148" y="174">2022</text>
+<text fill="#0D1E32" font-size="12" font-weight="700" x="268" y="174">2023</text>
+<text fill="#0D1E32" font-size="12" font-weight="700" x="388" y="174">2024</text>
+<text fill="#0D1E32" font-size="12" font-weight="700" x="498" y="174">2025</text>
+</svg>
+</div>
+</article>
+</section>
+<!-- END: Analytics Cards -->
+<!-- BEGIN: Blank Auxiliary Inspection Space (Reflects bottom card in reference) -->
+<section class="bg-white/80 rounded-[32px] min-h-[220px] shadow-aero-card border border-white/70 p-8 flex items-center justify-center">
+<div class="flex flex-col items-center justify-center text-center py-6">
+<div class="w-12 h-12 rounded-2xl bg-sky-100 flex items-center justify-center text-[#0284C7] mb-3">
+<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24">
+<path d="M12 4v16m8-8H4" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</div>
+<p class="text-base font-bold text-[#1E3A5F]">New Aircraft Inspection Scan</p>
+<p class="text-xs text-[#7A90A2] mt-1 max-w-sm">Connect an edge camera or drag drone inspection captures here to launch instant inference.</p>
+</div>
+</section>
+<!-- END: Blank Auxiliary Inspection Space -->
+</main>
+<!-- END: Main Dashboard Container -->
+<!-- BEGIN: Minimal Footer -->
+<footer class="w-full py-8 text-center text-xs font-medium text-[#7C93A6]">
+<div class="max-w-[1240px] mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+<p>© 2025 AeroIntel. Edge AI for Aerospace Maintenance &amp; Defect Detection.</p>
+<div class="flex items-center space-x-6">
+<a class="hover:text-[#0D1E32] transition" href="#">Privacy Policy</a>
+<a class="hover:text-[#0D1E32] transition" href="#">Terms of Service</a>
+<a class="hover:text-[#0D1E32] transition" href="#">System Status</a>
+</div>
+</div>
+</footer>
+<!-- END: Minimal Footer -->
+</body></html>

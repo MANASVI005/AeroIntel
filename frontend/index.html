@@ -3,14 +3,145 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2338bdf8'><path d='M21 16v-2l-8-5V3.5c0-.83-.67-1.5-1.5-1.5S10 2.67 10 3.5V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z'/></svg>" />
-    <title>AeroIntel - AI-Powered Aircraft Inspection</title>
-    <!-- Google Fonts: Inter for clean enterprise aerospace feel -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/brand/aerointel-logo-256.png" />
+    <link rel="apple-touch-icon" href="/brand/aerointel-logo-256.png" />
+    <title>AeroIntel — Smart Inspection. Safer Skies.</title>
+
+    <!-- Fonts: Plus Jakarta Sans (headlines/body) + Inter (captions/data) — from Stitch design -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+
+    <!-- Tailwind via CDN — as Stitch generated (decision: keep CDN, no build step) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      // Canonical AeroIntel Stitch design tokens (copied verbatim from stitch/*.html)
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#f8f9ff",
+              "on-secondary-fixed": "#071c36",
+              "surface-container": "#e5efff",
+              "on-error-container": "#93000a",
+              "tertiary-fixed-dim": "#7ed3e5",
+              "outline-variant": "#c2c6d4",
+              "inverse-primary": "#abc7ff",
+              "surface-variant": "#d1e4ff",
+              "surface-tint": "#0b5cb9",
+              "on-tertiary-fixed-variant": "#004e5a",
+              "outline": "#727783",
+              "on-tertiary": "#ffffff",
+              "secondary-fixed-dim": "#b5c7e9",
+              "tertiary": "#00606e",
+              "primary": "#0055ae",
+              "on-surface-variant": "#424752",
+              "tertiary-container": "#127a8b",
+              "surface-container-low": "#eef4ff",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-container": "#f1f4ff",
+              "on-tertiary-container": "#def8ff",
+              "on-tertiary-fixed": "#001f25",
+              "surface-dim": "#c6dcfa",
+              "on-primary": "#ffffff",
+              "secondary-fixed": "#d5e3ff",
+              "on-secondary-fixed-variant": "#364763",
+              "secondary": "#4d5f7c",
+              "error": "#ba1a1a",
+              "surface-container-high": "#dbe9ff",
+              "error-container": "#ffdad6",
+              "secondary-container": "#c9dbfd",
+              "primary-fixed-dim": "#abc7ff",
+              "tertiary-fixed": "#a3eeff",
+              "inverse-surface": "#1c3249",
+              "on-secondary": "#ffffff",
+              "on-error": "#ffffff",
+              "on-primary-fixed": "#001b3f",
+              "primary-container": "#2c6ecb",
+              "surface-container-highest": "#d1e4ff",
+              "on-surface": "#041d33",
+              "primary-fixed": "#d7e2ff",
+              "inverse-on-surface": "#eaf1ff",
+              "on-primary-fixed-variant": "#00458f",
+              "on-secondary-container": "#4e607d",
+              "surface": "#f8f9ff",
+              "on-background": "#041d33",
+              "surface-bright": "#f8f9ff",
+              // AeroIntel damage-class accents (mapped into the Stitch palette; used by
+              // ClassChip, bbox overlays, legends — defined once, reused everywhere)
+              "class-crack": "#ba1a1a",
+              "class-corrosion": "#8a4b12",
+              "class-dent": "#7a5900",
+              "class-fastener": "#6750a4",
+              // Landing-page palette (from stitch/aerointel_public_landing_overview.html)
+              "aero-sky": "#D6EBF8",
+              "aero-sky-light": "#EBF5FC",
+              "aero-navy": "#0D1E32",
+              "aero-slate": "#738BA0",
+              "aero-blue": "#3B82F6",
+              "aero-cyan": "#73C7D8",
+              "aero-ocean": "#0284C7",
+              "aero-darkblue": "#1E3A5F",
+              "aero-gold": "#F5C443"
+            },
+            boxShadow: {
+              "aero-card": "0 8px 30px rgba(13, 30, 50, 0.04)",
+              "aero-card-hover": "0 12px 36px rgba(13, 30, 50, 0.08)",
+              "aero-button": "0 4px 18px rgba(71, 126, 179, 0.18)"
+            },
+            borderRadius: {
+              "DEFAULT": "0.25rem",
+              "lg": "0.5rem",
+              "xl": "0.75rem",
+              "full": "9999px"
+            },
+            spacing: {
+              "space-md": "1rem",
+              "space-xs": "0.5rem",
+              "margin": "2rem",
+              "gutter": "1.5rem",
+              "space-xl": "2.25rem",
+              "space-sm": "0.75rem",
+              "space-lg": "1.5rem"
+            },
+            fontFamily: {
+              "headline-md": ["Plus Jakarta Sans"],
+              "body-md": ["Plus Jakarta Sans"],
+              "metric-stat": ["Plus Jakarta Sans"],
+              "headline-sm": ["Plus Jakarta Sans"],
+              "headline-lg-mobile": ["Plus Jakarta Sans"],
+              "metric-stat-mobile": ["Plus Jakarta Sans"],
+              "display-hero-mobile": ["Plus Jakarta Sans"],
+              "caption-data": ["Inter"],
+              "label-kpi-sub": ["Plus Jakarta Sans"],
+              "label-table-head": ["Inter"],
+              "headline-lg": ["Plus Jakarta Sans"],
+              "display-hero": ["Plus Jakarta Sans"],
+              "body-lg": ["Plus Jakarta Sans"]
+            },
+            fontSize: {
+              "headline-md": ["22px", { lineHeight: "28px", letterSpacing: "-0.015em", fontWeight: "700" }],
+              "body-md": ["14px", { lineHeight: "20px", fontWeight: "500" }],
+              "metric-stat": ["38px", { lineHeight: "44px", letterSpacing: "-0.02em", fontWeight: "800" }],
+              "headline-sm": ["18px", { lineHeight: "24px", letterSpacing: "-0.01em", fontWeight: "600" }],
+              "headline-lg-mobile": ["24px", { lineHeight: "32px", letterSpacing: "-0.01em", fontWeight: "700" }],
+              "metric-stat-mobile": ["28px", { lineHeight: "34px", letterSpacing: "-0.01em", fontWeight: "800" }],
+              "display-hero-mobile": ["30px", { lineHeight: "38px", letterSpacing: "-0.02em", fontWeight: "800" }],
+              "caption-data": ["12px", { lineHeight: "16px", fontWeight: "500" }],
+              "label-kpi-sub": ["13px", { lineHeight: "18px", fontWeight: "600" }],
+              "label-table-head": ["13px", { lineHeight: "18px", letterSpacing: "0.01em", fontWeight: "700" }],
+              "headline-lg": ["32px", { lineHeight: "40px", letterSpacing: "-0.02em", fontWeight: "700" }],
+              "display-hero": ["44px", { lineHeight: "54px", letterSpacing: "-0.03em", fontWeight: "800" }],
+              "body-lg": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+            }
+          }
+        }
+      };
+    </script>
   </head>
-  <body>
+  <body class="bg-background font-body-md text-on-surface antialiased">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

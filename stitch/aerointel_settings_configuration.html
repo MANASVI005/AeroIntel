@@ -1,0 +1,540 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"primary-container":"#2c6ecb","on-primary-container":"#f1f4ff","surface-container-low":"#eef4ff","on-tertiary-container":"#def8ff","on-primary-fixed":"#001b3f","surface-bright":"#f8f9ff","surface-container-highest":"#d1e4ff","surface-variant":"#d1e4ff","on-background":"#041d33","primary-fixed":"#d7e2ff","secondary":"#4d5f7c","primary":"#0055ae","on-tertiary":"#ffffff","on-secondary-fixed":"#071c36","tertiary-fixed-dim":"#7ed3e5","inverse-surface":"#1c3249","surface-tint":"#0b5cb9","error":"#ba1a1a","on-error-container":"#93000a","on-tertiary-fixed-variant":"#004e5a","on-surface":"#041d33","surface-container-high":"#dbe9ff","tertiary-container":"#127a8b","surface-container":"#e5efff","surface-dim":"#c6dcfa","surface":"#f8f9ff","error-container":"#ffdad6","tertiary-fixed":"#a3eeff","on-secondary-container":"#4e607d","on-primary-fixed-variant":"#00458f","on-surface-variant":"#424752","primary-fixed-dim":"#abc7ff","on-error":"#ffffff","inverse-on-surface":"#eaf1ff","tertiary":"#00606e","secondary-fixed":"#d5e3ff","on-tertiary-fixed":"#001f25","surface-container-lowest":"#ffffff","on-primary":"#ffffff","inverse-primary":"#abc7ff","on-secondary":"#ffffff","on-secondary-fixed-variant":"#364763","outline-variant":"#c2c6d4","secondary-container":"#c9dbfd","secondary-fixed-dim":"#b5c7e9","background":"#f8f9ff","outline":"#727783"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"2.25rem","gutter":"1.5rem","space-lg":"1.5rem","space-md":"1rem","space-xs":"0.5rem","margin":"2rem","space-sm":"0.75rem"},"fontFamily":{"headline-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-kpi-sub":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"display-hero":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"metric-stat":["Plus Jakarta Sans"],"metric-stat-mobile":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"display-hero-mobile":["Plus Jakarta Sans"],"caption-data":["Inter"],"label-table-head":["Inter"]},"fontSize":{"headline-sm":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"500"}],"label-kpi-sub":["13px",{"lineHeight":"18px","fontWeight":"600"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"display-hero":["44px",{"lineHeight":"54px","letterSpacing":"-0.03em","fontWeight":"800"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"metric-stat":["38px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"800"}],"metric-stat-mobile":["28px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"800"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"700"}],"display-hero-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"800"}],"caption-data":["12px",{"lineHeight":"16px","fontWeight":"500"}],"label-table-head":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest/90 backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[0_10px_30px_-4px_rgba(160,195,225,0.22)]"><div class="flex flex-col pt-6"><div class="px-6 pb-6"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-primary-container/10 flex items-center justify-center p-1.5 shadow-[0_2px_8px_0_rgba(160,195,225,0.12)]"><span class="material-symbols-outlined text-primary text-2xl">flightsmode</span></div><div><div class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-extrabold">AeroIntel</div><div class="font-caption-data text-caption-data text-secondary">Smart Inspection. Safer Skies.</div></div></div></div><div class="px-4 py-2"><div class="px-3 pb-2 font-caption-data text-caption-data uppercase tracking-wider text-secondary/70">Operational Menu</div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container-high text-primary font-bold shadow-[0_2px_8px_0_rgba(160,195,225,0.12)]"><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200" data-path="dashboard" href="#"><span class="font-body-md text-body-md">Dashboard</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200" data-path="new-inspection" href="#"><span class="font-body-md text-body-md">New Inspection</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200" data-path="inspection-history" href="#"><span class="font-body-md text-body-md">Inspection History</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200" data-path="aeromemory" href="#"><span class="font-body-md text-body-md">AeroMemory</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200" data-path="reports" href="#"><span class="font-body-md text-body-md">Reports</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200" data-path="model-performance" href="#"><span class="font-body-md text-body-md">Model Performance</span></a><a aria-current="page" class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all duration-200 bg-surface-container-high text-primary font-bold shadow-[0_2px_8px_0_rgba(160,195,225,0.12)]" data-path="settings" href="#"><span class="font-body-md text-body-md">Settings</span></a></nav></div></div><div class="p-4 mx-4 mb-6 rounded-xl bg-surface-container-low/70 flex flex-col gap-2 shadow-[0_2px_8px_0_rgba(160,195,225,0.12)]"><div class="flex items-center justify-between"><span class="font-caption-data text-caption-data text-secondary font-semibold">Engine Core</span><span class="inline-flex items-center px-2 py-0.5 rounded-full font-caption-data text-caption-data bg-surface-container-highest text-on-secondary-fixed-variant">v1.0.0</span></div><div class="flex items-center gap-2 pt-1"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-container opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary-container"></span></span><span class="font-caption-data text-caption-data text-on-surface font-medium">Edge Model Online</span></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-bright/85 backdrop-blur-xl z-40 flex items-center justify-between px-8 shadow-[0_10px_30px_-4px_rgba(160,195,225,0.14)]"><div class="flex items-center w-full max-w-lg"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3.5 text-secondary text-lg select-none">search</span><input class="w-full h-10 pl-10 pr-16 bg-surface-container-low/60 text-on-surface placeholder-secondary font-body-md text-body-md rounded-xl focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_4px_12px_rgba(160,195,225,0.18)] transition-all" placeholder="Search aircraft, inspection ID, component..." type="text"><div class="absolute right-2.5 flex items-center gap-0.5 px-2 py-0.5 rounded bg-surface-container-high/60 text-secondary font-caption-data text-caption-data pointer-events-none"><span>⌘</span><span>K</span></div></div></div><div class="flex items-center gap-4"><button aria-label="Notifications" class="relative p-2 rounded-xl text-secondary hover:text-on-surface hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary-container ring-2 ring-surface-bright"></span></button><div class="h-6 w-px bg-surface-container-high"></div><div class="flex items-center gap-3 pl-1"><div class="flex flex-col text-right"><span class="font-body-md text-body-md font-semibold text-on-surface leading-tight">Captain R. Miller</span><span class="font-caption-data text-caption-data text-secondary">Aviation Engineer</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-fixed" src="https://lh3.googleusercontent.com/aida/AEtjO1UXNw50iWc17LwnOB-YTaCYWIjZdzj7tUbk63vt0Rs4BxFAX9pX_4RoRNUFnIoPxZY8icVyrgyExi4-yUDXq_iQ5bR1SOJIMyi7vtbfh9ABbRCfIeN3J0CiRM4gw6i1WJMB7qUeNeQJLE0VCGIJx8h-bzCxFXt8ZYqcG1W_rB_y237vazmOmX5bWrvEsHTyK_TXJyp5QBjl5fH_gpbf2T-uAVTheagfT3_Fx_QZB_XmU-HBEytOudjOACH7gqXMsDaBAFaCH553Eg"></div></div></header><main class="w-full pt-16 px-8 pb-12 bg-background flex-1"><div class="flex flex-col w-full gap-8">
+<!-- Top Header & Global Actions Bar -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-2">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="font-caption-data text-caption-data font-bold tracking-widest text-primary uppercase">System Configuration</span>
+<span class="text-secondary/40 font-caption-data text-caption-data">/</span>
+<span class="font-caption-data text-caption-data font-semibold text-secondary uppercase tracking-wider">Preferences</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight font-extrabold">Settings</h1>
+<p class="font-body-md text-body-md text-secondary">Manage your preferences, edge ingestion pipeline, and telemetry application configuration.</p>
+</div>
+<!-- Utilities Actions -->
+<div class="flex items-center gap-3">
+<button class="px-5 py-2.5 rounded-full bg-surface-container hover:bg-surface-container-high text-secondary hover:text-on-surface font-body-md text-body-md transition-all duration-200 flex items-center gap-2 active:scale-95" type="button">
+<span class="material-symbols-outlined text-lg">restart_alt</span>
+<span>Reset to Defaults</span>
+</button>
+<button class="px-6 py-2.5 rounded-full bg-primary hover:bg-primary-container text-on-primary font-body-md text-body-md font-bold shadow-[0_10px_24px_rgba(44,110,203,0.3)] transition-all duration-200 flex items-center gap-2 hover:shadow-[0_12px_28px_rgba(44,110,203,0.4)] active:scale-95" type="button">
+<span class="material-symbols-outlined text-lg">check_circle</span>
+<span>Save Changes</span>
+</button>
+</div>
+</div>
+<!-- Primary Split Grid (7 cols left / 5 cols right on desktop) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- LEFT COLUMN: Stacked Settings Panels (7 cols) -->
+<div class="lg:col-span-7 flex flex-col gap-6">
+<!-- CARD 1: Profile & Credentials -->
+<section class="bg-surface-container-lowest/90 backdrop-blur-xl rounded-2xl p-6 sm:p-7 shadow-[0_10px_30px_-4px_rgba(160,195,225,0.22)] flex flex-col gap-6">
+<div class="flex items-start justify-between border-b border-surface-container-high/60 pb-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">badge</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Profile</h2>
+</div>
+<p class="font-caption-data text-caption-data text-secondary mt-0.5">Inspector credentials &amp; certification record</p>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-primary font-caption-data text-caption-data font-semibold">
+<span class="material-symbols-outlined text-sm">verified_user</span>
+            Active Station Lead
+          </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<!-- Field: Full Name -->
+<div class="flex flex-col gap-2">
+<label class="font-label-kpi-sub text-label-kpi-sub text-on-surface-variant flex items-center justify-between">
+              Full Legal Name
+              <span class="font-caption-data text-caption-data text-secondary">Sign-off Authority</span>
+</label>
+<div class="relative flex items-center">
+<input class="w-full h-11 px-3.5 bg-surface-container-low/70 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_4px_12px_rgba(160,195,225,0.18)] transition-all" type="text" value="Capt. R. Miller">
+<span class="material-symbols-outlined absolute right-3 text-primary text-lg pointer-events-none">shield_person</span>
+</div>
+</div>
+<!-- Field: Operational Role -->
+<div class="flex flex-col gap-2">
+<label class="font-label-kpi-sub text-label-kpi-sub text-on-surface-variant flex items-center justify-between">
+              Assigned Role
+              <span class="font-caption-data text-caption-data font-mono text-tertiary">#A&amp;P-410294</span>
+</label>
+<input class="w-full h-11 px-3.5 bg-surface-container-low/70 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_4px_12px_rgba(160,195,225,0.18)] transition-all" type="text" value="Aviation Engineer">
+</div>
+<!-- Field: Email -->
+<div class="sm:col-span-2 flex flex-col gap-2">
+<label class="font-label-kpi-sub text-label-kpi-sub text-on-surface-variant">Secure Enterprise Identity</label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-secondary text-lg pointer-events-none">mail</span>
+<input class="w-full h-11 pl-11 pr-4 bg-surface-container-low/70 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_4px_12px_rgba(160,195,225,0.18)] transition-all" type="email" value="r.miller@aerointel.tech">
+</div>
+</div>
+<!-- Field: Cert Record -->
+<div class="sm:col-span-2 flex flex-col gap-2">
+<label class="font-label-kpi-sub text-label-kpi-sub text-on-surface-variant">Regulatory Certification &amp; Ratings</label>
+<div class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container-low/90">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">verified</span>
+</div>
+<div>
+<div class="font-body-md text-body-md font-bold text-on-surface">FAA Part 65 / Airframe &amp; Powerplant (A&amp;P)</div>
+<div class="font-caption-data text-caption-data text-secondary">NDT Level III Qualified · Ultrasonic &amp; Eddy Current Endorsement</div>
+</div>
+</div>
+<span class="px-2.5 py-1 rounded bg-secondary-container/50 text-on-secondary-fixed-variant font-caption-data text-caption-data font-semibold">VALID THRU 2028</span>
+</div>
+</div>
+</div>
+</section>
+<!-- CARD 2: Aircraft Configuration -->
+<section class="bg-surface-container-lowest/90 backdrop-blur-xl rounded-2xl p-6 sm:p-7 shadow-[0_10px_30px_-4px_rgba(160,195,225,0.22)] flex flex-col gap-6">
+<div class="flex items-start justify-between border-b border-surface-container-high/60 pb-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">airplanemode_active</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Aircraft Configuration</h2>
+</div>
+<p class="font-caption-data text-caption-data text-secondary mt-0.5">Default airframe context for automated intake &amp; sensor alignment</p>
+</div>
+<span class="font-caption-data text-caption-data font-mono uppercase bg-primary-fixed text-on-primary-fixed px-2.5 py-1 rounded-md font-bold">STATION 04</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<!-- Select: Tail ID -->
+<div class="flex flex-col gap-2">
+<label class="font-label-kpi-sub text-label-kpi-sub text-on-surface-variant">Airframe Registration</label>
+<div class="relative">
+<select class="w-full h-11 pl-3.5 pr-8 appearance-none bg-surface-container-low/70 rounded-xl font-body-md text-body-md font-bold text-primary focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_4px_12px_rgba(160,195,225,0.18)] transition-all">
+<option selected="">VT-ALB</option>
+<option>VT-PPQ</option>
+<option>N402UA</option>
+<option>D-AIPX</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-3 text-secondary text-lg pointer-events-none">expand_more</span>
+</div>
+<span class="font-caption-data text-caption-data text-secondary">Active Hangar Station</span>
+</div>
+<!-- Select: Aircraft Model -->
+<div class="flex flex-col gap-2">
+<label class="font-label-kpi-sub text-label-kpi-sub text-on-surface-variant">Airframe Type</label>
+<div class="relative">
+<select class="w-full h-11 pl-3.5 pr-8 appearance-none bg-surface-container-low/70 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_4px_12px_rgba(160,195,225,0.18)] transition-all">
+<option selected="">Boeing 737-800</option>
+<option>Boeing 787-9 Dreamliner</option>
+<option>Airbus A320neo</option>
+<option>Embraer E195-E2</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-3 text-secondary text-lg pointer-events-none">expand_more</span>
+</div>
+<span class="font-caption-data text-caption-data text-secondary">Structural Spec Rev 4.2</span>
+</div>
+<!-- Select: Default Component -->
+<div class="flex flex-col gap-2">
+<label class="font-label-kpi-sub text-label-kpi-sub text-on-surface-variant">Default Component</label>
+<div class="relative">
+<select class="w-full h-11 pl-3.5 pr-8 appearance-none bg-surface-container-low/70 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_4px_12px_rgba(160,195,225,0.18)] transition-all">
+<option selected="">Wing (STA 450 Rib Assembly)</option>
+<option>Fuselage Crown (Station 200)</option>
+<option>Nacelle Cowling L/H</option>
+<option>Horizontal Stabilizer</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-3 text-secondary text-lg pointer-events-none">expand_more</span>
+</div>
+<span class="font-caption-data text-caption-data text-secondary">Zero-datum point preset</span>
+</div>
+</div>
+</section>
+<!-- CARD 3: Inspection & Detection -->
+<section class="bg-surface-container-lowest/90 backdrop-blur-xl rounded-2xl p-6 sm:p-7 shadow-[0_10px_30px_-4px_rgba(160,195,225,0.22)] flex flex-col gap-6">
+<div class="flex items-start justify-between border-b border-surface-container-high/60 pb-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">biotech</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Inspection &amp; Detection</h2>
+</div>
+<p class="font-caption-data text-caption-data text-secondary mt-0.5">Optical ingest and real-time bounding threshold</p>
+</div>
+<span class="px-2 py-0.5 rounded text-caption-data font-caption-data bg-tertiary-fixed text-on-tertiary-fixed font-bold">FP16 ACCELERATED</span>
+</div>
+<div class="flex flex-col gap-6">
+<!-- Image Quality Dropdown -->
+<div class="flex flex-col gap-2">
+<label class="font-label-kpi-sub text-label-kpi-sub text-on-surface-variant">Optical Sensor Ingest Quality</label>
+<div class="relative">
+<select class="w-full h-11 pl-3.5 pr-8 appearance-none bg-surface-container-low/70 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_4px_12px_rgba(160,195,225,0.18)] transition-all">
+<option selected="">Lossless RAW (1600 × 1200 px - High Fidelity)</option>
+<option>Standard Compressed TIFF (1200 × 900 px)</option>
+<option>Ultra-Resolution 4K Mosaic (3840 × 2160 px)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-3 text-secondary text-lg pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Slider: Detection Confidence Threshold -->
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-surface-container-low/50">
+<div class="flex justify-between items-center">
+<div class="flex flex-col">
+<span class="font-label-kpi-sub text-label-kpi-sub text-on-surface font-bold">Detection Confidence Threshold: 0.40 (40%)</span>
+<span class="font-caption-data text-caption-data text-secondary">Minimum IoU probability required to render bounding contour</span>
+</div>
+<span class="px-2.5 py-1 rounded-md bg-primary text-on-primary font-mono text-caption-data font-bold">0.40</span>
+</div>
+<div class="flex flex-col gap-1.5 pt-2">
+<input class="w-full h-2 bg-surface-container-high rounded-lg appearance-none cursor-pointer accent-primary" max="0.80" min="0.20" step="0.05" type="range" value="0.40">
+<div class="flex justify-between font-caption-data text-caption-data text-secondary/70 font-mono px-0.5">
+<span>0.20 (Sensitive)</span>
+<span>0.40 (Optimal)</span>
+<span>0.60 (Strict)</span>
+<span>0.80 (Critical Only)</span>
+</div>
+</div>
+<!-- Amber Warning Alert -->
+<div class="flex items-start gap-3 p-3 rounded-lg bg-surface-container-highest/60 text-on-surface-variant">
+<span class="material-symbols-outlined text-secondary text-lg mt-0.5 shrink-0">warning</span>
+<p class="font-caption-data text-caption-data leading-relaxed">
+<strong class="text-on-surface font-semibold">Changing this affects live detection — confirmation required.</strong> Values below 0.35 may introduce false positive rivet reflections and rivet-line ambient shadows.
+              </p>
+</div>
+</div>
+<!-- Toggle: Auto-save to AeroMemory -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low/80">
+<div class="flex flex-col pr-4">
+<span class="font-body-md text-body-md font-bold text-on-surface">Auto-save to AeroMemory</span>
+<span class="font-caption-data text-caption-data text-secondary">Automatically index newly analyzed defect vectors into the airframe timeline.</span>
+</div>
+<!-- Interactive Switch -->
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-12 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- CARD 4: AeroMemory™ Memory Engine -->
+<section class="bg-surface-container-lowest/90 backdrop-blur-xl rounded-2xl p-6 sm:p-7 shadow-[0_10px_30px_-4px_rgba(160,195,225,0.22)] flex flex-col gap-6">
+<div class="flex items-start justify-between border-b border-surface-container-high/60 pb-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">database</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">AeroMemory™ Memory Engine</h2>
+</div>
+<p class="font-caption-data text-caption-data text-secondary mt-0.5">Longitudinal defect trajectory &amp; vector storage</p>
+</div>
+<span class="font-caption-data text-caption-data text-primary font-bold uppercase tracking-wider">ANN INDEX ACTIVE</span>
+</div>
+<div class="flex flex-col gap-5">
+<!-- Storage Meter -->
+<div class="flex flex-col gap-2 p-4 rounded-xl bg-surface-container-low/60">
+<div class="flex justify-between items-center">
+<span class="font-label-kpi-sub text-label-kpi-sub text-on-surface font-bold">Vector Storage Capacity</span>
+<span class="font-mono text-caption-data font-bold text-primary">2.4 GB / 10 GB (24% Used)</span>
+</div>
+<div class="w-full h-2.5 bg-surface-container-high rounded-full overflow-hidden">
+<div class="bg-primary-container h-full rounded-full transition-all duration-500" style="width: 24%"></div>
+</div>
+<span class="font-caption-data text-caption-data text-secondary">Vector embeddings &amp; homography matrices indexed across 86 tail inspections.</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Historical Retention -->
+<div class="flex flex-col gap-2">
+<label class="font-label-kpi-sub text-label-kpi-sub text-on-surface-variant">Historical Retention</label>
+<div class="relative">
+<select class="w-full h-11 pl-3.5 pr-8 appearance-none bg-surface-container-low/70 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_4px_12px_rgba(160,195,225,0.18)] transition-all">
+<option selected="">12 months</option>
+<option>24 months (Full D-Check cycle)</option>
+<option>36 months</option>
+<option>Indefinite Local</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-3 text-secondary text-lg pointer-events-none">expand_more</span>
+</div>
+<span class="font-caption-data text-caption-data text-secondary">Scans older than 12 months are archived to cold S3 storage.</span>
+</div>
+<!-- Comparison Metric Config -->
+<div class="flex flex-col justify-end gap-2">
+<label class="font-label-kpi-sub text-label-kpi-sub text-on-surface-variant">Embedding Similarity</label>
+<button class="w-full h-11 px-4 rounded-xl bg-surface-container-low hover:bg-surface-container text-primary font-body-md text-body-md font-bold flex items-center justify-between transition-colors" type="button">
+<span>Configure Vector Cosine Threshold</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<span class="font-caption-data text-caption-data text-secondary">Strict matching tolerance &gt;= 0.88</span>
+</div>
+</div>
+<!-- Toggle: Auto Compare -->
+<div class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low/80">
+<div class="flex flex-col pr-4">
+<span class="font-body-md text-body-md font-bold text-on-surface">Auto Compare</span>
+<span class="font-caption-data text-caption-data text-secondary">Trigger sub-pixel overlay alignment immediately upon new scan capture.</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-12 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+</section>
+<!-- CARD 5: Neural Model Pipeline -->
+<section class="bg-surface-container-lowest/90 backdrop-blur-xl rounded-2xl p-6 sm:p-7 shadow-[0_10px_30px_-4px_rgba(160,195,225,0.22)] flex flex-col gap-6">
+<div class="flex items-start justify-between border-b border-surface-container-high/60 pb-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">psychology</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Neural Model Pipeline</h2>
+</div>
+<p class="font-caption-data text-caption-data text-secondary mt-0.5">Edge inference weights &amp; hardware execution</p>
+</div>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-highest text-on-secondary-fixed-variant font-caption-data text-caption-data font-semibold">
+            CUDA 12.2 / TensorRT
+          </span>
+</div>
+<div class="flex flex-col gap-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<!-- Model Version -->
+<div class="flex flex-col gap-2">
+<label class="font-label-kpi-sub text-label-kpi-sub text-on-surface-variant">Compiled Model Release</label>
+<div class="h-11 px-3.5 bg-surface-container-low/70 rounded-xl flex items-center justify-between">
+<span class="font-mono text-body-md font-bold text-on-surface">aerointel_v1</span>
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-caption-data text-caption-data font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+                  Active Weight
+                </span>
+</div>
+</div>
+<!-- Model Path with Copy -->
+<div class="flex flex-col gap-2">
+<label class="font-label-kpi-sub text-label-kpi-sub text-on-surface-variant">Local Runtime Path</label>
+<div class="h-11 px-3.5 bg-surface-container-low/70 rounded-xl flex items-center justify-between">
+<span class="font-mono text-caption-data text-secondary truncate">models/aerointel_v1.onnx</span>
+<button aria-label="Copy Path" class="p-1 hover:text-primary text-secondary transition-colors" onclick="navigator.clipboard?.writeText('models/aerointel_v1.onnx')" type="button">
+<span class="material-symbols-outlined text-base">content_copy</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Lock Notice Banner -->
+<div class="flex items-start gap-3.5 p-4 rounded-xl bg-surface-container-low/90">
+<div class="w-8 h-8 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-lg">lock</span>
+</div>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-bold text-on-surface">Inference Configuration is locked</span>
+<p class="font-caption-data text-caption-data text-secondary mt-0.5">
+                Managed by the local hangar server daemon. Model swap or quantization recompile requires administrative maintenance privileges (Station Root UID 0).
+              </p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- RIGHT COLUMN: Diagnostics & Environment (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-6">
+<!-- CARD 1: System Status & Edge Telemetry -->
+<section class="bg-surface-container-lowest/90 backdrop-blur-xl rounded-2xl p-6 sm:p-7 shadow-[0_10px_30px_-4px_rgba(160,195,225,0.22)] flex flex-col gap-6">
+<div class="flex items-start justify-between border-b border-surface-container-high/60 pb-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">sensors</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">System Status</h2>
+</div>
+<p class="font-caption-data text-caption-data text-secondary mt-0.5">Live edge node telemetry &amp; local daemon health</p>
+</div>
+<button aria-label="Refresh status" class="p-1.5 rounded-lg hover:bg-surface-container-low text-secondary hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-lg">sync</span>
+</button>
+</div>
+<!-- Status Rows List -->
+<div class="flex flex-col divide-y divide-surface-container-low">
+<!-- Backend -->
+<div class="py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-container opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary-container"></span>
+</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Backend Engine</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-caption-data text-caption-data font-mono text-secondary">v1.0.4-rc2</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-caption-data text-caption-data font-bold">Connected</span>
+</div>
+</div>
+<!-- PostgreSQL -->
+<div class="py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="relative flex h-2.5 w-2.5">
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary-container"></span>
+</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">PostgreSQL Data Store</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-caption-data text-caption-data font-mono text-secondary">Port 5432 · Latency 2ms</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-caption-data text-caption-data font-bold">Connected</span>
+</div>
+</div>
+<!-- YOLO Model -->
+<div class="py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="relative flex h-2.5 w-2.5">
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary-container"></span>
+</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">YOLO Model Runtime</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-caption-data text-caption-data font-mono text-secondary">ONNX Runtime 1.18 · FP16</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-caption-data text-caption-data font-bold">Loaded</span>
+</div>
+</div>
+<!-- AeroMemory -->
+<div class="py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="relative flex h-2.5 w-2.5">
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary-container"></span>
+</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">AeroMemory Vector DB</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-caption-data text-caption-data font-mono text-secondary">142 Embeddings Synced</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-caption-data text-caption-data font-bold">Ready</span>
+</div>
+</div>
+<!-- Local Storage -->
+<div class="py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="relative flex h-2.5 w-2.5">
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary-container"></span>
+</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">NVMe Scratch Storage</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-caption-data text-caption-data font-mono text-secondary">7.6 GB Free NVMe</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-highest text-primary font-caption-data text-caption-data font-bold">Available</span>
+</div>
+</div>
+<!-- Network LAN -->
+<div class="py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="relative flex h-2.5 w-2.5">
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-tertiary-container"></span>
+</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Network Link</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-caption-data text-caption-data font-mono text-secondary">Hangar-04 LAN (1Gbps)</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-container/60 text-on-secondary-fixed-variant font-caption-data text-caption-data font-bold">LOCAL</span>
+</div>
+</div>
+<!-- Internet / WAN -->
+<div class="py-3 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<span class="relative flex h-2.5 w-2.5">
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary/50"></span>
+</span>
+<span class="font-body-md text-body-md font-semibold text-secondary">WAN Telemetry</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-caption-data text-caption-data text-secondary">Full Air-Gapped Mode</span>
+<span class="px-2 py-0.5 rounded-full bg-surface-container-low text-secondary font-caption-data text-caption-data font-bold">Not Required</span>
+</div>
+</div>
+</div>
+<!-- Ping Banner footer -->
+<div class="mt-2 p-3.5 rounded-xl bg-surface-container-low/70 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-container text-lg">check_circle</span>
+<span class="font-caption-data text-caption-data text-on-surface font-semibold">All systems nominal</span>
+</div>
+<span class="font-caption-data text-caption-data font-mono text-secondary">Round-trip: 14ms</span>
+</div>
+</section>
+<!-- CARD 2: Application Environment -->
+<section class="bg-surface-container-lowest/90 backdrop-blur-xl rounded-2xl p-6 sm:p-7 shadow-[0_10px_30px_-4px_rgba(160,195,225,0.22)] flex flex-col gap-6">
+<div class="flex items-start justify-between border-b border-surface-container-high/60 pb-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-bold">Application Environment</h2>
+</div>
+<p class="font-caption-data text-caption-data text-secondary mt-0.5">Client runtime &amp; localized interface options</p>
+</div>
+</div>
+<div class="flex flex-col gap-5">
+<!-- Notification Toggle -->
+<div class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container-low/60">
+<div class="flex flex-col pr-3">
+<span class="font-body-md text-body-md font-bold text-on-surface">Proactive Progression Alerts</span>
+<span class="font-caption-data text-caption-data text-secondary">Alert on &gt;15% longitudinal defect progression across inspection intervals.</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-12 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Dropdown: Theme -->
+<div class="flex flex-col gap-2">
+<label class="font-label-kpi-sub text-label-kpi-sub text-on-surface-variant">Interface Luminance</label>
+<div class="relative">
+<select class="w-full h-11 pl-3.5 pr-8 appearance-none bg-surface-container-low/70 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_4px_12px_rgba(160,195,225,0.18)] transition-all">
+<option selected="">System (Auto-adapts to hangar ambient light)</option>
+<option>Aero Daylight (High Contrast Crisp White)</option>
+<option>Hangar Night Ops (Subdued Blue-Gray)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-3 text-secondary text-lg pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Dropdown: Language / Terminology -->
+<div class="flex flex-col gap-2">
+<label class="font-label-kpi-sub text-label-kpi-sub text-on-surface-variant">Aviation Terminology &amp; Locale</label>
+<div class="relative">
+<select class="w-full h-11 pl-3.5 pr-8 appearance-none bg-surface-container-low/70 rounded-xl font-body-md text-body-md text-on-surface focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_4px_12px_rgba(160,195,225,0.18)] transition-all">
+<option selected="">English (US) — FAA Standard Terminology</option>
+<option>English (UK) — EASA Standard Terminology</option>
+<option>Français (Civil Aviation DGAC)</option>
+<option>Deutsch (Luftfahrt-Bundesamt Spec)</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-3 text-secondary text-lg pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Offline Mode toggle -->
+<div class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container-low/60">
+<div class="flex flex-col pr-3">
+<span class="font-body-md text-body-md font-bold text-on-surface">Enforce Offline Mode</span>
+<span class="font-caption-data text-caption-data text-secondary">Force local edge node only, disable WAN telemetry upload.</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer shrink-0">
+<input checked="" class="sr-only peer" type="checkbox">
+<div class="w-12 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Local Server Status banner -->
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-inverse-surface text-inverse-on-surface shadow-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim"></span>
+<span class="font-mono text-caption-data font-semibold text-inverse-on-surface tracking-tight">http://localhost:8000 — running</span>
+</div>
+<span class="font-caption-data text-caption-data uppercase tracking-wider text-secondary-fixed">PID 3291</span>
+</div>
+<div class="flex items-center gap-2 pt-1">
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-highest/20 hover:bg-surface-container-highest/30 text-inverse-on-surface font-caption-data text-caption-data font-semibold transition-colors flex items-center gap-1.5" type="button">
+<span class="material-symbols-outlined text-sm">restart_alt</span>
+                Restart Server
+              </button>
+<button class="px-3 py-1.5 rounded-lg bg-primary-container hover:bg-primary text-on-primary-container font-caption-data text-caption-data font-semibold transition-colors flex items-center gap-1.5 ml-auto" type="button">
+<span class="material-symbols-outlined text-sm">terminal</span>
+                Test API
+              </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Hangar Station Visual Stamp / Asset Placeholder -->
+<div class="relative overflow-hidden rounded-2xl bg-surface-container-lowest/90 backdrop-blur-xl p-5 shadow-[0_10px_30px_-4px_rgba(160,195,225,0.22)] flex items-center gap-4">
+<img class="w-20 h-20 rounded-xl object-cover shrink-0" data-alt="Close up photograph of an aerospace engineer's clean tablet workstation in a modern bright airplane hangar, soft daylight lighting, high fidelity aviation diagnostics display, aero blue and clean white palette." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOJTRuQ2lCwWO9AE11tejhiLbeOOttmXTjKzVTR-QSS7N0WoHeNdg9Rkfnvo3oJj0yjMdXc6Ln51ySjs0PVzkoNB-nJLmraIL-MifJtkCGpwXZh-HhVZ_2Wr-XUQ7VrjQ5u_QF2p8asdweOl_o4qybYHScavYGWMZQbZvO-q748icscMxFxxrxYi2uPr4K8S4Z6syUAV1EhO-_NLFYZpsOFztSM7osV5R9KNsXWv6jIC_hJd5JTgZy7A">
+<div class="flex flex-col">
+<span class="font-caption-data text-caption-data uppercase tracking-wider text-secondary font-bold">Hangar 04 Console</span>
+<div class="font-headline-sm text-headline-sm text-on-surface font-extrabold leading-snug">Terminal B-42</div>
+<p class="font-caption-data text-caption-data text-secondary mt-0.5">Calibrated on Jan 14, 2025 · ISO 9001:2015 Aerospace Compliant</p>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

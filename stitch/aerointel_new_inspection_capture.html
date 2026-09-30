@@ -1,0 +1,511 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"background":"#f8f9ff","on-secondary-fixed":"#071c36","surface-container":"#e5efff","on-error-container":"#93000a","tertiary-fixed-dim":"#7ed3e5","outline-variant":"#c2c6d4","inverse-primary":"#abc7ff","surface-variant":"#d1e4ff","surface-tint":"#0b5cb9","on-tertiary-fixed-variant":"#004e5a","outline":"#727783","on-tertiary":"#ffffff","secondary-fixed-dim":"#b5c7e9","tertiary":"#00606e","primary":"#0055ae","on-surface-variant":"#424752","tertiary-container":"#127a8b","surface-container-low":"#eef4ff","surface-container-lowest":"#ffffff","on-primary-container":"#f1f4ff","on-tertiary-container":"#def8ff","on-tertiary-fixed":"#001f25","surface-dim":"#c6dcfa","on-primary":"#ffffff","secondary-fixed":"#d5e3ff","on-secondary-fixed-variant":"#364763","secondary":"#4d5f7c","error":"#ba1a1a","surface-container-high":"#dbe9ff","error-container":"#ffdad6","secondary-container":"#c9dbfd","primary-fixed-dim":"#abc7ff","tertiary-fixed":"#a3eeff","inverse-surface":"#1c3249","on-secondary":"#ffffff","on-error":"#ffffff","on-primary-fixed":"#001b3f","primary-container":"#2c6ecb","surface-container-highest":"#d1e4ff","on-surface":"#041d33","primary-fixed":"#d7e2ff","inverse-on-surface":"#eaf1ff","on-primary-fixed-variant":"#00458f","on-secondary-container":"#4e607d","surface":"#f8f9ff","on-background":"#041d33","surface-bright":"#f8f9ff"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-md":"1rem","space-xs":"0.5rem","margin":"2rem","gutter":"1.5rem","space-xl":"2.25rem","space-sm":"0.75rem","space-lg":"1.5rem"},fontFamily:{"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"metric-stat":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"metric-stat-mobile":["Plus Jakarta Sans"],"display-hero-mobile":["Plus Jakarta Sans"],"caption-data":["Inter"],"label-kpi-sub":["Plus Jakarta Sans"],"label-table-head":["Inter"],"headline-lg":["Plus Jakarta Sans"],"display-hero":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"]},fontSize:{"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.015em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"500"}],"metric-stat":["38px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"800"}],"headline-sm":["18px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"700"}],"metric-stat-mobile":["28px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"800"}],"display-hero-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"800"}],"caption-data":["12px",{lineHeight:"16px",fontWeight:"500"}],"label-kpi-sub":["13px",{lineHeight:"18px",fontWeight:"600"}],"label-table-head":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"700"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}],"display-hero":["44px",{lineHeight:"54px",letterSpacing:"-0.03em",fontWeight:"800"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between py-6 px-4"><div class="flex flex-col gap-6"><div class="flex items-center gap-3 px-3"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UXNw50iWc17LwnOB-YTaCYWIjZdzj7tUbk63vt0Rs4BxFAX9pX_4RoRNUFnIoPxZY8icVyrgyExi4-yUDXq_iQ5bR1SOJIMyi7vtbfh9ABbRCfIeN3J0CiRM4gw6i1WJMB7qUeNeQJLE0VCGIJx8h-bzCxFXt8ZYqcG1W_rB_y237vazmOmX5bWrvEsHTyK_TXJyp5QBjl5fH_gpbf2T-uAVTheagfT3_Fx_QZB_XmU-HBEytOudjOACH7gqXMsDaBAFaCH553Eg"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-primary leading-tight">AeroIntel</span><span class="font-caption-data text-caption-data text-on-surface-variant">Smart Inspection. Safer Skies.</span></div></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-xl shadow-[0_10px_24px_rgba(160,195,225,0.20)]"><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">space_dashboard</span><span>Dashboard</span></a><a aria-current="page" class="flex items-center gap-3 px-3 py-2.5 transition-all bg-primary-container text-on-primary-container font-semibold rounded-xl shadow-[0_10px_24px_rgba(160,195,225,0.20)]" data-path="new-inspection" href="#"><span class="material-symbols-outlined text-[20px]">add_circle</span><span>New Inspection</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="inspection-history" href="#"><span class="material-symbols-outlined text-[20px]">history</span><span>Inspection History</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="aeromemory" href="#"><span class="material-symbols-outlined text-[20px]">neurology</span><span>AeroMemory</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports" href="#"><span class="material-symbols-outlined text-[20px]">summarize</span><span>Reports</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="model-performance" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span>Model Performance</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>Settings</span></a></nav></div><div class="flex flex-col gap-3 px-3 pt-4"><div class="flex items-center justify-between bg-surface-container-low/80 px-3 py-2 rounded-xl"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span><span class="font-caption-data text-caption-data font-semibold text-tertiary">Edge Model Online</span></div><span class="font-caption-data text-caption-data px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant">v1.0.0</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-8"><div class="flex items-center gap-4 flex-1 max-w-lg"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-secondary text-[20px]">search</span><input class="w-full pl-10 pr-12 py-2 rounded-full bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-secondary focus:outline-none focus:bg-surface-container transition-all" placeholder="Search aircraft, inspection ID, component..." type="text"><span class="absolute right-3 px-1.5 py-0.5 rounded bg-surface-container text-secondary font-caption-data text-caption-data">⌘K</span></div></div><div class="flex items-center gap-4"><div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-caption-data text-caption-data"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>Last sync: 1 min ago • Edge Node Active</span></div><button class="relative p-2 rounded-full text-secondary hover:bg-surface-container-low hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-3 pl-2 py-1"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UXNw50iWc17LwnOB-YTaCYWIjZdzj7tUbk63vt0Rs4BxFAX9pX_4RoRNUFnIoPxZY8icVyrgyExi4-yUDXq_iQ5bR1SOJIMyi7vtbfh9ABbRCfIeN3J0CiRM4gw6i1WJMB7qUeNeQJLE0VCGIJx8h-bzCxFXt8ZYqcG1W_rB_y237vazmOmX5bWrvEsHTyK_TXJyp5QBjl5fH_gpbf2T-uAVTheagfT3_Fx_QZB_XmU-HBEytOudjOACH7gqXMsDaBAFaCH553Eg"><div class="hidden lg:flex flex-col text-left"><span class="font-body-md text-body-md font-semibold text-on-surface leading-tight">A. Sharma</span><span class="font-caption-data text-caption-data text-secondary">Flight Line Inspector</span></div></div></div></header><main class="relative pt-16 bg-background min-h-screen w-full px-8 py-6"><div class="flex flex-col w-full gap-6 pb-12">
+<!-- Atmospheric Breadcrumb & Hero Header -->
+<section class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex flex-col gap-1.5">
+<div class="flex items-center gap-2 font-caption-data text-caption-data text-secondary">
+<span class="flex items-center gap-1 hover:text-primary transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-[16px]">flight_takeoff</span>
+<span>Inspections</span>
+</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-semibold">Create New Scan</span>
+<span class="inline-flex items-center gap-1 ml-2 px-2.5 py-0.5 rounded-full bg-surface-container text-tertiary font-semibold text-[11px] shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary animate-pulse"></span>
+          Node Hangar 04
+        </span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">New Inspection</h1>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xl">
+        Capture image, run AI detection and store in AeroMemory high-altitude vector archive.
+      </p>
+</div>
+<!-- Telemetry status indicator pill -->
+<div class="flex items-center gap-3 px-4 py-2.5 rounded-2xl bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_10px_30px_rgba(160,195,225,0.18)] self-start md:self-auto">
+<div class="flex flex-col text-right">
+<span class="font-caption-data text-[11px] uppercase tracking-wider text-secondary">Sensor Link</span>
+<span class="font-label-kpi-sub text-label-kpi-sub text-primary font-bold">FLIR Calibrated • 60 FPS</span>
+</div>
+<div class="w-9 h-9 rounded-xl bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">sensors</span>
+</div>
+</div>
+</section>
+<!-- Horizontal Stepper Flow -->
+<section class="w-full bg-surface-container-lowest/90 backdrop-blur-xl rounded-2xl p-4 sm:p-5 shadow-[0_10px_30px_-4px_rgba(160,195,225,0.22)]">
+<div class="relative flex flex-col md:flex-row items-center justify-between gap-4">
+<!-- Subtle progress track (desktop background) -->
+<div class="hidden md:block absolute left-8 right-8 top-1/2 -translate-y-1/2 h-0.5 bg-surface-container -z-0">
+<div class="h-full bg-primary-container w-[16%] transition-all duration-500"></div>
+</div>
+<!-- Step 1: Active -->
+<div class="relative z-10 flex items-center gap-3 w-full md:w-auto">
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-primary-container text-on-primary font-headline-sm text-[15px] shadow-[0_8px_20px_rgba(44,110,203,0.35)] shrink-0 ring-4 ring-primary-container/20">
+<span class="material-symbols-outlined text-[20px]">photo_camera</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-data text-[11px] uppercase tracking-wider text-primary font-bold">Step 01</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">1. Capture</span>
+</div>
+<span class="ml-auto md:hidden px-2 py-0.5 rounded-full bg-primary-container/10 text-primary font-caption-data text-[11px] font-bold">Current</span>
+</div>
+<!-- Step 2: Next -->
+<div class="relative z-10 flex items-center gap-3 w-full md:w-auto opacity-70">
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-container text-secondary font-headline-sm text-[15px] shrink-0">
+<span class="material-symbols-outlined text-[19px]">save</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-data text-[11px] uppercase tracking-wider text-secondary">Step 02</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface-variant">2. Save</span>
+</div>
+</div>
+<!-- Step 3: Pending -->
+<div class="relative z-10 flex items-center gap-3 w-full md:w-auto opacity-70">
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-container text-secondary font-headline-sm text-[15px] shrink-0">
+<span class="material-symbols-outlined text-[19px]">document_scanner</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-data text-[11px] uppercase tracking-wider text-secondary">Step 03</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface-variant">3. Detect</span>
+</div>
+</div>
+<!-- Step 4: Pending -->
+<div class="relative z-10 flex items-center gap-3 w-full md:w-auto opacity-70">
+<div class="flex items-center justify-center w-10 h-10 rounded-full bg-surface-container text-secondary font-headline-sm text-[15px] shrink-0">
+<span class="material-symbols-outlined text-[19px]">troubleshoot</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-data text-[11px] uppercase tracking-wider text-secondary">Step 04</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface-variant">4. Compare History</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 1: Inspection Information Card -->
+<section class="bg-surface-container-lowest/90 backdrop-blur-xl rounded-2xl p-6 sm:p-8 shadow-[0_10px_30px_-4px_rgba(160,195,225,0.20)]">
+<!-- Header of Card -->
+<div class="flex flex-wrap items-center justify-between gap-3 pb-6">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[22px]">assignment</span>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Inspection Information</h2>
+<p class="font-caption-data text-caption-data text-secondary">Airframe telemetry, registration, and assigned crew assignment</p>
+</div>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container text-on-secondary-container font-caption-data text-caption-data font-semibold">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+        Flight Line Telemetry
+      </div>
+</div>
+<!-- 3-Col x 2-Row Form Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+<!-- Inspection ID -->
+<div class="flex flex-col gap-1.5">
+<label class="font-caption-data text-caption-data font-semibold text-secondary uppercase tracking-wider">
+          Inspection ID
+        </label>
+<div class="flex items-center justify-between px-3.5 py-2.5 rounded-xl bg-surface-container-low font-body-md text-body-md text-primary font-bold shadow-inner">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">tag</span>
+            INS-1043
+          </span>
+<span class="px-2 py-0.5 rounded-md bg-primary-container text-on-primary font-caption-data text-[11px] font-semibold">
+            Auto-Gen
+          </span>
+</div>
+</div>
+<!-- Aircraft ID -->
+<div class="flex flex-col gap-1.5">
+<label class="font-caption-data text-caption-data font-semibold text-secondary uppercase tracking-wider" for="aircraft-id">
+          Aircraft Registration
+        </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-[18px] text-secondary">flight</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface font-semibold focus:outline-none focus:bg-surface-container transition-all" id="aircraft-id" type="text" value="VT-ALB">
+</div>
+</div>
+<!-- Aircraft Model -->
+<div class="flex flex-col gap-1.5">
+<label class="font-caption-data text-caption-data font-semibold text-secondary uppercase tracking-wider" for="aircraft-model">
+          Aircraft Model
+        </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-[18px] text-secondary">airplanemode_active</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface font-semibold focus:outline-none focus:bg-surface-container transition-all" id="aircraft-model" type="text" value="Boeing 737-800">
+</div>
+</div>
+<!-- Component Dropdown -->
+<div class="flex flex-col gap-1.5">
+<label class="font-caption-data text-caption-data font-semibold text-secondary uppercase tracking-wider" for="component-select">
+          Structural Component
+        </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-[18px] text-secondary">view_in_ar</span>
+<select class="w-full appearance-none pl-10 pr-10 py-2.5 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface font-semibold focus:outline-none focus:bg-surface-container transition-all cursor-pointer" id="component-select">
+<option selected="">Wing (Main Spar)</option>
+<option>Fuselage Barrel Section 43</option>
+<option>Vertical Stabilizer Root</option>
+<option>Engine Cowling &amp; Nacelle</option>
+<option>Landing Gear Trunnion</option>
+</select>
+<span class="material-symbols-outlined absolute right-3.5 text-[18px] text-secondary pointer-events-none">expand_more</span>
+</div>
+</div>
+<!-- Panel / Area -->
+<div class="flex flex-col gap-1.5">
+<label class="font-caption-data text-caption-data font-semibold text-secondary uppercase tracking-wider" for="panel-area">
+          Panel / Specific Area
+        </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-[18px] text-secondary">grid_view</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface font-semibold focus:outline-none focus:bg-surface-container transition-all" id="panel-area" type="text" value="Left Wing Panel LP-14B">
+</div>
+</div>
+<!-- Engineer / Technician -->
+<div class="flex flex-col gap-1.5">
+<label class="font-caption-data text-caption-data font-semibold text-secondary uppercase tracking-wider" for="engineer-name">
+          Lead Engineer / Sign-off
+        </label>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-3.5 text-[18px] text-secondary">badge</span>
+<input class="w-full pl-10 pr-4 py-2.5 rounded-xl bg-surface-container-low font-body-md text-body-md text-on-surface font-semibold focus:outline-none focus:bg-surface-container transition-all" id="engineer-name" type="text" value="A. Sharma (Staff Inspector #4102)">
+</div>
+</div>
+</div>
+<!-- Bottom metadata info and action -->
+<div class="mt-8 pt-5 flex flex-col sm:flex-row items-center justify-between gap-4">
+<div class="flex items-center gap-2.5 text-secondary">
+<span class="material-symbols-outlined text-[20px] text-primary shrink-0">neurology</span>
+<span class="font-caption-data text-caption-data">
+          All metadata will be linked with <strong class="text-on-surface font-semibold">AeroMemory</strong> chronological vector index and airframe digital twin.
+        </span>
+</div>
+<button class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-primary-container text-on-primary font-body-md text-body-md font-bold shadow-[0_10px_24px_rgba(44,110,203,0.35)] hover:shadow-[0_14px_28px_rgba(44,110,203,0.45)] hover:scale-[1.02] active:scale-[0.98] transition-all group" type="button">
+<span>Continue</span>
+<span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</section>
+<!-- Section 2: Media Acquisition & Source Image (Two-Column Layout) -->
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+<!-- LEFT Column: Tabbed Input Panel (5 Cols) -->
+<div class="lg:col-span-6 flex flex-col gap-4 bg-surface-container-lowest/90 backdrop-blur-xl rounded-2xl p-6 sm:p-7 shadow-[0_10px_30px_-4px_rgba(160,195,225,0.20)]">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">perm_media</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Media Acquisition</h3>
+</div>
+<span class="font-caption-data text-caption-data px-2.5 py-1 rounded-full bg-surface-container text-on-surface-variant font-medium">
+          Source Selection
+        </span>
+</div>
+<!-- Segmented Tab Navigation -->
+<div class="p-1 rounded-xl bg-surface-container-low flex items-center gap-1">
+<button class="flex-1 py-2 px-4 rounded-lg bg-surface-container-lowest text-primary font-body-md text-body-md font-bold shadow-sm transition-all flex items-center justify-center gap-2" id="tab-upload" type="button">
+<span class="material-symbols-outlined text-[18px]">cloud_upload</span>
+<span>Upload File</span>
+</button>
+<button class="flex-1 py-2 px-4 rounded-lg text-secondary hover:text-on-surface font-body-md text-body-md font-medium transition-all flex items-center justify-center gap-2" id="tab-camera" type="button">
+<span class="material-symbols-outlined text-[18px]">videocam</span>
+<span>Live Camera</span>
+</button>
+</div>
+<!-- Upload View Area -->
+<div class="flex flex-col gap-4" id="view-upload">
+<!-- Drag & Drop Container -->
+<div class="relative group cursor-pointer rounded-2xl p-8 bg-surface-container-low/50 hover:bg-surface-container-low transition-all text-center flex flex-col items-center justify-center min-h-[260px]">
+<div class="w-16 h-16 mb-4 rounded-2xl bg-surface-container flex items-center justify-center text-primary group-hover:scale-110 group-hover:bg-primary group-hover:text-on-primary transition-all duration-300 shadow-sm">
+<span class="material-symbols-outlined text-[32px]">cloud_upload</span>
+</div>
+<h4 class="font-headline-sm text-[16px] text-on-surface mb-1">
+            Drop aircraft image here or browse
+          </h4>
+<p class="font-caption-data text-caption-data text-secondary max-w-sm mb-4">
+            Supports high-resolution drone scans, borescope captures &amp; handheld DSLR images (JPG/PNG, max 10 MB).
+          </p>
+<button class="px-5 py-2.5 rounded-full bg-surface-container-lowest hover:bg-surface-container text-primary font-body-md text-body-md font-bold shadow-[0_4px_12px_rgba(160,195,225,0.25)] transition-all flex items-center gap-2" type="button">
+<span class="material-symbols-outlined text-[18px]">folder_open</span>
+<span>Browse Local Files</span>
+</button>
+<input accept="image/*" class="hidden" id="file-input" type="file">
+</div>
+<!-- Capability Chips -->
+<div class="grid grid-cols-3 gap-2">
+<div class="flex items-center gap-2 p-2.5 rounded-xl bg-surface-container-low/80">
+<span class="material-symbols-outlined text-primary text-[18px]">hdr_auto</span>
+<div class="flex flex-col">
+<span class="font-caption-data text-[10px] uppercase text-secondary">Auto-Tone</span>
+<span class="font-caption-data text-[12px] font-bold text-on-surface">Enabled</span>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2.5 rounded-xl bg-surface-container-low/80">
+<span class="material-symbols-outlined text-tertiary text-[18px]">center_focus_strong</span>
+<div class="flex flex-col">
+<span class="font-caption-data text-[10px] uppercase text-secondary">Lens Rect</span>
+<span class="font-caption-data text-[12px] font-bold text-on-surface">Auto-warp</span>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2.5 rounded-xl bg-surface-container-low/80">
+<span class="material-symbols-outlined text-primary-container text-[18px]">verified</span>
+<div class="flex flex-col">
+<span class="font-caption-data text-[10px] uppercase text-secondary">EXIF Check</span>
+<span class="font-caption-data text-[12px] font-bold text-on-surface">Verified</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Live Camera View (Hidden by default, toggleable) -->
+<div class="hidden flex-col gap-4" id="view-camera">
+<div class="relative rounded-2xl bg-on-secondary-fixed overflow-hidden aspect-[4/3] flex items-center justify-center">
+<div class="absolute inset-0 opacity-20 bg-[radial-gradient(#abc7ff_1px,transparent_1px)] [background-size:16px_16px]"></div>
+<div class="text-center text-surface-container-lowest z-10 flex flex-col items-center">
+<span class="material-symbols-outlined text-[44px] text-tertiary-fixed-dim animate-pulse mb-2">videocam</span>
+<p class="font-body-md text-body-md font-semibold">Tethered Hangar Optical Feed</p>
+<span class="font-caption-data text-caption-data text-secondary-fixed-dim mt-1">Ready to stream 4K/60 sensor link</span>
+</div>
+<button class="absolute bottom-4 px-6 py-2 rounded-full bg-primary text-on-primary font-bold text-[13px] shadow-lg flex items-center gap-2" type="button">
+<span class="w-2.5 h-2.5 rounded-full bg-error animate-ping"></span>
+<span>Capture Frame</span>
+</button>
+</div>
+</div>
+</div>
+<!-- RIGHT Column: Preview Panel (7 Cols) -->
+<div class="lg:col-span-6 flex flex-col gap-4 bg-surface-container-lowest/90 backdrop-blur-xl rounded-2xl p-6 sm:p-7 shadow-[0_10px_30px_-4px_rgba(160,195,225,0.20)]">
+<!-- Preview Header -->
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">visibility</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Source Preview</h3>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-tertiary font-caption-data text-caption-data font-bold">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+<span>Image Selected</span>
+</div>
+</div>
+<!-- Preview Canvas / Frame with Technical Overlays -->
+<div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-inner group">
+<img alt="Close-up high-resolution technical photograph of a commercial passenger airplane aluminum wing spar surface and rivet lines, inspected in an aviation hangar under clean bright white industrial LED lighting, aerospace maintenance engineering detail, pristine clarity" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWCqngl5PKEYOuhokT1Xongld-2yZ8uO0GgJLy7CLcm4wcCu6wjfEZ4zbVbBBVKum4NjuSz_itiwhhcWUHpRQoFmCc6ZNgiJS-pg6a6f67MqAtAEElH1wtGItVnGTBzt6hcvZtX7zEFIe8fGnqIkskcFTLKF5dtICPE9MosMJ668Ar3qSEYtttK3n1X0R7dwJ1XOurjbbQPbuC90rM9v8dvGQOpwL1SdfcFTkhf3LdkO_fF2O6koHB3Q">
+<!-- Technical Reticle & Aviation HUD Grid Overlay -->
+<div class="absolute inset-0 pointer-events-none flex flex-col justify-between p-4">
+<!-- Top Telemetry Row -->
+<div class="flex items-center justify-between text-[11px] font-caption-data font-semibold text-on-primary bg-on-secondary-fixed/50 backdrop-blur-md px-3 py-1 rounded-lg">
+<span>GRID: SEC-04B</span>
+<span class="flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-fixed-dim"></span>
+              FOV: 84.2° • LUX: 1420
+            </span>
+<span>ZOOM: 1.0X</span>
+</div>
+<!-- Central Crosshair Reticle -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none">
+<div class="w-16 h-16 rounded-full border border-surface-container-lowest/60 flex items-center justify-center">
+<div class="w-1 h-1 bg-surface-container-lowest rounded-full"></div>
+</div>
+<div class="absolute w-24 h-px bg-surface-container-lowest/40"></div>
+<div class="absolute h-24 w-px bg-surface-container-lowest/40"></div>
+</div>
+<!-- Bottom Telemetry Row -->
+<div class="flex items-center justify-between text-[11px] font-caption-data text-on-primary bg-on-secondary-fixed/50 backdrop-blur-md px-3 py-1 rounded-lg">
+<span>LAT: 28.5562° N</span>
+<span>AEROSPACE GRADE 2024-T3</span>
+<span>RIVET PITCH: 25.4mm</span>
+</div>
+</div>
+</div>
+<!-- File Details Card -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 p-3.5 rounded-xl bg-surface-container-low/70">
+<div class="flex flex-col">
+<span class="font-caption-data text-[10px] uppercase text-secondary">Filename</span>
+<span class="font-caption-data text-[12px] font-bold text-on-surface truncate" title="wing_panel_sample.jpg">
+            wing_panel_sample.jpg
+          </span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-data text-[10px] uppercase text-secondary">Resolution</span>
+<span class="font-caption-data text-[12px] font-bold text-on-surface">1600 × 1200 px</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-data text-[10px] uppercase text-secondary">Payload Size</span>
+<span class="font-caption-data text-[12px] font-bold text-on-surface">2.4 MB</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-data text-[10px] uppercase text-secondary">Color Profile</span>
+<span class="font-caption-data text-[12px] font-bold text-on-surface">JPEG (sRGB)</span>
+</div>
+</div>
+<!-- Action Buttons Row -->
+<div class="flex items-center justify-between gap-3 pt-2">
+<button class="flex-1 inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-surface-container-low hover:bg-surface-container text-on-surface font-body-md text-body-md font-bold transition-all" type="button">
+<span class="material-symbols-outlined text-[18px]">replay</span>
+<span>Retake Photo</span>
+</button>
+<button class="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-primary-container hover:bg-primary text-on-primary font-body-md text-body-md font-bold shadow-[0_8px_20px_rgba(44,110,203,0.3)] transition-all hover:scale-[1.01] active:scale-[0.99]" type="button">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Use Photo</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Section 3: Collapsible Advanced Settings -->
+<section class="bg-surface-container-lowest/90 backdrop-blur-xl rounded-2xl shadow-[0_10px_30px_-4px_rgba(160,195,225,0.20)] overflow-hidden transition-all">
+<!-- Collapsible Header -->
+<button aria-expanded="true" class="w-full flex items-center justify-between p-6 text-left hover:bg-surface-container-low/40 transition-colors" id="advanced-toggle" type="button">
+<div class="flex items-center gap-3">
+<div class="w-9 h-9 rounded-xl bg-surface-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">tune</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Advanced Detection &amp; Model Parameters</span>
+<span class="font-caption-data text-caption-data text-secondary">Tune neural confidence gates, suppression metrics &amp; inference precision</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-caption-data text-caption-data px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-bold">
+          Configured
+        </span>
+<span class="material-symbols-outlined text-secondary transition-transform duration-300 rotate-180" id="advanced-chevron">
+          expand_more
+        </span>
+</div>
+</button>
+<!-- Expanded Body Content -->
+<div class="px-6 pb-6 pt-2 flex flex-col gap-6" id="advanced-content">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Confidence Threshold Slider Card -->
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-surface-container-low/60">
+<div class="flex items-center justify-between">
+<label class="font-caption-data text-caption-data font-bold uppercase tracking-wider text-secondary" for="slider-conf">
+              Confidence Threshold
+            </label>
+<span class="px-2 py-0.5 rounded-md bg-primary-container text-on-primary font-caption-data text-[11px] font-bold" id="badge-conf">
+              0.40 (Recommended)
+            </span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-caption-data text-caption-data text-secondary">0.1</span>
+<input class="w-full accent-primary cursor-pointer" id="slider-conf" max="0.95" min="0.10" step="0.05" type="range" value="0.40">
+<span class="font-caption-data text-caption-data text-secondary">1.0</span>
+</div>
+<p class="font-caption-data text-[12px] text-on-surface-variant leading-snug">
+            Minimum neural score proposal to classify candidate anomalies (cracks, dents, corrosion).
+          </p>
+</div>
+<!-- IoU Threshold Slider Card -->
+<div class="flex flex-col gap-3 p-4 rounded-xl bg-surface-container-low/60">
+<div class="flex items-center justify-between">
+<label class="font-caption-data text-caption-data font-bold uppercase tracking-wider text-secondary" for="slider-iou">
+              IoU Threshold
+            </label>
+<span class="px-2 py-0.5 rounded-md bg-surface-container text-on-surface font-caption-data text-[11px] font-bold" id="badge-iou">
+              0.50
+            </span>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-caption-data text-caption-data text-secondary">0.1</span>
+<input class="w-full accent-primary cursor-pointer" id="slider-iou" max="0.90" min="0.10" step="0.05" type="range" value="0.50">
+<span class="font-caption-data text-caption-data text-secondary">0.9</span>
+</div>
+<p class="font-caption-data text-[12px] text-on-surface-variant leading-snug">
+            Intersection over Union for non-maximum suppression (NMS) to eliminate overlapping bounding boxes.
+          </p>
+</div>
+<!-- Model Profile & Engine Info -->
+<div class="flex flex-col justify-between gap-3 p-4 rounded-xl bg-surface-container-low/60">
+<div class="flex items-center justify-between">
+<span class="font-caption-data text-caption-data font-bold uppercase tracking-wider text-secondary">Active Model Profile</span>
+<span class="inline-flex items-center gap-1 font-caption-data text-[11px] text-tertiary font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              Edge Active
+            </span>
+</div>
+<div class="flex flex-col gap-1">
+<span class="font-body-md text-body-md font-bold text-on-surface">YOLOv11-Aero Edge (TensorRT INT8)</span>
+<div class="flex items-center gap-3 font-caption-data text-caption-data text-secondary">
+<span class="flex items-center gap-1 text-primary font-semibold">
+<span class="material-symbols-outlined text-[16px]">speed</span>
+                42ms inference
+              </span>
+<span>•</span>
+<span>Quantized FP16/INT8</span>
+</div>
+</div>
+<div class="flex items-center gap-2 pt-1 text-[11px] font-caption-data text-on-surface-variant">
+<span class="material-symbols-outlined text-[14px] text-tertiary">verified_user</span>
+<span>FAA AC 43-204 Compliant Edge Weights</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Inline Interactive Script -->
+<script>
+  (function() {
+    // Tab switching interaction
+    const tabUpload = document.getElementById('tab-upload');
+    const tabCamera = document.getElementById('tab-camera');
+    const viewUpload = document.getElementById('view-upload');
+    const viewCamera = document.getElementById('view-camera');
+
+    if (tabUpload && tabCamera && viewUpload && viewCamera) {
+      tabUpload.addEventListener('click', () => {
+        tabUpload.classList.add('bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+        tabUpload.classList.remove('text-secondary', 'font-medium');
+        tabCamera.classList.remove('bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+        tabCamera.classList.add('text-secondary', 'font-medium');
+        viewUpload.classList.remove('hidden');
+        viewCamera.classList.add('hidden');
+      });
+
+      tabCamera.addEventListener('click', () => {
+        tabCamera.classList.add('bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+        tabCamera.classList.remove('text-secondary', 'font-medium');
+        tabUpload.classList.remove('bg-surface-container-lowest', 'text-primary', 'font-bold', 'shadow-sm');
+        tabUpload.classList.add('text-secondary', 'font-medium');
+        viewCamera.classList.remove('hidden');
+        viewUpload.classList.add('hidden');
+      });
+    }
+
+    // Advanced section collapsible toggle
+    const toggleBtn = document.getElementById('advanced-toggle');
+    const content = document.getElementById('advanced-content');
+    const chevron = document.getElementById('advanced-chevron');
+
+    if (toggleBtn && content && chevron) {
+      toggleBtn.addEventListener('click', () => {
+        const isHidden = content.classList.contains('hidden');
+        if (isHidden) {
+          content.classList.remove('hidden');
+          chevron.classList.add('rotate-180');
+          toggleBtn.setAttribute('aria-expanded', 'true');
+        } else {
+          content.classList.add('hidden');
+          chevron.classList.remove('rotate-180');
+          toggleBtn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+
+    // Dynamic slider updates
+    const confSlider = document.getElementById('slider-conf');
+    const confBadge = document.getElementById('badge-conf');
+    if (confSlider && confBadge) {
+      confSlider.addEventListener('input', (e) => {
+        const val = parseFloat(e.target.value).toFixed(2);
+        confBadge.textContent = val === '0.40' ? '0.40 (Recommended)' : val;
+      });
+    }
+
+    const iouSlider = document.getElementById('slider-iou');
+    const iouBadge = document.getElementById('badge-iou');
+    if (iouSlider && iouBadge) {
+      iouSlider.addEventListener('input', (e) => {
+        iouBadge.textContent = parseFloat(e.target.value).toFixed(2);
+      });
+    }
+  })();
+</script></main></div></body></html>

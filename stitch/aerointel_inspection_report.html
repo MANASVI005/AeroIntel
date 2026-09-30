@@ -1,0 +1,415 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"primary-container":"#2c6ecb","on-primary-container":"#f1f4ff","surface-container-low":"#eef4ff","on-tertiary-container":"#def8ff","on-primary-fixed":"#001b3f","surface-bright":"#f8f9ff","surface-container-highest":"#d1e4ff","surface-variant":"#d1e4ff","on-background":"#041d33","primary-fixed":"#d7e2ff","secondary":"#4d5f7c","primary":"#0055ae","on-tertiary":"#ffffff","on-secondary-fixed":"#071c36","tertiary-fixed-dim":"#7ed3e5","inverse-surface":"#1c3249","surface-tint":"#0b5cb9","error":"#ba1a1a","on-error-container":"#93000a","on-tertiary-fixed-variant":"#004e5a","on-surface":"#041d33","surface-container-high":"#dbe9ff","tertiary-container":"#127a8b","surface-container":"#e5efff","surface-dim":"#c6dcfa","surface":"#f8f9ff","error-container":"#ffdad6","tertiary-fixed":"#a3eeff","on-secondary-container":"#4e607d","on-primary-fixed-variant":"#00458f","on-surface-variant":"#424752","primary-fixed-dim":"#abc7ff","on-error":"#ffffff","inverse-on-surface":"#eaf1ff","tertiary":"#00606e","secondary-fixed":"#d5e3ff","on-tertiary-fixed":"#001f25","surface-container-lowest":"#ffffff","on-primary":"#ffffff","inverse-primary":"#abc7ff","on-secondary":"#ffffff","on-secondary-fixed-variant":"#364763","outline-variant":"#c2c6d4","secondary-container":"#c9dbfd","secondary-fixed-dim":"#b5c7e9","background":"#f8f9ff","outline":"#727783"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-xl":"2.25rem","gutter":"1.5rem","space-lg":"1.5rem","space-md":"1rem","space-xs":"0.5rem","margin":"2rem","space-sm":"0.75rem"},"fontFamily":{"headline-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"label-kpi-sub":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"display-hero":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"metric-stat":["Plus Jakarta Sans"],"metric-stat-mobile":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"display-hero-mobile":["Plus Jakarta Sans"],"caption-data":["Inter"],"label-table-head":["Inter"]},"fontSize":{"headline-sm":["18px",{"lineHeight":"24px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"500"}],"label-kpi-sub":["13px",{"lineHeight":"18px","fontWeight":"600"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"-0.015em","fontWeight":"700"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"display-hero":["44px",{"lineHeight":"54px","letterSpacing":"-0.03em","fontWeight":"800"}],"headline-lg":["32px",{"lineHeight":"40px","letterSpacing":"-0.02em","fontWeight":"700"}],"metric-stat":["38px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"800"}],"metric-stat-mobile":["28px",{"lineHeight":"34px","letterSpacing":"-0.01em","fontWeight":"800"}],"headline-lg-mobile":["24px",{"lineHeight":"32px","letterSpacing":"-0.01em","fontWeight":"700"}],"display-hero-mobile":["30px",{"lineHeight":"38px","letterSpacing":"-0.02em","fontWeight":"800"}],"caption-data":["12px",{"lineHeight":"16px","fontWeight":"500"}],"label-table-head":["13px",{"lineHeight":"18px","letterSpacing":"0.01em","fontWeight":"700"}]}}}};</script></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest/90 backdrop-blur-2xl z-50 flex flex-col justify-between shadow-[0_10px_30px_-4px_rgba(160,195,225,0.22)]"><div class="flex flex-col pt-6"><div class="px-6 pb-6"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-primary-container/10 flex items-center justify-center p-1.5 shadow-[0_2px_8px_0_rgba(160,195,225,0.12)]"><span class="material-symbols-outlined text-primary text-2xl">flightsmode</span></div><div><div class="font-headline-sm text-headline-sm text-on-surface tracking-tight font-extrabold">AeroIntel</div><div class="font-caption-data text-caption-data text-secondary">Smart Inspection. Safer Skies.</div></div></div></div><div class="px-4 py-2"><div class="px-3 pb-2 font-caption-data text-caption-data uppercase tracking-wider text-secondary/70">Operational Menu</div><nav class="flex flex-col gap-1" data-active-classes="bg-surface-container-high text-primary font-bold shadow-[0_2px_8px_0_rgba(160,195,225,0.12)]"><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200" data-path="dashboard" href="#"><span class="material-symbols-outlined text-xl">dashboard</span><span class="font-body-md text-body-md">Dashboard</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200" data-path="new-inspection" href="#"><span class="material-symbols-outlined text-xl">add_circle</span><span class="font-body-md text-body-md">New Inspection</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200" data-path="inspection-history" href="#"><span class="material-symbols-outlined text-xl">history</span><span class="font-body-md text-body-md">Inspection History</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200" data-path="aeromemory" href="#"><span class="material-symbols-outlined text-xl">timeline</span><span class="font-body-md text-body-md">AeroMemory</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200" data-path="reports" href="#"><span class="material-symbols-outlined text-xl">description</span><span class="font-body-md text-body-md">Reports</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200" data-path="model-performance" href="#"><span class="material-symbols-outlined text-xl">smart_toy</span><span class="font-body-md text-body-md">Model Performance</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-on-surface-variant hover:bg-surface-container-low hover:text-on-surface transition-all duration-200" data-path="settings" href="#"><span class="material-symbols-outlined text-xl">settings</span><span class="font-body-md text-body-md">Settings</span></a></nav></div></div><div class="p-4 mx-4 mb-6 rounded-xl bg-surface-container-low/70 flex flex-col gap-2 shadow-[0_2px_8px_0_rgba(160,195,225,0.12)]"><div class="flex items-center justify-between"><span class="font-caption-data text-caption-data text-secondary font-semibold">Engine Core</span><span class="inline-flex items-center px-2 py-0.5 rounded-full font-caption-data text-caption-data bg-surface-container-highest text-on-secondary-fixed-variant">v1.0.0</span></div><div class="flex items-center gap-2 pt-1"><span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-tertiary-container opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-tertiary-container"></span></span><span class="font-caption-data text-caption-data text-on-surface font-medium">Edge Model Online</span></div></div></aside><div class="pl-72 flex flex-col min-h-screen"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-bright/85 backdrop-blur-xl z-40 flex items-center justify-between px-8 shadow-[0_10px_30px_-4px_rgba(160,195,225,0.14)]"><div class="flex items-center w-full max-w-lg"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3.5 text-secondary text-lg select-none">search</span><input class="w-full h-10 pl-10 pr-16 bg-surface-container-low/60 text-on-surface placeholder-secondary font-body-md text-body-md rounded-xl focus:outline-none focus:bg-surface-container-lowest focus:shadow-[0_4px_12px_rgba(160,195,225,0.18)] transition-all" placeholder="Search aircraft, inspection ID, component..." type="text"><div class="absolute right-2.5 flex items-center gap-0.5 px-2 py-0.5 rounded bg-surface-container-high/60 text-secondary font-caption-data text-caption-data pointer-events-none"><span>⌘</span><span>K</span></div></div></div><div class="flex items-center gap-4"><button aria-label="Notifications" class="relative p-2 rounded-xl text-secondary hover:text-on-surface hover:bg-surface-container-low transition-colors"><span class="material-symbols-outlined text-xl">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-primary-container ring-2 ring-surface-bright"></span></button><div class="h-6 w-px bg-surface-container-high"></div><div class="flex items-center gap-3 pl-1"><div class="flex flex-col text-right"><span class="font-body-md text-body-md font-semibold text-on-surface leading-tight">Captain R. Miller</span><span class="font-caption-data text-caption-data text-secondary">Aviation Engineer</span></div><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-primary-fixed" src="https://lh3.googleusercontent.com/aida/AEtjO1UXNw50iWc17LwnOB-YTaCYWIjZdzj7tUbk63vt0Rs4BxFAX9pX_4RoRNUFnIoPxZY8icVyrgyExi4-yUDXq_iQ5bR1SOJIMyi7vtbfh9ABbRCfIeN3J0CiRM4gw6i1WJMB7qUeNeQJLE0VCGIJx8h-bzCxFXt8ZYqcG1W_rB_y237vazmOmX5bWrvEsHTyK_TXJyp5QBjl5fH_gpbf2T-uAVTheagfT3_Fx_QZB_XmU-HBEytOudjOACH7gqXMsDaBAFaCH553Eg"></div></div></header><main class="w-full pt-16 px-8 pb-12 bg-background flex-1"><div class="flex flex-col w-full">
+<!-- Interactive Top Action & Status Bar -->
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-6">
+<div class="flex items-center gap-2">
+<span class="font-caption-data text-caption-data text-secondary">Reports</span>
+<span class="material-symbols-outlined text-secondary text-sm">chevron_right</span>
+<span class="font-caption-data text-caption-data text-primary font-semibold">INS-1043</span>
+<span class="material-symbols-outlined text-secondary text-sm">chevron_right</span>
+<span class="font-caption-data text-caption-data text-on-surface font-semibold">Formal Inspection Report</span>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<!-- Compliance Pill -->
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container-high text-on-surface shadow-sm">
+<span class="material-symbols-outlined text-primary text-base">verified</span>
+<span class="font-caption-data text-caption-data font-semibold">FAA AC 120-66B &amp; EASA Form 1 Aligned</span>
+</div>
+<!-- Print Button -->
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface-container-lowest text-on-surface hover:bg-surface-container-low transition-colors shadow-sm font-body-md text-body-md" onclick="window.print()">
+<span class="material-symbols-outlined text-base">print</span>
+<span>Print</span>
+</button>
+<!-- Export Dropdown -->
+<div class="relative group">
+<button class="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-surface-container-lowest text-on-surface hover:bg-surface-container-low transition-colors shadow-sm font-body-md text-body-md">
+<span class="material-symbols-outlined text-base">ios_share</span>
+<span>Export</span>
+<span class="material-symbols-outlined text-xs">expand_more</span>
+</button>
+<div class="absolute right-0 mt-1 w-44 rounded-xl bg-surface-container-lowest shadow-xl hidden group-hover:block z-30 p-1.5">
+<a class="flex items-center gap-2 px-3 py-2 rounded-lg text-on-surface hover:bg-surface-container-low text-body-md font-body-md" href="#">
+<span class="material-symbols-outlined text-sm text-secondary">data_object</span>
+<span>Export JSON</span>
+</a>
+<a class="flex items-center gap-2 px-3 py-2 rounded-lg text-on-surface hover:bg-surface-container-low text-body-md font-body-md" href="#">
+<span class="material-symbols-outlined text-sm text-secondary">table_view</span>
+<span>Export CSV / Telemetry</span>
+</a>
+</div>
+</div>
+<!-- Generate PDF -->
+<button class="flex items-center gap-2 px-5 py-2 rounded-xl bg-primary text-on-primary font-body-md text-body-md font-bold shadow-md hover:bg-primary-container transition-all">
+<span class="material-symbols-outlined text-base">download</span>
+<span>Generate PDF</span>
+</button>
+</div>
+</div>
+<!-- Formal Aerospace Inspection Document Sheet -->
+<div class="w-full bg-surface-container-lowest rounded-2xl shadow-[0_10px_30px_-4px_rgba(160,195,225,0.22)] p-6 lg:p-10 flex flex-col gap-8">
+<!-- 1. Report Header Block -->
+<div class="flex flex-col gap-6">
+<div class="flex flex-col md:flex-row md:items-start justify-between gap-4 pb-6">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 rounded-xl bg-primary-container/10 flex items-center justify-center p-2 text-primary shadow-sm">
+<span class="material-symbols-outlined text-3xl">flightsmode</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-caption-data text-caption-data text-primary font-bold uppercase tracking-wider">AeroIntel Avionics &amp; Airframe MRO</span>
+<span class="w-1 h-1 rounded-full bg-secondary"></span>
+<span class="font-caption-data text-caption-data text-secondary">Doc Ref: AIR-2025-0924-1043</span>
+</div>
+<h1 class="font-headline-md text-headline-md text-on-surface tracking-tight mt-0.5">
+              Structural Integrity &amp; AI Damage Inspection Report
+            </h1>
+<p class="font-caption-data text-caption-data text-secondary mt-1">
+              Issue Date: September 24, 2025 • 15:45 UTC &nbsp;|&nbsp; Authorization: Part 145 Certified Repair Station
+            </p>
+</div>
+</div>
+<div class="flex flex-col md:items-end">
+<span class="px-3 py-1 rounded-full bg-error-container text-on-error-container font-caption-data text-caption-data font-bold tracking-wide">
+            RESTRICTED - AIRFRAME MAINTENANCE MRO
+          </span>
+<span class="font-caption-data text-caption-data text-secondary mt-1">Security Seal: #819-A-X7</span>
+</div>
+</div>
+<!-- Technical Metadata Grid -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-3 p-4 rounded-xl bg-surface-container-low/70">
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container-lowest">
+<span class="font-caption-data text-caption-data text-secondary uppercase tracking-wider font-semibold">Inspection ID</span>
+<span class="font-body-md text-body-md text-on-surface font-bold mt-0.5">INS-1043</span>
+</div>
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container-lowest">
+<span class="font-caption-data text-caption-data text-secondary uppercase tracking-wider font-semibold">Aircraft / Tail</span>
+<span class="font-body-md text-body-md text-on-surface font-bold mt-0.5">VT-ALB (Tail 737)</span>
+</div>
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container-lowest">
+<span class="font-caption-data text-caption-data text-secondary uppercase tracking-wider font-semibold">Aircraft Model</span>
+<span class="font-body-md text-body-md text-on-surface font-bold mt-0.5">Boeing 737-800</span>
+</div>
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container-lowest">
+<span class="font-caption-data text-caption-data text-secondary uppercase tracking-wider font-semibold">Station / Location</span>
+<span class="font-body-md text-body-md text-on-surface font-bold mt-0.5">Left Wing Spar (STA 450)</span>
+</div>
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container-lowest">
+<span class="font-caption-data text-caption-data text-secondary uppercase tracking-wider font-semibold">Lead Inspector</span>
+<span class="font-body-md text-body-md text-on-surface font-bold mt-0.5">A. Sharma (#A&amp;P-410294)</span>
+</div>
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container-lowest">
+<span class="font-caption-data text-caption-data text-secondary uppercase tracking-wider font-semibold">Acquisition Timestamp</span>
+<span class="font-body-md text-body-md text-on-surface font-bold mt-0.5">2025-09-24 14:18 UTC</span>
+</div>
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container-lowest">
+<span class="font-caption-data text-caption-data text-secondary uppercase tracking-wider font-semibold">AI Neural Core</span>
+<span class="font-body-md text-body-md text-on-surface font-bold mt-0.5">aerointel_v1 (YOLOv11 FP16)</span>
+</div>
+<div class="flex flex-col p-2.5 rounded-lg bg-surface-container-lowest">
+<span class="font-caption-data text-caption-data text-secondary uppercase tracking-wider font-semibold">Hangar / Facility</span>
+<span class="font-body-md text-body-md text-on-surface font-bold mt-0.5">Bay 4, Alpha Apron (BOM)</span>
+</div>
+</div>
+</div>
+<!-- 2. Detected Defects Table -->
+<div class="flex flex-col gap-3">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Detected Defects &amp; Telemetry Classification</h2>
+<span class="material-symbols-outlined text-secondary text-sm">info</span>
+</div>
+<span class="px-2.5 py-1 rounded-full bg-error-container text-on-error-container font-caption-data text-caption-data font-bold">
+          4 Detections Logged (1 Critical Flag)
+        </span>
+</div>
+<div class="overflow-x-auto rounded-xl bg-surface-container-low/40">
+<table class="w-full text-left">
+<thead>
+<tr class="bg-surface-container-high/60">
+<th class="py-3 px-4 font-label-table-head text-label-table-head text-secondary uppercase">Defect Type</th>
+<th class="py-3 px-4 font-label-table-head text-label-table-head text-secondary uppercase">Confidence</th>
+<th class="py-3 px-4 font-label-table-head text-label-table-head text-secondary uppercase">Airframe Location</th>
+<th class="py-3 px-4 font-label-table-head text-label-table-head text-secondary uppercase">Measurement / Delta</th>
+<th class="py-3 px-4 font-label-table-head text-label-table-head text-secondary uppercase text-right">Status</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container">
+<!-- Row 1 Crack -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-container shadow-sm"></span>
+<span class="font-body-md text-body-md text-on-surface font-bold">Crack</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-caption-data text-caption-data font-semibold text-on-surface">92.4%</td>
+<td class="py-3.5 px-4 font-body-md text-body-md text-on-surface">Wing Spar STA 450 (+12.4mm)</td>
+<td class="py-3.5 px-4 font-caption-data text-caption-data text-error font-semibold">+42 px (+18.4% linear growth)</td>
+<td class="py-3.5 px-4 text-right">
+<span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-error-container text-on-error-container font-caption-data text-caption-data font-bold">
+<span class="material-symbols-outlined text-xs">warning</span>
+                  Open / Critical Flag
+                </span>
+</td>
+</tr>
+<!-- Row 2 Corrosion -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-on-secondary-fixed shadow-sm"></span>
+<span class="font-body-md text-body-md text-on-surface font-bold">Corrosion</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-caption-data text-caption-data font-semibold text-on-surface">87.1%</td>
+<td class="py-3.5 px-4 font-body-md text-body-md text-on-surface">Rib 12 Upper Flange</td>
+<td class="py-3.5 px-4 font-caption-data text-caption-data text-secondary font-medium">120 px² (−6.2% area drift)</td>
+<td class="py-3.5 px-4 text-right">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-surface-container-highest text-on-surface font-caption-data text-caption-data font-semibold">
+                  Open / Monitored
+                </span>
+</td>
+</tr>
+<!-- Row 3 Missing Fastener -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary-fixed shadow-sm"></span>
+<span class="font-body-md text-body-md text-on-surface font-bold">Missing Fastener</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-caption-data text-caption-data font-semibold text-on-surface">81.3%</td>
+<td class="py-3.5 px-4 font-body-md text-body-md text-on-surface">Fastener Row 3 #14B</td>
+<td class="py-3.5 px-4 font-caption-data text-caption-data text-on-secondary-fixed-variant font-medium">0.00 px shift (Aperture Empty)</td>
+<td class="py-3.5 px-4 text-right">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-secondary-container text-on-secondary-container font-caption-data text-caption-data font-bold">
+                  Open / Action Req.
+                </span>
+</td>
+</tr>
+<!-- Row 4 Dent -->
+<tr class="hover:bg-surface-container-lowest transition-colors">
+<td class="py-3.5 px-4">
+<div class="flex items-center gap-2.5">
+<span class="w-2.5 h-2.5 rounded-full bg-primary-container shadow-sm"></span>
+<span class="font-body-md text-body-md text-on-surface font-bold">Dent</span>
+</div>
+</td>
+<td class="py-3.5 px-4 font-caption-data text-caption-data font-semibold text-on-surface">76.0%</td>
+<td class="py-3.5 px-4 font-body-md text-body-md text-on-surface">Lower Skin Panel LP-14</td>
+<td class="py-3.5 px-4 font-caption-data text-caption-data text-secondary font-medium">+18 px deflection depth</td>
+<td class="py-3.5 px-4 text-right">
+<span class="inline-flex items-center px-2.5 py-0.5 rounded-full bg-surface-container-high text-primary font-caption-data text-caption-data font-semibold">
+                  Open / Superficial
+                </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- 3. Image Comparison Cards (Optical vs AI Annotation) -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<!-- Card 1: Original Optical Capture -->
+<div class="flex flex-col bg-surface-container-low/50 rounded-xl overflow-hidden shadow-sm">
+<div class="p-3.5 bg-surface-container-high/60 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Original Optical Capture</span>
+<span class="font-caption-data text-caption-data text-secondary">Sensor: 1-Inch IMX989 • Calibrated FOV 45° • 1600 × 1200 px</span>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-surface-container-lowest text-secondary font-caption-data text-caption-data font-semibold">
+            Raw Borescope Frame
+          </span>
+</div>
+<div class="relative w-full aspect-[4/3] bg-surface-dim overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="High precision close-up borescope photograph of an aircraft wing spar, showing metallic fuselage panels, rivets, mechanical lines, and hydraulic fittings inside an aircraft maintenance hangar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAszUC1p-sQcddGr7uWU-oRK-Co0zbqnWmsX29Zp-UFNEvIOYOIb0LTkcJkRUqU8RR_gBtkYeJoCg01026UxRHTUY5BQnkPJhfWv2bgn5os-Q1cZKf9t0DUAeO2GYPDlqm0gcYrnOK6nfekwmuEirHs-b-feYmmDMhSyuBXSz-lA59AoYYGFzLRjgnb93bA624eKmhusLQPM0YtXooUj3NEexu2zE1k1V1P3ulG_ANacBYyYbtLgUO30Q">
+<div class="absolute bottom-2 left-2 px-2 py-1 rounded bg-inverse-surface/80 backdrop-blur-sm text-inverse-on-surface font-caption-data text-caption-data flex items-center gap-1.5">
+<span class="material-symbols-outlined text-xs">camera_indoor</span>
+<span>STA 450 Raw Unfiltered</span>
+</div>
+</div>
+</div>
+<!-- Card 2: Annotated AI Detection Overlay -->
+<div class="flex flex-col bg-surface-container-low/50 rounded-xl overflow-hidden shadow-sm">
+<div class="p-3.5 bg-surface-container-high/60 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Annotated AI Detection Overlay</span>
+<span class="font-caption-data text-caption-data text-secondary">Model: aerointel_v1 • IoU Overlap: 0.50 • Conf Cutoff: 0.40</span>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-primary-container text-on-primary-container font-caption-data text-caption-data font-bold">
+            Edge AI Bounding Boxes
+          </span>
+</div>
+<div class="relative w-full aspect-[4/3] bg-surface-dim overflow-hidden select-none">
+<img class="w-full h-full object-cover" data-alt="Aerospace inspection borescope camera view of an airplane wing spar component with precision technical lighting and aviation rivets." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdn0uk4TRWBSlkbWhImoK18IU4SZD6b7zVzTnMrmDscBtddztuqNdeLgVOFmnDtTkYc0SYxuHTWLrZvJwhUsYLGOda61g7cGD84zAWXUaD8BWEO11d9PcD5PJvrGSNzWFoYdqGwupwIkxgHIFIogngrBKeElDk3yGEalpN4Dg2e7tIOTAnyJFuVPQLT8jYRpxRQA9gz7txKowzcH_ZUc_w-FOu1pk5tVeiBmLMjAaRLlvt7e-B1RDKzw">
+<!-- Bounding Box 1: Crack (Center-left) -->
+<div class="absolute top-[32%] left-[38%] w-[26%] h-[28%] rounded-sm bg-tertiary-container/10 shadow-[0_0_0_2px_#127a8b] flex flex-col justify-between p-1 pointer-events-none">
+<span class="self-start px-1.5 py-0.5 rounded bg-tertiary-container text-on-tertiary font-caption-data text-caption-data font-bold text-[10px] leading-tight">
+              crack · 92%
+            </span>
+<span class="self-end font-caption-data text-[9px] text-tertiary-container font-bold bg-surface-container-lowest/80 px-1 rounded">STA 450 (+12.4mm)</span>
+</div>
+<!-- Bounding Box 2: Missing Fastener (Left rivet row) -->
+<div class="absolute top-[48%] left-[28%] w-[8%] h-[12%] rounded-sm bg-tertiary-fixed/20 shadow-[0_0_0_2px_#f5c443] flex flex-col justify-start p-0.5 pointer-events-none">
+<span class="px-1 py-0.5 rounded bg-amber-400 text-on-surface font-caption-data text-[9px] font-bold leading-tight truncate">
+              fastener · 81%
+            </span>
+</div>
+<!-- Bounding Box 3: Dent (Lower Right panel) -->
+<div class="absolute top-[68%] left-[58%] w-[20%] h-[18%] rounded-sm bg-primary-container/15 shadow-[0_0_0_2px_#2c6ecb] flex flex-col justify-start p-1 pointer-events-none">
+<span class="self-start px-1.5 py-0.5 rounded bg-primary text-on-primary font-caption-data text-[10px] font-bold leading-tight">
+              dent · 76%
+            </span>
+</div>
+<!-- Bounding Box 4: Corrosion (Upper Right Flange) -->
+<div class="absolute top-[18%] left-[64%] w-[22%] h-[20%] rounded-sm bg-on-secondary-fixed/20 shadow-[0_0_0_2px_#071c36] flex flex-col justify-start p-1 pointer-events-none">
+<span class="self-start px-1.5 py-0.5 rounded bg-on-secondary-fixed text-surface-bright font-caption-data text-[10px] font-bold leading-tight">
+              corrosion · 87%
+            </span>
+</div>
+<!-- Overlay Legend micro-bar -->
+<div class="absolute bottom-2 right-2 flex items-center gap-1.5 p-1 px-2 rounded-lg bg-inverse-surface/85 backdrop-blur-md text-inverse-on-surface font-caption-data text-[11px]">
+<span class="w-2 h-2 rounded-full bg-tertiary-container"></span>
+<span>Crack</span>
+<span class="w-2 h-2 rounded-full bg-amber-400 ml-1"></span>
+<span>Fastener</span>
+<span class="w-2 h-2 rounded-full bg-primary-container ml-1"></span>
+<span>Dent</span>
+<span class="w-2 h-2 rounded-full bg-on-secondary-fixed ml-1"></span>
+<span>Corrosion</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 4. Historical Comparison Section (AeroMemory) -->
+<div class="flex flex-col gap-4 p-5 rounded-xl bg-surface-container-low/60 shadow-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-lg">timeline</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">AeroMemory™ Longitudinal Trajectory Analysis</h3>
+<span class="font-caption-data text-caption-data text-secondary">Historical multi-epoch delta comparison across inspection logs</span>
+</div>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1 rounded-full bg-error-container text-on-error-container font-caption-data text-caption-data font-bold">
+<span class="material-symbols-outlined text-sm">trending_up</span>
+<span>PROGRESSING</span>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+<div class="p-3.5 rounded-lg bg-surface-container-lowest shadow-sm flex flex-col">
+<span class="font-caption-data text-caption-data text-secondary">Previous Inspection Reference</span>
+<span class="font-body-md text-body-md text-on-surface font-bold mt-1">INS-1012</span>
+<span class="font-caption-data text-caption-data text-secondary mt-0.5">Sep 14, 2025 • 10 days prior</span>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container-lowest shadow-sm flex flex-col">
+<span class="font-caption-data text-caption-data text-secondary">Current Inspection Record</span>
+<span class="font-body-md text-body-md text-on-surface font-bold mt-1">INS-1043</span>
+<span class="font-caption-data text-caption-data text-secondary mt-0.5">Sep 24, 2025 • Today</span>
+</div>
+<div class="p-3.5 rounded-lg bg-surface-container-lowest shadow-sm flex flex-col">
+<span class="font-caption-data text-caption-data text-secondary">Measured Growth / Change</span>
+<span class="font-headline-sm text-headline-sm text-error font-extrabold mt-1">+42 px (+150% length expansion)</span>
+<span class="font-caption-data text-caption-data text-error font-semibold mt-0.5">Threshold Breach: +15% per cycle limit</span>
+</div>
+</div>
+<div class="flex items-center gap-2 p-2.5 rounded-lg bg-surface-container-high/40 text-secondary">
+<span class="material-symbols-outlined text-sm shrink-0">straighten</span>
+<span class="font-caption-data text-caption-data">
+          Physical measurement unavailable — no depth calibration for this optical borescope. Deltas calculated in normalized image pixels (px) against CAD baseline geometry.
+        </span>
+</div>
+</div>
+<!-- 5. Decision Support & Engineer Sign-Off Block -->
+<div class="flex flex-col gap-6">
+<!-- Callout Advisory -->
+<div class="p-4 rounded-xl bg-amber-500/10 text-on-surface flex items-start gap-3 shadow-sm">
+<span class="material-symbols-outlined text-amber-600 text-2xl shrink-0 mt-0.5">warning</span>
+<div class="flex flex-col">
+<div class="font-headline-sm text-headline-sm text-on-surface font-bold">Decision Support Advisory</div>
+<p class="font-body-md text-body-md text-on-surface mt-1">
+            Potential structural concern detected. Maintenance action may require review. Station 450 longitudinal shear crack exceeds C-check baseline growth threshold.
+          </p>
+<span class="font-caption-data text-caption-data text-secondary mt-2">
+            * Note: AI result is decision support only. Final decision and airworthiness determination must be made by a qualified maintenance engineer.
+          </span>
+</div>
+</div>
+<!-- Formal Airworthiness Sign-Off Block -->
+<div class="p-6 rounded-xl bg-surface-container-low/40 flex flex-col gap-6">
+<div class="flex items-center justify-between pb-3">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-xl">assignment_turned_in</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">Lead Inspector &amp; Airworthiness Sign-Off</span>
+</div>
+<span class="font-caption-data text-caption-data text-secondary">Federal Aviation Reg. FAR § 43.9 Compliant</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="flex flex-col p-3 rounded-lg bg-surface-container-lowest">
+<span class="font-caption-data text-caption-data text-secondary uppercase font-semibold">Lead Engineer Name</span>
+<span class="font-body-md text-body-md text-on-surface font-bold mt-1">Capt. V. Vance / A. Sharma</span>
+</div>
+<div class="flex flex-col p-3 rounded-lg bg-surface-container-lowest">
+<span class="font-caption-data text-caption-data text-secondary uppercase font-semibold">Engineering License / Cert #</span>
+<span class="font-body-md text-body-md text-on-surface font-bold mt-1">FAA-DME-884190-A</span>
+</div>
+<div class="flex flex-col p-3 rounded-lg bg-surface-container-lowest">
+<span class="font-caption-data text-caption-data text-secondary uppercase font-semibold">Sign-Off Date</span>
+<span class="font-body-md text-body-md text-on-surface font-bold mt-1">2025-09-24 15:42 UTC</span>
+</div>
+<div class="flex flex-col p-3 rounded-lg bg-surface-container-lowest">
+<span class="font-caption-data text-caption-data text-secondary uppercase font-semibold">Cryptographic Verification</span>
+<div class="flex items-center gap-1.5 mt-1">
+<span class="material-symbols-outlined text-primary text-sm">lock</span>
+<span class="font-caption-data text-caption-data text-primary font-bold">SHA-256: 7f8b9c... VERIFIED</span>
+</div>
+</div>
+</div>
+<!-- Signature line & Release Checkbox -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-6 pt-2">
+<label class="flex items-start gap-3 cursor-pointer select-none max-w-xl">
+<input checked="" class="w-5 h-5 rounded text-primary focus:ring-primary mt-0.5 accent-primary" type="checkbox">
+<span class="font-body-md text-body-md text-on-surface font-medium leading-snug">
+<strong>Airworthiness Certification:</strong> Conditional Release — NDT Eddy-Current Verification Required Before Dispatch under Subpart E inspection protocol.
+            </span>
+</label>
+<div class="flex flex-col items-end">
+<div class="px-4 py-1.5 rounded-lg bg-surface-container-lowest shadow-sm flex items-center gap-3">
+<span class="font-caption-data text-caption-data text-secondary">Digital Signature:</span>
+<span class="italic font-display-hero-mobile text-headline-sm text-primary tracking-wider" style="font-family: serif;">
+                A. Sharma, PE
+              </span>
+</div>
+<span class="font-caption-data text-caption-data text-secondary mt-1">Authorized Inspection Authority (AeroIntel Key #094)</span>
+</div>
+</div>
+</div>
+</div>
+<!-- 6. Footer Actions Bar (Printable Sheet Bottom) -->
+<div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base">verified_user</span>
+<span class="font-caption-data text-caption-data text-secondary">
+          AeroIntel System v1.0.0 • Cryptographically Sealed PDF/A-1b Archive Spec
+        </span>
+</div>
+<div class="flex items-center gap-3">
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container-low text-secondary hover:text-on-surface transition-colors font-body-md text-body-md" onclick="window.print()">
+<span class="material-symbols-outlined text-sm">print</span>
+<span>Print Document</span>
+</button>
+<button class="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-surface-container-low text-secondary hover:text-on-surface transition-colors font-body-md text-body-md">
+<span class="material-symbols-outlined text-sm">share</span>
+<span>Export Telemetry</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-on-primary font-body-md text-body-md font-bold shadow-md hover:bg-primary-container transition-all">
+<span class="material-symbols-outlined text-base">picture_as_pdf</span>
+<span>Generate PDF</span>
+</button>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_dashboard" name="shell-type"><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{colors:{"background":"#f8f9ff","on-secondary-fixed":"#071c36","surface-container":"#e5efff","on-error-container":"#93000a","tertiary-fixed-dim":"#7ed3e5","outline-variant":"#c2c6d4","inverse-primary":"#abc7ff","surface-variant":"#d1e4ff","surface-tint":"#0b5cb9","on-tertiary-fixed-variant":"#004e5a","outline":"#727783","on-tertiary":"#ffffff","secondary-fixed-dim":"#b5c7e9","tertiary":"#00606e","primary":"#0055ae","on-surface-variant":"#424752","tertiary-container":"#127a8b","surface-container-low":"#eef4ff","surface-container-lowest":"#ffffff","on-primary-container":"#f1f4ff","on-tertiary-container":"#def8ff","on-tertiary-fixed":"#001f25","surface-dim":"#c6dcfa","on-primary":"#ffffff","secondary-fixed":"#d5e3ff","on-secondary-fixed-variant":"#364763","secondary":"#4d5f7c","error":"#ba1a1a","surface-container-high":"#dbe9ff","error-container":"#ffdad6","secondary-container":"#c9dbfd","primary-fixed-dim":"#abc7ff","tertiary-fixed":"#a3eeff","inverse-surface":"#1c3249","on-secondary":"#ffffff","on-error":"#ffffff","on-primary-fixed":"#001b3f","primary-container":"#2c6ecb","surface-container-highest":"#d1e4ff","on-surface":"#041d33","primary-fixed":"#d7e2ff","inverse-on-surface":"#eaf1ff","on-primary-fixed-variant":"#00458f","on-secondary-container":"#4e607d","surface":"#f8f9ff","on-background":"#041d33","surface-bright":"#f8f9ff"},borderRadius:{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},spacing:{"space-md":"1rem","space-xs":"0.5rem","margin":"2rem","gutter":"1.5rem","space-xl":"2.25rem","space-sm":"0.75rem","space-lg":"1.5rem"},fontFamily:{"headline-md":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"metric-stat":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"metric-stat-mobile":["Plus Jakarta Sans"],"display-hero-mobile":["Plus Jakarta Sans"],"caption-data":["Inter"],"label-kpi-sub":["Plus Jakarta Sans"],"label-table-head":["Inter"],"headline-lg":["Plus Jakarta Sans"],"display-hero":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"]},fontSize:{"headline-md":["22px",{lineHeight:"28px",letterSpacing:"-0.015em",fontWeight:"700"}],"body-md":["14px",{lineHeight:"20px",fontWeight:"500"}],"metric-stat":["38px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"800"}],"headline-sm":["18px",{lineHeight:"24px",letterSpacing:"-0.01em",fontWeight:"600"}],"headline-lg-mobile":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"700"}],"metric-stat-mobile":["28px",{lineHeight:"34px",letterSpacing:"-0.01em",fontWeight:"800"}],"display-hero-mobile":["30px",{lineHeight:"38px",letterSpacing:"-0.02em",fontWeight:"800"}],"caption-data":["12px",{lineHeight:"16px",fontWeight:"500"}],"label-kpi-sub":["13px",{lineHeight:"18px",fontWeight:"600"}],"label-table-head":["13px",{lineHeight:"18px",letterSpacing:"0.01em",fontWeight:"700"}],"headline-lg":["32px",{lineHeight:"40px",letterSpacing:"-0.02em",fontWeight:"700"}],"display-hero":["44px",{lineHeight:"54px",letterSpacing:"-0.03em",fontWeight:"800"}],"body-lg":["16px",{lineHeight:"24px",fontWeight:"400"}]}}}};</script><style id="aero-scan-style">
+      @keyframes scanline {
+        0% { top: 0%; opacity: 0; }
+        15% { opacity: 1; }
+        85% { opacity: 1; }
+        100% { top: 96%; opacity: 0; }
+      }
+      @keyframes shimmer {
+        100% { transform: translateX(100%); }
+      }
+    </style></head><body class="bg-background font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-72 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between py-6 px-4"><div class="flex flex-col gap-6"><div class="flex items-center gap-3 px-3"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UXNw50iWc17LwnOB-YTaCYWIjZdzj7tUbk63vt0Rs4BxFAX9pX_4RoRNUFnIoPxZY8icVyrgyExi4-yUDXq_iQ5bR1SOJIMyi7vtbfh9ABbRCfIeN3J0CiRM4gw6i1WJMB7qUeNeQJLE0VCGIJx8h-bzCxFXt8ZYqcG1W_rB_y237vazmOmX5bWrvEsHTyK_TXJyp5QBjl5fH_gpbf2T-uAVTheagfT3_Fx_QZB_XmU-HBEytOudjOACH7gqXMsDaBAFaCH553Eg"><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-tight text-primary leading-tight">AeroIntel</span><span class="font-caption-data text-caption-data text-on-surface-variant">Smart Inspection. Safer Skies.</span></div></div><nav class="flex flex-col gap-1" data-active-classes="bg-primary-container text-on-primary-container font-semibold rounded-xl shadow-[0_10px_24px_rgba(160,195,225,0.20)]"><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="dashboard" href="#"><span class="material-symbols-outlined text-[20px]">space_dashboard</span><span>Dashboard</span></a><a aria-current="page" class="flex items-center gap-3 px-3 py-2.5 transition-all bg-primary-container text-on-primary-container font-semibold rounded-xl shadow-[0_10px_24px_rgba(160,195,225,0.20)]" data-path="new-inspection" href="#"><span class="material-symbols-outlined text-[20px]">add_circle</span><span>New Inspection</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="inspection-history" href="#"><span class="material-symbols-outlined text-[20px]">history</span><span>Inspection History</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="aeromemory" href="#"><span class="material-symbols-outlined text-[20px]">neurology</span><span>AeroMemory</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="reports" href="#"><span class="material-symbols-outlined text-[20px]">summarize</span><span>Reports</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="model-performance" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span>Model Performance</span></a><a class="flex items-center gap-3 px-3 py-2.5 rounded-xl font-body-md text-body-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-path="settings" href="#"><span class="material-symbols-outlined text-[20px]">settings</span><span>Settings</span></a></nav></div><div class="flex flex-col gap-3 px-3 pt-4"><div class="flex items-center justify-between bg-surface-container-low/80 px-3 py-2 rounded-xl"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-tertiary-container animate-pulse"></span><span class="font-caption-data text-caption-data font-semibold text-tertiary">Edge Model Online</span></div><span class="font-caption-data text-caption-data px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant">v1.0.0</span></div></div></aside><div class="pl-72"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/80 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-8"><div class="flex items-center gap-4 flex-1 max-w-lg"><div class="relative w-full flex items-center"><span class="material-symbols-outlined absolute left-3 text-secondary text-[20px]">search</span><input class="w-full pl-10 pr-12 py-2 rounded-full bg-surface-container-low font-body-md text-body-md text-on-surface placeholder:text-secondary focus:outline-none focus:bg-surface-container transition-all" placeholder="Search aircraft, inspection ID, component..." type="text"><span class="absolute right-3 px-1.5 py-0.5 rounded bg-surface-container text-secondary font-caption-data text-caption-data">⌘K</span></div></div><div class="flex items-center gap-4"><div class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-full bg-surface-container text-on-surface font-caption-data text-caption-data"><span class="w-1.5 h-1.5 rounded-full bg-primary"></span><span>Last sync: 1 min ago • Edge Node Active</span></div><button class="relative p-2 rounded-full text-secondary hover:bg-surface-container-low hover:text-on-surface transition-colors"><span class="material-symbols-outlined text-[22px]">notifications</span><span class="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-error"></span></button><div class="flex items-center gap-3 pl-2 py-1"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1UXNw50iWc17LwnOB-YTaCYWIjZdzj7tUbk63vt0Rs4BxFAX9pX_4RoRNUFnIoPxZY8icVyrgyExi4-yUDXq_iQ5bR1SOJIMyi7vtbfh9ABbRCfIeN3J0CiRM4gw6i1WJMB7qUeNeQJLE0VCGIJx8h-bzCxFXt8ZYqcG1W_rB_y237vazmOmX5bWrvEsHTyK_TXJyp5QBjl5fH_gpbf2T-uAVTheagfT3_Fx_QZB_XmU-HBEytOudjOACH7gqXMsDaBAFaCH553Eg"><div class="hidden lg:flex flex-col text-left"><span class="font-body-md text-body-md font-semibold text-on-surface leading-tight">A. Sharma</span><span class="font-caption-data text-caption-data text-secondary">Flight Line Inspector</span></div></div></div></header><main class="relative pt-16 bg-background min-h-screen w-full px-8 py-6"><div class="flex flex-col w-full gap-6 pb-12">
+<!-- Top Navigation & Header Row -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+<div class="flex flex-col gap-1">
+<nav class="flex items-center gap-2 font-caption-data text-caption-data text-secondary">
+<a class="hover:text-primary transition-colors" href="#">Inspections</a>
+<span>/</span>
+<span class="text-on-surface font-semibold">Create New Scan • INS-1043</span>
+</nav>
+<div class="flex items-baseline gap-3 mt-1">
+<h1 class="font-headline-lg text-headline-lg text-on-surface tracking-tight">New Inspection</h1>
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed-variant font-caption-data text-caption-data font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-ping"></span>
+          Live Session
+        </span>
+</div>
+<p class="font-body-md text-body-md text-secondary">Capture image, run AI detection and store in AeroMemory.</p>
+</div>
+<!-- Live Telemetry Badge -->
+<div class="flex items-center gap-3 bg-surface-container-lowest/80 backdrop-blur-md px-4 py-2 rounded-2xl shadow-sm">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-tertiary">memory</span>
+<span class="font-caption-data text-caption-data text-secondary">Node:</span>
+<span class="font-caption-data text-caption-data font-semibold text-on-surface">GPU-T4-02 (US-East Hangar Edge)</span>
+</div>
+<span class="w-1 h-3 rounded-full bg-outline-variant"></span>
+<div class="flex items-center gap-1.5">
+<span class="font-caption-data text-caption-data text-secondary">Clock:</span>
+<span class="font-caption-data text-caption-data font-semibold text-primary font-mono" id="session-clock">00:01.4</span>
+</div>
+</div>
+</div>
+<!-- Step Progress Indicator -->
+<div class="w-full bg-surface-container-lowest/90 backdrop-blur-md p-4 rounded-2xl shadow-sm">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 relative">
+<!-- Step 1: Capture (Completed) -->
+<div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low/60 transition-all">
+<div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-kpi-sub text-label-kpi-sub text-on-surface truncate">1. Capture</span>
+<span class="font-caption-data text-caption-data text-secondary truncate">High-res panel capture</span>
+</div>
+</div>
+<!-- Step 2: Save (Completed) -->
+<div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low/60 transition-all">
+<div class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-[18px]">check</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-kpi-sub text-label-kpi-sub text-on-surface truncate">2. Save</span>
+<span class="font-caption-data text-caption-data text-secondary truncate">Buffered locally</span>
+</div>
+</div>
+<!-- Step 3: Detect (Active) -->
+<div class="flex items-center gap-3 p-3 rounded-xl bg-primary-container text-on-primary-container shadow-md relative overflow-hidden transition-all">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent translate-x-[-100%] animate-[shimmer_2s_infinite]"></div>
+<div class="w-8 h-8 rounded-full bg-on-primary-container/20 text-on-primary-container flex items-center justify-center shrink-0 relative">
+<span class="material-symbols-outlined text-[18px] animate-spin">autorenew</span>
+</div>
+<div class="flex flex-col min-w-0 relative z-10">
+<span class="font-label-kpi-sub text-label-kpi-sub text-on-primary-container font-bold truncate">3. Detect</span>
+<span class="font-caption-data text-caption-data text-on-primary-container/80 truncate">Neural analysis running</span>
+</div>
+</div>
+<!-- Step 4: Compare History (Upcoming) -->
+<div class="flex items-center gap-3 p-3 rounded-xl bg-surface-container-low/30 text-secondary opacity-75 transition-all">
+<div class="w-8 h-8 rounded-full bg-surface-container text-secondary flex items-center justify-center shrink-0">
+<span class="font-caption-data text-caption-data font-semibold">4</span>
+</div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-kpi-sub text-label-kpi-sub text-secondary truncate">4. Compare History</span>
+<span class="font-caption-data text-caption-data text-secondary/70 truncate">AeroMemory vector cross-ref</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Compact Inspection Context Card -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-xl rounded-2xl p-5 shadow-sm">
+<div class="flex flex-wrap items-center justify-between gap-4">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-xl bg-secondary-container/60 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined text-[24px]">flight_takeoff</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-data text-caption-data uppercase tracking-wider text-secondary">Current Aircraft</span>
+<span class="font-headline-sm text-headline-sm text-on-surface">VT-ALB <span class="font-body-md text-body-md text-secondary font-normal">(Boeing 737-800)</span></span>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-6 text-on-surface">
+<div class="flex flex-col">
+<span class="font-caption-data text-caption-data uppercase tracking-wider text-secondary">Inspection ID</span>
+<span class="font-body-md text-body-md font-semibold text-primary font-mono">INS-1043</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-data text-caption-data uppercase tracking-wider text-secondary">Target Component</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Wing — Left Wing Panel</span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-data text-caption-data uppercase tracking-wider text-secondary">Lead Inspector</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+            A. Sharma
+          </span>
+</div>
+<div class="flex flex-col">
+<span class="font-caption-data text-caption-data uppercase tracking-wider text-secondary">Flight Line Slot</span>
+<span class="font-body-md text-body-md font-semibold text-on-surface">Bay 4 • Alpha Apron</span>
+</div>
+</div>
+</div>
+</div>
+<!-- PRIMARY MAIN CARD: Processing State Engine -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+<!-- Left Engine: Real-time Workflow Execution Checklist (7 cols) -->
+<div class="lg:col-span-7 bg-surface-container-lowest/90 backdrop-blur-2xl rounded-3xl p-6 sm:p-8 shadow-md flex flex-col justify-between gap-6">
+<div class="flex flex-col gap-6">
+<!-- Engine Header -->
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[22px]">neurology</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">AI Defect Detection &amp; Longitudinal Analysis</h2>
+</div>
+<p class="font-caption-data text-caption-data text-secondary mt-0.5">Live inference streaming via on-prem edge node</p>
+</div>
+<div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary-fixed/50 self-start sm:self-auto">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+<span class="font-caption-data text-caption-data text-on-secondary-fixed-variant font-mono">Elapsed: 1.4s</span>
+</div>
+</div>
+<!-- Progress Checklist -->
+<div class="flex flex-col gap-3">
+<!-- Item 1: Uploaded (Completed) -->
+<div class="flex items-start gap-4 p-3.5 rounded-2xl bg-surface-container-low/50 transition-all">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div class="flex-1 flex items-baseline justify-between gap-2">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Image uploaded</span>
+<span class="font-caption-data text-caption-data text-secondary">Raw frame buffered at 4000×3000px resolution</span>
+</div>
+<span class="font-caption-data text-caption-data font-mono font-semibold text-primary shrink-0">0.2s</span>
+</div>
+</div>
+<!-- Item 2: Stored (Completed) -->
+<div class="flex items-start gap-4 p-3.5 rounded-2xl bg-surface-container-low/50 transition-all">
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+<span class="material-symbols-outlined text-[16px]">check</span>
+</div>
+<div class="flex-1 flex items-baseline justify-between gap-2">
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Image stored</span>
+<span class="font-caption-data text-caption-data text-secondary">Persisted to edge cache &amp; cloud vault SHA-256 verified</span>
+</div>
+<span class="font-caption-data text-caption-data font-mono font-semibold text-primary shrink-0">0.4s</span>
+</div>
+</div>
+<!-- Item 3: Running AI detection (ACTIVE) -->
+<div class="flex items-start gap-4 p-4 rounded-2xl bg-gradient-to-r from-secondary-container/50 via-primary-fixed/30 to-surface-container-low shadow-sm transition-all relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-primary"></div>
+<div class="w-7 h-7 rounded-full bg-primary text-on-primary flex items-center justify-center shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[16px] animate-spin">refresh</span>
+</div>
+<div class="flex-1 flex flex-col gap-1.5">
+<div class="flex items-baseline justify-between gap-2">
+<div class="flex items-center gap-2">
+<span class="font-body-md text-body-md font-bold text-on-surface">Running AI detection</span>
+<span class="px-2 py-0.5 rounded-full bg-primary text-on-primary font-caption-data text-caption-data text-[10px] uppercase font-bold tracking-wider">Active</span>
+</div>
+<span class="font-caption-data text-caption-data font-mono font-semibold text-primary shrink-0">~0.8s elapsed</span>
+</div>
+<p class="font-caption-data text-caption-data text-on-surface-variant leading-relaxed">
+                Executing YOLOv11-Aero structural defect model (Crack, Corrosion, Dent, Missing Fastener)...
+              </p>
+<!-- Micro Progress Bar -->
+<div class="w-full bg-surface-container-high rounded-full h-1.5 mt-1 overflow-hidden">
+<div class="bg-primary h-full rounded-full w-2/3 transition-all duration-300"></div>
+</div>
+</div>
+</div>
+<!-- Item 4: Comparing with AeroMemory (PENDING) -->
+<div class="flex items-start gap-4 p-3.5 rounded-2xl bg-surface-container-low/20 transition-all opacity-85">
+<div class="w-7 h-7 rounded-full bg-surface-container-high text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+</div>
+<div class="flex-1 flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-secondary">Comparing with AeroMemory</span>
+<span class="font-caption-data text-caption-data text-secondary/80">Will query 36-month historical defect vector database for VT-ALB wing spar</span>
+</div>
+</div>
+<!-- Item 5: Preparing result (PENDING) -->
+<div class="flex items-start gap-4 p-3.5 rounded-2xl bg-surface-container-low/20 transition-all opacity-85">
+<div class="w-7 h-7 rounded-full bg-surface-container-high text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="w-2 h-2 rounded-full bg-outline"></span>
+</div>
+<div class="flex-1 flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-secondary">Preparing result</span>
+<span class="font-caption-data text-caption-data text-secondary/80">Will compile defect telemetry, severity scores &amp; compliance report</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Controls & Countdown Banner -->
+<div class="flex flex-col gap-3 pt-4">
+<!-- Auto-advancing banner -->
+<div class="flex items-center gap-3 p-3.5 rounded-xl bg-surface-container text-on-surface">
+<span class="material-symbols-outlined text-primary text-[20px] shrink-0 animate-bounce">arrow_forward</span>
+<p class="font-caption-data text-caption-data flex-1">
+            Inspection will automatically navigate to <span class="font-semibold text-primary">Inspection Result</span> upon completion (<span class="font-semibold font-mono" id="countdown-ticker">~2.5s remaining</span>).
+          </p>
+</div>
+<div class="flex items-center justify-between gap-4">
+<button class="px-5 py-2.5 rounded-full text-secondary hover:text-error hover:bg-error-container/40 font-body-md text-body-md font-semibold transition-all flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">cancel</span>
+<span>Cancel Inspection Process</span>
+</button>
+<div class="flex items-center gap-2 text-secondary font-caption-data text-caption-data">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container animate-pulse"></span>
+<span>Failsafe redundancy enabled</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Scanning Simulation & Visual Telemetry (5 cols) -->
+<div class="lg:col-span-5 flex flex-col gap-4">
+<!-- Computer Vision Laser Scan Viewport -->
+<div class="relative bg-surface-container-lowest/90 backdrop-blur-2xl rounded-3xl p-4 shadow-md overflow-hidden flex flex-col gap-3">
+<div class="flex items-center justify-between px-2 pt-1">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-ping"></span>
+<span class="font-label-kpi-sub text-label-kpi-sub text-on-surface">Live Neural Viewport</span>
+</div>
+<span class="px-2 py-0.5 rounded-md bg-surface-container font-mono text-[11px] font-semibold text-secondary">SCAN_LAYER: 03</span>
+</div>
+<!-- Viewport Container with Image & Scan Overlay -->
+<div class="relative rounded-2xl overflow-hidden aspect-[4/3] bg-surface-container-high group">
+<img alt="Technical scan of aluminum wing spar surface" class="w-full h-full object-cover filter contrast-125 brightness-95 opacity-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWCqngl5PKEYOuhokT1Xongld-2yZ8uO0GgJLy7CLcm4wcCu6wjfEZ4zbVbBBVKum4NjuSz_itiwhhcWUHpRQoFmCc6ZNgiJS-pg6a6f67MqAtAEElH1wtGItVnGTBzt6hcvZtX7zEFIe8fGnqIkskcFTLKF5dtICPE9MosMJ668Ar3qSEYtttK3n1X0R7dwJ1XOurjbbQPbuC90rM9v8dvGQOpwL1SdfcFTkhf3LdkO_fF2O6koHB3Q">
+<!-- Darkened Atmospheric Vignette for Screen Depth -->
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/40 via-transparent to-on-surface/20 pointer-events-none"></div>
+<!-- Animated Laser Scanline -->
+<div class="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-tertiary-fixed-dim to-transparent shadow-[0_0_15px_#7ed3e5] pointer-events-none animate-[scanline_2.8s_ease-in-out_infinite]"></div>
+<!-- Grid Overlay Reticle -->
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_40%,rgba(0,31,37,0.15)_100%)] pointer-events-none"></div>
+<!-- Real-Time Simulated Bounding Detection Boxes -->
+<div class="absolute top-[28%] left-[22%] w-[26%] h-[22%] border-2 border-dashed border-tertiary rounded-lg pointer-events-none animate-pulse">
+<span class="absolute -top-5 left-0 px-1.5 py-0.5 rounded bg-tertiary text-on-tertiary font-mono text-[10px] font-bold">
+              Spar Rivet #14B (99.1%)
+            </span>
+</div>
+<div class="absolute top-[52%] right-[18%] w-[32%] h-[28%] border-2 border-primary rounded-lg pointer-events-none shadow-[0_0_12px_rgba(0,85,174,0.3)]">
+<span class="absolute -top-5 right-0 px-1.5 py-0.5 rounded bg-primary text-on-primary font-mono text-[10px] font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[10px]">search</span> Candidate Micro-Dent (87.4%)
+            </span>
+<div class="absolute bottom-1 right-1 text-[9px] font-mono text-primary font-bold bg-white/80 px-1 rounded">
+              Δx: 14.2mm
+            </div>
+</div>
+<!-- Bottom Telemetry Ribbon inside Image -->
+<div class="absolute bottom-3 inset-x-3 bg-surface-container-lowest/80 backdrop-blur-md rounded-xl px-3 py-2 flex items-center justify-between font-mono text-[11px] text-on-surface">
+<span class="flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+              FOV: 45° • Wing Station 220
+            </span>
+<span class="font-bold text-primary">IOU OVERLAP 0.52</span>
+</div>
+</div>
+<!-- Telemetry Metrics Cluster -->
+<div class="grid grid-cols-3 gap-2 pt-1">
+<div class="bg-surface-container-low/70 rounded-xl p-2.5 flex flex-col">
+<span class="font-caption-data text-caption-data text-secondary truncate">Inference Latency</span>
+<span class="font-label-kpi-sub text-label-kpi-sub font-bold text-on-surface mt-0.5 font-mono">~38ms</span>
+</div>
+<div class="bg-surface-container-low/70 rounded-xl p-2.5 flex flex-col">
+<span class="font-caption-data text-caption-data text-secondary truncate">Memory Allocated</span>
+<span class="font-label-kpi-sub text-label-kpi-sub font-bold text-on-surface mt-0.5 font-mono">1.2 GB</span>
+</div>
+<div class="bg-surface-container-low/70 rounded-xl p-2.5 flex flex-col">
+<span class="font-caption-data text-caption-data text-secondary truncate">Precision Target</span>
+<span class="font-label-kpi-sub text-label-kpi-sub font-bold text-primary mt-0.5 font-mono">FP16 Edge</span>
+</div>
+</div>
+</div>
+<!-- Quick Classification Target Legend -->
+<div class="bg-surface-container-lowest/80 backdrop-blur-xl rounded-2xl p-4 shadow-sm flex flex-col gap-2.5">
+<span class="font-caption-data text-caption-data font-semibold text-secondary uppercase tracking-wider">Active Detection Classes</span>
+<div class="flex flex-wrap gap-2">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-caption-data text-caption-data font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span>
+            Crack
+          </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-caption-data text-caption-data font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-primary"></span>
+            Dent
+          </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant font-caption-data text-caption-data font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            Corrosion
+          </span>
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-variant text-on-surface font-caption-data text-caption-data font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary-container"></span>
+            Missing Fastener
+          </span>
+</div>
+</div>
+</div>
+</div>
+<!-- Collapsible Section: Advanced Settings & Diagnostics -->
+<details class="group bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl shadow-sm overflow-hidden transition-all duration-200">
+<summary class="flex items-center justify-between p-5 cursor-pointer list-none select-none hover:bg-surface-container-low/50 transition-colors">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-secondary text-[22px] group-open:text-primary transition-colors">tune</span>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Advanced runtime settings</span>
+<span class="font-caption-data text-caption-data text-secondary">Neural inference hyper-parameters &amp; edge sensor sync configuration</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="font-caption-data text-caption-data font-semibold text-secondary hidden sm:inline-block">3 Parameters Configured</span>
+<span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform duration-200">expand_more</span>
+</div>
+</summary>
+<div class="px-6 pb-6 pt-2">
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+<!-- Param 1 -->
+<div class="bg-surface-container-low/50 p-4 rounded-xl flex flex-col gap-1">
+<span class="font-caption-data text-caption-data uppercase tracking-wider text-secondary">Confidence Threshold</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm font-mono text-on-surface">0.40</span>
+<span class="font-caption-data text-caption-data text-tertiary font-semibold">Balanced Precision</span>
+</div>
+<p class="font-caption-data text-caption-data text-secondary/80 mt-1">Rejects false positives below 40% IoU probability.</p>
+</div>
+<!-- Param 2 -->
+<div class="bg-surface-container-low/50 p-4 rounded-xl flex flex-col gap-1">
+<span class="font-caption-data text-caption-data uppercase tracking-wider text-secondary">IoU Suppression Threshold</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm font-mono text-on-surface">0.50</span>
+<span class="font-caption-data text-caption-data text-secondary font-semibold">NMS Mode</span>
+</div>
+<p class="font-caption-data text-caption-data text-secondary/80 mt-1">Non-maximum suppression overlap limit for adjoining bounding markers.</p>
+</div>
+<!-- Param 3 -->
+<div class="bg-surface-container-low/50 p-4 rounded-xl flex flex-col gap-1">
+<span class="font-caption-data text-caption-data uppercase tracking-wider text-secondary">Model Version</span>
+<div class="flex items-baseline gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">YOLOv11-Aero</span>
+<span class="font-caption-data text-caption-data px-1.5 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-mono">Edge-FP16</span>
+</div>
+<p class="font-caption-data text-caption-data text-secondary/80 mt-1">Trained on 42,000 certified FAA/EASA airframe defect samples.</p>
+</div>
+</div>
+</div>
+</details>
+</div>
+<!-- Inline Laser Scan Keyframe Animation & Micro-Interactive Ticker -->
+<script>
+  // Add CSS scanline animation rule dynamically
+  if (!document.getElementById('aero-scan-style')) {
+    const style = document.createElement('style');
+    style.id = 'aero-scan-style';
+    style.textContent = `
+      @keyframes scanline {
+        0% { top: 0%; opacity: 0; }
+        15% { opacity: 1; }
+        85% { opacity: 1; }
+        100% { top: 96%; opacity: 0; }
+      }
+      @keyframes shimmer {
+        100% { transform: translateX(100%); }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  // Micro-interaction: Update session elapsed timer and remaining countdown
+  (function initAeroTicker() {
+    let elapsed = 1.4;
+    let remaining = 2.5;
+    const clockEl = document.getElementById('session-clock');
+    const countdownEl = document.getElementById('countdown-ticker');
+
+    const interval = setInterval(() => {
+      elapsed += 0.1;
+      remaining = Math.max(0.1, remaining - 0.1);
+
+      if (clockEl) {
+        const mins = String(Math.floor(elapsed / 60)).padStart(2, '0');
+        const secs = (elapsed % 60).toFixed(1).padStart(4, '0');
+        clockEl.textContent = `${mins}:${secs}`;
+      }
+
+      if (countdownEl) {
+        countdownEl.textContent = `~${remaining.toFixed(1)}s remaining`;
+      }
+
+      if (remaining <= 0.15) {
+        clearInterval(interval);
+      }
+    }, 100);
+  })();
+</script></main></div></body></html>

@@ -7,6 +7,7 @@ from app.api.inspection import router as inspection_router
 from app.db.database import engine
 from app.api.inspection_image import router as inspection_image_router
 from app.api.decision import router as decision_router
+from app.api.metrics import router as metrics_router
 
 app = FastAPI(
     title="AeroIntel API",
@@ -28,6 +29,17 @@ app.include_router(detection_router)
 app.include_router(inspection_router)
 app.include_router(inspection_image_router)
 app.include_router(decision_router)
+app.include_router(metrics_router)
+
+# Serve stored inspection images (data/inspections/...) so the frontend can
+# display uploaded frames. GET /data/inspections/{code}/{file}.jpg
+from pathlib import Path
+
+from fastapi.staticfiles import StaticFiles
+
+_DATA_DIR = Path("data")
+_DATA_DIR.mkdir(exist_ok=True)
+app.mount("/data", StaticFiles(directory=str(_DATA_DIR)), name="data")
 
 
 @app.get("/")
