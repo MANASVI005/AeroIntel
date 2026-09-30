@@ -141,3 +141,10 @@
 - Deferred by user: Step 1.10 mobile-capture restyle (route + page exist), Stage 2.2 seed script (panel_id=1 hardcode), Stage 2.3 AeroMemory compare endpoint, GLTF hero model swap.
 - Session-carrying details: docs/FRONTEND_INTEGRATION_PLAN.md (checklist + 16-entry session log + discovered facts).
 - Commit hygiene: at the user's request, "Generated with Codebuff / Co-Authored-By: Codebuff" attribution trailers were removed from all main-branch commit messages before pushing (history rewritten, force-push); all commits remain authored solely by their real human authors.
+
+### 2026-09-30 — GLTF hero swap + docs refresh (frontend wrap-up)
+- Replaced the procedural 3D hero plane with the team's `G4_LARC_AIR_0824.glb` (glTF 2.0, embedded textures, already tracked in the repo) via three.js r147 `GLTFLoader`; model normalized and camera auto-framed from its real size + canvas aspect (no clipping at any rotation angle), slow delta-time auto-rotation, procedural plane kept as automatic fallback. License/provenance recorded in `frontend/public/models/CREDITS.md` (confirm before public distribution).
+- User-review iterations: aligned beside hero text (camera lookAt), slowed rotation to ~45 s/turn, fixed 120 Hz double-speed spin (delta-time), removed float/wave motion, zoomed to the geometric max fill (margin 1.0).
+- Sidebar logo now links back to the landing page from every screen.
+- Docs refreshed for the frontend-complete state: README (status snapshot row + next steps), this file, `docs/FRONTEND_INTEGRATION_PLAN.md` (hero swap logged, 3.2 checked).
+- Remaining backlog: seed script (panel hardcode), mobile-capture restyle, AeroMemory compare endpoint, dataset/model license verifications.

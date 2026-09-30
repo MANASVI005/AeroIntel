@@ -1,7 +1,7 @@
 # AeroIntel: Aircraft Defect Detection & Longitudinal Memory System
 
 > **⭐ THIS IS THE INTEGRATED MAIN — use this branch for all further work.**
-> It consolidates **everything** from `model-training-and-eval`, `AEROMEMORY`, and `feature/aeromemory`: the YOLO v1 training pipeline + ONNX model, the AeroMemory™ engine, the FastAPI backend, the React frontend scaffold, phase 1–4 test suites, and all three datasets (`master_dataset_ABC`, `dataset_D`, `dataset_E_aeromemory` via LFS). The old feature branches are retained only for history — **do not start new work from them.**
+> It consolidates **everything** from `model-training-and-eval`, `AEROMEMORY`, and `feature/aeromemory`: the YOLO v1 training pipeline + ONNX model, the AeroMemory™ engine, the FastAPI backend, the **complete React frontend** (all screens live, wired to real data), phase 1–4 test suites, and all three datasets (`master_dataset_ABC`, `dataset_D`, `dataset_E_aeromemory` via LFS). The old feature branches are retained only for history — **do not start new work from them.**
 > Quick start: backend — `PYTHONPATH=backend python -m app.db.init_db` then `uvicorn app.main:app` (see `STITCH_GUIDE.md` §3); frontend — `cd frontend && npm install && npm run dev`; Stitch UI — `STITCH_GUIDE.md`.
 
 AeroIntel is an intelligent aircraft structural inspection system that combines edge-optimized deep learning defect detection (YOLO11) with a longitudinal memory engine (**AeroMemory™**) to track defect evolution, compute growth metrics, and generate automated airworthiness decision support.
@@ -22,6 +22,7 @@ AeroIntel is an intelligent aircraft structural inspection system that combines 
 | Test result (held-out test split) | **mAP50 0.613** / **mAP50-95 0.405**, P 0.769, R 0.575 (PASS vs A6 target ≥ 0.60) |
 | Train time | ~3.5 h on a free Colab T4 |
 | AeroMemory engine | ✅ implemented (`aeromemory/` package), verified on Dataset E — 30/30 PASS |
+| Frontend | ✅ complete — Stitch design system, 10 screens wired to real data (Landing w/ 3D GLTF hero, Dashboard, New Inspection, Result, History, AeroMemory, Reports + printable report, Model Performance, Settings); `GET /api/metrics` added. Deferred: mobile-capture restyle, seed script, AeroMemory compare endpoint |
 | Dataset E (synthetic benchmark) | ✅ complete & verified — 1,200 sequential inspection images with temporal ground truth |
 | Dataset D (unseen field images) | ⬜ not yet collected (independent task) |
 
@@ -139,9 +140,11 @@ Four living documents. **After every change, update them**:
 
 ## 6. Immediate next steps
 
-1. **Frontend via Stitch** — generate the UI from `FRONTEND_SPEC.md` + `UI_DESIGN_BRIEF.md` + `STITCH_GUIDE.md`, wiring to `mockApi.js` until the backend lands.
+1. ~~Frontend via Stitch~~ ✅ done — full app built on the Stitch design system, every screen wired to the real backend (`docs/FRONTEND_INTEGRATION_PLAN.md` has the full log). `mockApi.js` remains only as a DEMO-mode fixture reference.
 2. ~~Backend `/api/detect` smoke test~~ ✅ done — FastAPI backend in `backend/` runs the ONNX end-to-end; phase 1 & 3 suites pass locally (see `docs/PROGRESS.md`).
-3. Collect the ≥ 50-image field test set (Dataset D) and evaluate on it.
-4. Record license verification for the merged ABC dataset in `ml/01_download.md` (CC BY 4.0 credit in all reports).
+3. Build the seed script (aircraft/component/panel rows + demo inspections) so fresh clones get demo data — removes the `panel_id=1` hardcode in New Inspection.
+4. Restyle the mobile capture flow (`/mobile`) to the Stitch mobile screens.
+5. Collect the ≥ 50-image field test set (Dataset D) and evaluate on it.
+6. Record license verification for the merged ABC dataset in `ml/01_download.md` (CC BY 4.0 credit in all reports) and for the hero model in `frontend/public/models/CREDITS.md`.
 
 See `docs/PROGRESS.md` for the full picture.
