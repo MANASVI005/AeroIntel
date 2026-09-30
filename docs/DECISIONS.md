@@ -21,6 +21,10 @@ Status legend: `[accepted]` in force · `[superseded by D-xxx]` · `[proposed]` 
 | D-013 | training day | Default Ultralytics augmentation (mosaic, fliplr 0.5, HSV, scale 0.5, erasing 0.4) | accepted |
 | D-014 | 2026-09-24 | Run completed all 100 epochs without early stopping; v1 is final unless test eval fails | accepted |
 | D-015 | 2026-09-24 | Docs system: README + DECISIONS + PROGRESS + TECHNICAL_INTEGRATIONS updated after every change | accepted |
+| D-016 | 2026-09-27 | AeroMemory longitudinal engine uses rule-based matching (ORB homography + IoU + centroid proximity); no secondary ML model | accepted |
+| D-017 | 2026-09-27 | Defect lifecycle query filtering: exclude both 'Closed' and 'Repaired' defects in get_active_defects | accepted |
+| D-018 | 2026-09-27 | Strict dictionary-based ground-truth verification and non-zero exit codes for Dataset E test runner | accepted |
+| D-019 | 2026-09-27 | Synthetic benchmark status declared for Dataset E; Dataset D reserved for unseen real-image validation | accepted |
 
 ---
 
@@ -106,3 +110,23 @@ Frozen in `runs/aerointel_v1_yolo11s/args.yaml`: pretrained `yolo11s.pt`, epochs
 
 - **Decision:** four living docs — `README.md` (status snapshot), `docs/DECISIONS.md` (this file, append-only), `docs/PROGRESS.md` (milestones + dated changelog), `docs/TECHNICAL_INTEGRATIONS.md` (stack + contracts + integration iterations). After **every** change, update all that apply (protocol in `README.md §5`).
 - **Why:** the Colab pipeline is easy to re-run but hard to reconstruct from memory; decisions and numbers must be written down the moment they exist, and never fabricated.
+
+## D-016 — Rule-Based Matching for AeroMemory Engine `[accepted]`
+
+- **Decision:** AeroMemory implements deterministic rule-based spatio-temporal matching using OpenCV ORB feature alignment + RANSAC homography, bounding box IoU ($\ge 0.30$), and normalized Euclidean centroid distance ($< 15\%$ image width). No secondary ML model or deep re-identification embedding is introduced.
+- **Why:** Aircraft inspection records require explainable, auditable spatial tracking. Re-ID embeddings require massive training sets of paired defects across view angles; rule-based matching with homography alignment is deterministic, computationally light, and aligns directly with aerospace maintenance engineering auditability standards.
+
+## D-017 — Defect Lifecycle Query Filtering `[accepted]`
+
+- **Decision:** Active defect queries in `get_active_defects()` filter using `status NOT IN ('Closed', 'Repaired')`.
+- **Why:** Previously, querying `status != 'Closed'` caused repaired defects (status `'Repaired'`) to be retrieved on subsequent inspection cycles, falsely generating repeated `RESOLVED` events on clean panels (e.g. `AI-006` `INS-006`). Filtering out both `'Closed'` and `'Repaired'` defects ensures repaired defects remain preserved in historical audit tables without contaminating active defect matching.
+
+## D-018 — Strict Dictionary-Based Ground-Truth Verification & Non-Zero Exit Codes `[accepted]`
+
+- **Decision:** `tools/test_aeromemory_on_dataset_e.py` maps ground truth and predictions by defect ID (`{defect_id: state}`), validates empty ground-truth cases, detects unexpected/missed defects, and issues explicit process exit codes (`sys.exit(0)` on pass, `sys.exit(1)` on mismatch).
+- **Why:** Earlier verification script checked only `ground_truth[0]`, missed multi-defect panel mismatches, failed to validate empty ground-truth inspections, and returned exit code 0 even on mismatches. Strict defect-by-defect matching and exit codes ensure reliable automated CI/CD gating.
+
+## D-019 — Synthetic Benchmark Disclaimer for Dataset E `[accepted]`
+
+- **Decision:** Dataset E is formally classified as a synthetic benchmark dataset (10 px/mm calibration, simulated defect progressions, and repair scenarios). It is used exclusively to verify algorithmic state-machine transitions, IoU/centroid proximity thresholds, delta calculations, and database persistence.
+- **Why:** Synthetically placed and scaled defect overlays validate temporal state-machine logic, but do not establish physical production airworthiness or real-aircraft sensor reliability. Real-aircraft generalization is reserved for evaluation on Dataset D.

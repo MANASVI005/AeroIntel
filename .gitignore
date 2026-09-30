@@ -43,3 +43,8 @@ eval_workspace/
 # Datasets and archives
 datasets/*.zip
 final_visual_test/
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3

@@ -1,6 +1,6 @@
 # AeroIntel — Collaborator Verification & Testing Guide
 
-This guide is for any collaborator pulling this repository to verify that the model works, test inference, check training metrics, and reproduce or extend the training pipeline.
+This guide is for any collaborator pulling this repository to verify that the model works, test inference, check training metrics, run AeroMemory temporal defect tracking, and reproduce or extend the pipeline.
 
 ---
 
@@ -8,7 +8,9 @@ This guide is for any collaborator pulling this repository to verify that the mo
 
 | Objective | File / Location | How to verify |
 |---|---|---|
-| **Test Model Inference** | `tools/test_images.py` | Run local CLI test with ONNX or PyTorch weights |
+| **Verify AeroMemory Engine** | `tools/test_aeromemory_on_dataset_e.py` | Run 30/30 automated state transition tests (Exit Code 0) |
+| **Run AeroMemory Team Demo** | `tools/run_aeromemory_team_demo.py` | Generate 4 visual comparison panels + report in `outputs/team_demo/` |
+| **Test Model Inference** | `tools/test_images.py` | Run local CLI test with ONNX weights |
 | **Inspect Test Metrics** | `logs/eval_aerointel_v1_yolo11s_test.json` & `metrics_draft.md` | Verified held-out test split results (mAP50 = 0.613) |
 | **Inspect CPU Latency** | `logs/latency_aerointel_v1_yolo11s.json` | CPU latency benchmark (p50 = 284.5 ms, p95 = 415.0 ms) |
 | **Reproduce Training** | `ml/colab/02_train_yolo.ipynb` | Colab notebook with break-safe chunked training (T4 GPU) |
@@ -26,7 +28,7 @@ Requires Python 3.9+:
 # Clone and checkout the branch
 git clone https://github.com/MANASVI005/AeroIntel.git
 cd AeroIntel
-git checkout model-training-and-eval
+git checkout feature/aeromemory
 
 # Create and activate virtual environment
 python -m venv .venv
@@ -38,6 +40,8 @@ python -m venv .venv
 source .venv/bin/activate
 ```
 
+*(Note for Windows users: ensure Git longpaths is enabled: `git config --global core.longpaths true`)*
+
 ### 2.2 Install Dependencies
 Install Ultralytics and the inference runtimes:
 
@@ -45,57 +49,24 @@ Install Ultralytics and the inference runtimes:
 pip install ultralytics onnx onnxruntime opencv-python matplotlib
 ```
 
-*(Note for Windows users: ensure Git longpaths is enabled: `git config --global core.longpaths true`)*
-
 ---
 
 ## 3. Obtaining the Model Weights
 
-- **`models/aerointel_v1.onnx` is already bundled directly in this branch!**  
-  As soon as you pull `model-training-and-eval`, you have the model ready in `models/aerointel_v1.onnx` and can run inference immediately (see Section 4).
+- **`models/aerointel_v1.onnx` is bundled directly in this branch!**  
+  As soon as you pull `feature/aeromemory`, you have the model ready in `models/aerointel_v1.onnx` and can run inference immediately.
 
 - **For PyTorch checkpoints (`best.pt` / `last.pt`):**  
   Raw training checkpoints are stored in Google Drive under `Drive/AeroIntel/runs/aerointel_v1_yolo11s/weights/best.pt` to keep the Git repo size manageable. You can also re-export or inspect them using `ml/colab/03_eval_export.ipynb`.
 
 ---
 
-## 4. Testing Model Inference (Smoke Test)
+## 4. Running Local Inference (CLI)
 
-### 4.1 CLI Image Test
-Use `tools/test_images.py` to run detection on a single image or a folder of images:
+Run inference on sample images using the ONNX model:
 
 ```bash
-# Test a single image using ONNX model (default threshold conf=0.40):
-python tools/test_images.py path/to/aircraft_image.jpg --model models/aerointel_v1.onnx
-
-# Test using a lower confidence threshold (e.g. 0.25):
-python tools/test_images.py path/to/aircraft_image.jpg --model models/aerointel_v1.onnx --conf 0.25
-
-# Test a folder of images using best.pt:
-python tools/test_images.py path/to/image_folder/ --model runs/aerointel_v1_yolo11s/weights/best.pt --conf 0.25
-```
-
-**Expected output:**
-- Prints each detected class and confidence score (e.g. `Dent: confidence=0.882`, `Missing Fastener: confidence=0.741`).
-- Generates annotated bounding-box images under `runs/image_test/`.
-
-### 4.2 Python Scripting / Code Snippet
-To use the model in Python code or backend integration:
-
-```python
-from ultralytics import YOLO
-
-# Load model (works with .onnx or .pt)
-model = YOLO("models/aerointel_v1.onnx")
-
-# Run prediction
-results = model.predict("sample_aircraft_panel.jpg", imgsz=640, conf=0.25, iou=0.50)
-
-for result in results:
-    boxes = result.boxes
-    for box, cls_id, conf in zip(boxes.xyxy, boxes.cls, boxes.conf):
-        class_name = result.names[int(cls_id)]
-        print(f"Found {class_name} ({float(conf):.1%}) at [{box.tolist()}]")
+python tools/test_images.py --model models/aerointel_v1.onnx
 ```
 
 ---
@@ -123,7 +94,54 @@ Measured on standard CPU (conf 0.40, IoU 0.50, imgsz 640):
 
 ---
 
-## 6. How to Reproduce or Re-Train the Model
+## 6. Verifying AeroMemory™ Engine (Temporal Defect Tracking)
+
+AeroMemory tracks defects over sequential inspections to answer whether a defect is `NEW`, `STABLE`, `INCREASED` (Progressing), or `RESOLVED` (Repaired).
+
+### 6.1 Automated Strict Verification on Dataset E
+
+Run the test suite against sequential ground truth in Dataset E:
+
+```bash
+python tools/test_aeromemory_on_dataset_e.py
+```
+
+**Key Verification Features:**
+- **Evaluates 30 inspections** across 5 representative scenarios: `AI-001` (crack steady growth), `AI-002` (crack accelerated growth), `AI-003` (stable defect surveillance), `AI-006` (maintenance repair and resolution), and `AI-019` (multi-defect panel with newly emerged missing fastener).
+- **Exact Dictionary State Matching:** Compares `{defect_id: state}` defect-by-defect, detecting missed or unexpected defects.
+- **Empty Ground-Truth Validation:** Specifically validates inspections with no active defects (such as `AI-006` `INS-006` post-repair).
+- **Exit Code:** Returns `0` on 100% pass and `1` on any mismatch.
+- **Database Isolation:** Harness isolates SQLite databases per aircraft run to avoid `defect_id` collision across the fleet.
+
+### 6.2 Live Team Demonstration & Artifact Generation
+
+Run the comprehensive team demonstration:
+
+```bash
+python tools/run_aeromemory_team_demo.py
+```
+
+This script:
+1. Runs the 4 core maintenance scenarios through the full `AeroMemoryService` pipeline.
+2. Generates high-clarity side-by-side engineer visual comparison panels with bounding boxes, baseline deltas ($\Delta\text{mm}$), growth rates ($\%$), and decision-support text.
+3. Writes the formal summary report to `outputs/team_demo/AEROMEMORY_TEAM_REPORT.md`.
+
+Visual artifacts produced:
+- `outputs/team_demo/CASE-1_AI-001_Inspection_Comparison.png`
+- `outputs/team_demo/CASE-2_AI-003_Inspection_Comparison.png`
+- `outputs/team_demo/CASE-3_AI-006_Inspection_Comparison.png`
+- `outputs/team_demo/CASE-4_AI-019_Inspection_Comparison.png`
+
+### 6.3 Synthetic Benchmark Boundary & Disclaimer
+
+> [!IMPORTANT]
+> Dataset E fixtures are synthetic benchmark datasets with simulated defect geometries, progression steps, and repair events (10 px/mm synthetic calibration).
+> These tests validate state-machine transitions, IoU/centroid matching, delta tracking, and database persistence logic within the AeroMemory engine.
+> They do **not** establish certified production airworthiness or real-aircraft reliability, which requires physical NDT inspection calibration, regulatory compliance, and independent evaluation on unseen real-aircraft imagery (Dataset D).
+
+---
+
+## 7. How to Reproduce or Re-Train the Model
 
 If you want to re-run training from scratch or fine-tune with new data:
 
@@ -141,7 +159,7 @@ If you want to re-run training from scratch or fine-tune with new data:
 
 ---
 
-## 7. Frozen Contracts & Golden Rules
+## 8. Frozen Contracts & Golden Rules
 
 1. **Class Schema is Frozen:** Do not reorder or renumber classes.
    ```yaml
@@ -150,5 +168,10 @@ If you want to re-run training from scratch or fine-tune with new data:
    2: dent
    3: missing_fastener
    ```
-2. **Never commit `.pt` or `.onnx` files to Git:** Keep them in Drive/storage as specified in `models/README.md`.
-3. **Keep living docs updated:** If you change contracts, hyperparameters, or metrics, update `docs/DECISIONS.md`, `docs/PROGRESS.md`, and `docs/TECHNICAL_INTEGRATIONS.md`.
+2. **Never commit raw training `.pt` checkpoints to Git:** Keep them in Drive/storage as specified in `models/README.md`.
+3. **Defect Lifecycle Statuses:**
+   - `New`: First detection of defect.
+   - `Monitored`: Defect re-detected and stable within tolerance.
+   - `Progressing`: Defect dimension or area has increased beyond tolerance.
+   - `Repaired` / `Closed`: Defect no longer active; excluded from future active defect queries (`status NOT IN ('Closed', 'Repaired')`).
+4. **Keep living docs updated:** If you change contracts, hyperparameters, or metrics, update `docs/DECISIONS.md`, `docs/PROGRESS.md`, and `docs/TECHNICAL_INTEGRATIONS.md`.

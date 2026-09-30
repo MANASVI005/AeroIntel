@@ -1,0 +1,6 @@
+AeroIntel master_dataset_ABC Audit Report
+Total Images: 8525
+Corrupted Images: 0
+Invalid Annotations: 0
+Total Bounding Boxes: 15252
+Class Breakdown: {'train': {0: 4314, 1: 1731, 2: 3161, 3: 2787}, 'valid': {0: 416, 1: 439, 2: 378, 3: 408}, 'test': {0: 462, 1: 427, 2: 330, 3: 399}}

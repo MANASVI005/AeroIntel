@@ -6,7 +6,7 @@
 
 ## 1. System overview (current)
 
-```
+```text
 [Raw sources A/B/C]
       │  local merge tools (dedupe, polygon→box, conflict resolution, split 80/10/10, seed 42)
       ▼
@@ -23,8 +23,23 @@ YOLO11s training (notebook 02, Colab T4)  ◀──resume from last.pt after any
 runs/... (metrics, plots, confusion matrix)          models/aerointel_v1.onnx + registry.json
                                                            │ (copied into repo models/)
                                                            ▼
-                                                 Backend detector service /api/detect  (R2, spec A8)
+                                            Backend detector service /api/detect
+                                                           │
+                                                           ▼
+                                            [ Inspection Detections (boxes, classes, conf) ]
+                                                           │
+                                                           ▼
+                                            AEROMEMORY™ ENGINE (aeromemory/)
+                                             ├── OpenCV ORB + RANSAC Homography Registration
+                                             ├── Spatio-temporal Bipartite Matcher (IoU/Centroid)
+                                             ├── Progression Classifier & Decision Support
+                                             └── Relational Store (SQLite / PostgreSQL Schema)
+                                                           │
+                                                           ▼
+                                            [ Comparative Verification & MRO Decision ]
 ```
+
+---
 
 ## 2. Stack & versions
 
@@ -35,9 +50,12 @@ runs/... (metrics, plots, confusion matrix)          models/aerointel_v1.onnx + 
 | Durable storage | Google Drive `MyDrive/AeroIntel/` | dataset zip, run folder, models, logs | all notebooks |
 | Eval/plotting | Ultralytics val + matplotlib/pandas | per-epoch CSV + PNGs | notebooks 02, 03 |
 | Export format | ONNX (opset 12, simplify=True, imgsz 640) | for the backend detector | notebook 03 |
+| Image registration | OpenCV ORB + RANSAC homography | keypoint alignment under camera rotation/offset | `aeromemory/registration.py` |
+| Defect matching | Rule-based bipartite matching | IoU $\ge 0.30$, Centroid dist $< 15\%$ image width | `aeromemory/matcher.py` |
+| Persistence layer | SQLite / PostgreSQL | `AeroMemoryRepository` interface & schema | `aeromemory/repository.py` |
 | Dataset hashing | 8×8 grayscale aHash, Hamming ≤ 4 (near-dup grouping); SHA-256 (exact-dup conflicts) | in merge tooling | dataset build |
 
-Environment pinning is **loose by design** (Colab installs latest at runtime). If a behavior change in a new ultralytics release breaks `resume=True`, notebook 02 falls back to a weights-only warm start from `best.pt` — record the incident as an `IT-xxx` entry.
+---
 
 ## 3. Interfaces & data contracts
 
@@ -58,14 +76,12 @@ Rules: map by **ID**, never by display string. Never reorder/rename. Sources rem
 - `data.yaml`: `train: train/images`, `val: valid/images`, `test: test/images`, `nc: 4`, names as §3.1.
 - Counts (verified): train 6,820 / valid 852 / test 853 — 8,525 images, 15,252 annotations.
 - Notebook 02 auto-detects this layout and also accepts the older `merged/` nested layout + the legacy filename `aerointel_dataset_v1.zip`.
-- **Change policy:** any new dataset version ships as a **new zip** (`..._v2.zip`) — never overwrite v1; runs must stay reproducible.
 
 ### 3.3 Run-folder contract (notebook 02 ↔ Drive)
 
 - `Drive: AeroIntel/runs/<run_name>/` mirrors `/content/runs/<run_name>/` after **every chunk** (cell 6 sync; skips `.cache`/`.DS_Store`).
 - Resume reads `args.yaml` + `weights/last.pt` from the run folder — it is **read-only for humans**; don't edit `TOTAL_EPOCHS` between chunks.
-- Sidecar `runs/<run_name>_state.json` on Drive: `{"epochs_done": n, "chunk": k}` (written after each chunk; read before training).
-- Run naming: `aerointel_v{n}_yolo11{size}` (e.g. `aerointel_v1_yolo11s`); a comparison `n`-model run gets its own folder automatically.
+- Sidecar `runs/<run_name>_state.json` on Drive: `{"epochs_done": n, "chunk": k}`.
 
 ### 3.4 Model artifact contract (notebook 03 → backend)
 
@@ -74,15 +90,31 @@ Rules: map by **ID**, never by display string. Never reorder/rename. Sources rem
 | `registry.json` fields | `name: aerointel_v1`, `type: yolo11-onnx`, `path: models/aerointel_v1.onnx`, `classes` (map §3.1), `version: v1`, `imgsz: 640`, `trained_from: aerointel_v1_yolo11s`, `exported_at` |
 | Inference params | `imgsz=640`, latency tests at `conf=0.40`, `iou=0.50` |
 | Weights policy | `.pt`/`.onnx` **never committed to git** (B4) — they live in Drive/shared storage; repo keeps `models/README.md` with fetch instructions |
-| Backend endpoint | `/api/detect` (R2, spec A8) — to be smoke-tested with the ONNX (⬜ pending) |
 
-### 3.5 Colab notebook interfaces
+### 3.5 AeroMemory Interface Contracts
 
-| Notebook | Inputs | Outputs |
-|---|---|---|
-| `01_data_prep.ipynb` | Drive raw sources, `ROBOFLOW_API_KEY`, `REMAP` dict | `datasets/merged/` + `data.yaml`, audit JSON + contact sheets, drop log |
-| `02_train_yolo.ipynb` | dataset zip from Drive, `MODEL_SIZE`, `TOTAL_EPOCHS=100`, `EPOCHS_PER_CHUNK=10`, `IMGSZ=640`, `BATCH=16`, `PATIENCE=20` | run folder (weights, CSV, plots) synced to Drive, `*_state.json` |
-| `03_eval_export.ipynb` | Drive run folder + dataset zip | `eval_*_test.json`, `latency_*.json`, `models/aerointel_v{v}.onnx`, `registry.json`, `metrics_draft.md` |
+#### Defect Lifecycle Status (`DefectStatus`)
+- `NEW`: Newly observed defect.
+- `MONITORED`: Defect re-detected and stable within threshold.
+- `PROGRESSING`: Defect experiencing dimensional or area growth.
+- `REPAIRED`: Defect repaired by MRO maintenance action.
+- `CLOSED`: Defect sign-off complete.
+
+#### Active Defect Query Contract
+`get_active_defects(aircraft_id, component)` MUST filter:
+```sql
+status NOT IN ('Closed', 'Repaired')
+```
+This ensures repaired defects are not retrieved as active on subsequent inspections.
+
+#### Progression States (`ProgressionState`)
+- `NEW`: First time defect is detected.
+- `STABLE`: Growth rate within $[-5\%, +5\%]$ (or $< 1\text{ mm}$).
+- `INCREASED`: Growth rate $> +5\%$ (or $> 1\text{ mm}$).
+- `DECREASED`: Negative dimensional growth without full resolution.
+- `RESOLVED`: Active defect from previous cycle no longer detected in current inspection.
+
+---
 
 ## 4. Iteration log (`IT-xxx`) — append-only
 
@@ -96,11 +128,15 @@ Rules: map by **ID**, never by display string. Never reorder/rename. Sources rem
 | IT-006 | 2026-09-24 | v1 training executed to 100/100 epochs; run folder synced to Drive and mirrored to `runs/aerointel_v1_yolo11s/`. | Val mAP50 0.623 / mAP50-95 0.410; ~3.5 h T4. |
 | IT-007 | 2026-09-25 | Living-docs system created (README + DECISIONS + PROGRESS + TECHNICAL_INTEGRATIONS); update protocol defined in README §5. | All four docs now authoritative; every change must be reflected. |
 | IT-008 | 2026-09-25 | Notebooks 02/03 observed to pass `data.yaml`-root zip paths and legacy `merged/` layout through the same restore logic; `args.yaml` shows `cls_remap: true` (non-standard key, ignored by ultralytics). | Harmless extra key logged for the record; remove from the train call if it ever warns. |
+| IT-009 | 2026-09-27 | Implemented full `aeromemory` core engine: domain records, repository pattern, OpenCV ORB homography alignment, IoU/centroid matcher, progression engine, and service facade. | Standalone longitudinal memory engine ready for integration with YOLO detection outputs. |
+| IT-010 | 2026-09-27 | Fixed defect lifecycle query bug in `SQLiteAeroMemoryRepository.get_active_defects`: updated filter to `status NOT IN ('Closed', 'Repaired')`. | Prevents repaired defects from generating duplicate `RESOLVED` comparisons on subsequent clean panels (e.g. AI-006 INS-006). |
+| IT-011 | 2026-09-27 | Hardened `tools/test_aeromemory_on_dataset_e.py` with dictionary-based state verification, empty comparison validation, per-aircraft DB isolation, and explicit non-zero exit codes. | 30/30 inspections PASS with exit code 0. |
+
+---
 
 ## 5. Risks & open integration issues
 
-- **Loose ultralytics pinning** — a future release may change `resume`/export behavior; the warm-start fallback covers training, but re-verify notebook 03 export after any major upgrade.
-- **Val vs test gap** — 0.623 mAP50 is a validation number; the test split may be lower. Don't quote val numbers in the report as if they were test numbers.
-- **Recall 0.579** — the model misses ~42% of defects at default threshold; for a safety-adjacent demo consider lowering the deployed `conf` and documenting the trade-off.
-- **Corrosion class depends on a single source (A)** — diversity risk; v2 should broaden corrosion data.
-- **`runs/` currently not git-ignored** — add `.gitignore` (`runs/**`, `*.pt`, `*.onnx`) before the first commit (B4).
+- **Loose ultralytics pinning** — a future release may change `resume`/export behavior; re-verify notebook 03 export after any major upgrade.
+- **Val vs test gap** — 0.623 mAP50 is a validation number; test-split mAP50 is 0.613. Always quote test split metrics in engineering reports.
+- **Synthetic Fixture Boundary (Dataset E)** — Dataset E verifies algorithmic state-machine transitions and persistence. Physical aircraft airworthiness requires physical sensor calibration and independent testing on unseen Dataset D.
+- **Corrosion class single source (A)** — diversity risk; v2 should broaden corrosion data.

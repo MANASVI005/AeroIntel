@@ -6,7 +6,7 @@
 
 ## 1. Status dashboard
 
-**Last updated: 2026-09-25**
+**Last updated: 2026-09-27**
 
 | Area | Status | Notes |
 |---|---|---|
@@ -18,9 +18,14 @@
 | Notebook 03 — eval + export | ✅ done | per-class **test** eval, CPU latency, ONNX export |
 | ONNX model (`models/aerointel_v1.onnx`) | ✅ done | exported to `models/aerointel_v1.onnx` + `registry.json` |
 | `docs/metrics.md` / `metrics_draft.md` | ✅ done | verified test-split metrics (mAP50 = 0.613) |
-| Field test set (≥ 50 unseen images) | ⬜ not started | spec A6 |
+| **AeroMemory™ Engine Core** | ✅ done | rule-based matching, ORB alignment, SQLite repo, progression states |
+| **Dataset E Automated Verification** | ✅ done | 30/30 inspections PASS (`tools/test_aeromemory_on_dataset_e.py`, Exit 0) |
+| **AeroMemory Team Demo & Visuals** | ✅ done | 4 visual comparison panels + report in `outputs/team_demo/` |
+| Field test set (Dataset D, unseen images) | 🔄 in progress | Handled independently by teammate |
 | Backend `/api/detect` smoke test | ⬜ not started | R2 detector service, spec A8 |
 | Repo hygiene (`.gitignore` for weights) | ✅ done | `.pt`, `.onnx`, `datasets/*.zip`, `eval_workspace/` ignored |
+
+---
 
 ## 2. Milestones
 
@@ -46,16 +51,27 @@
 - [x] Export `models/aerointel_v1.onnx` + `registry.json` + `models/README.md`
 - [x] Test evaluation log in `logs/eval_aerointel_v1_yolo11s_test.json`, latency in `logs/latency_aerointel_v1_yolo11s.json`
 
-### 🔜 M5 — Field validation & integration
-- [ ] Collect ≥ 50-image field test set, evaluate on it
-- [ ] Backend `/api/detect` smoke test with the ONNX
-- [ ] Fill remaining provenance/licensing gaps in `ml/01_download.md`; add B/C rows
+### ✅ M5 — AeroMemory™ Longitudinal Tracking Engine
+- [x] Package structure in `aeromemory/` with repository pattern (`AeroMemoryRepository`, `SQLiteAeroMemoryRepository`).
+- [x] OpenCV ORB feature alignment and RANSAC homography estimation (`registration.py`).
+- [x] Bipartite defect matcher using bounding box IoU ($\ge 0.30$) and normalized centroid proximity ($< 15\%$ width).
+- [x] Progression engine classifying defects into `NEW`, `STABLE`, `INCREASED`, `DECREASED`, and `RESOLVED` with dynamic decision support.
+- [x] Fixed AI-006 repair status filtering bug: `get_active_defects` excludes `'Closed'` and `'Repaired'` defects.
+- [x] Hardened `tools/test_aeromemory_on_dataset_e.py` with dictionary state mapping and non-zero exit codes.
+- [x] Verified 30/30 sequential inspections across Dataset E benchmark scenarios (Exit Code 0).
+- [x] Built `tools/run_aeromemory_team_demo.py` generating side-by-side comparison panels in `outputs/team_demo/`.
 
-### 🔮 M6 — v2 ideas (not started)
-- Recall improvement: more corrosion/crack diversity (recall is the weak spot at ~0.58)
-- Re-audit Datasets D/E/F for inclusion
-- Per-class confusion analysis → targeted data collection
-- Optional YOLO11n comparison run for speed baseline
+### 🔜 M6 — Field validation (Dataset D) & Integration
+- [ ] Evaluate YOLO11s on unseen Dataset D images (teammate's task).
+- [ ] Smoke-test end-to-end integration between `/api/detect` and AeroMemory pipeline.
+- [ ] Complete license/provenance documentation for source datasets.
+
+### 🔮 M7 — v2 ideas (not started)
+- Recall improvement: more corrosion/crack diversity (recall is the weak spot at ~0.58).
+- Multi-camera 3D defect coordinate mapping.
+- Per-class confusion analysis → targeted data collection.
+
+---
 
 ## 3. Key metrics (verified from artifacts)
 
@@ -72,6 +88,9 @@
 | CPU latency p50 | 284.5 ms | `logs/latency_aerointel_v1_yolo11s.json` |
 | CPU latency p95 | 415.0 ms | `logs/latency_aerointel_v1_yolo11s.json` |
 | Per-class mAP50 | Dent 0.887, Fastener 0.677, Crack 0.654, Corrosion 0.233 | `logs/eval_aerointel_v1_yolo11s_test.json` |
+| AeroMemory Test Pass Rate | 30/30 (100%) | `tools/test_aeromemory_on_dataset_e.py` |
+
+---
 
 ## 4. Changelog
 
@@ -82,12 +101,15 @@
 ### 2026-09-25 — Project documentation created
 - Analysed the whole folder: dataset zip (+ `merge_report.txt`), three Colab notebooks, class map, provenance record, and the full training run.
 - Created the living-docs system: `README.md` (status snapshot), `docs/DECISIONS.md` (D-001…D-015), `docs/PROGRESS.md` (this file), `docs/TECHNICAL_INTEGRATIONS.md` (stack, contracts, IT log).
-- Logged the v1 dataset merge and training decisions; flagged val-vs-test caveat and recall as the v2 lever.
-
-### 2026-09-26 — Frontend functional spec added (`FRONTEND_SPEC.md`)
-- Added repo-root `FRONTEND_SPEC.md`: complete v1 frontend functional reference — 4 API endpoints (E1–E4) with exact request/response shapes, 8 pages with layouts/data slots/states, frontend behavior rules, and build order. Supersedes the earlier frontend inspo doc (visual theme now owned by the design track in Canva/Stitch).
 
 ### 2026-09-26 — Model evaluation, export & collaborator guide
 - Verified test-split evaluation (mAP50 = 0.613) and CPU latency benchmarks.
 - Created `VERIFICATION_GUIDE.md` for collaborators to test inference and re-run training.
 - Created `model-training-and-eval` branch and pushed verified artifacts to remote.
+
+### 2026-09-27 — AeroMemory Engine Implemented & Verified on Dataset E
+- Implemented full `aeromemory` package (models, repository, homography registration, matcher, comparator, progression, severity, and high-level service).
+- Fixed AI-006 duplicate resolution bug: updated `get_active_defects` to filter `status NOT IN ('Closed', 'Repaired')`, eliminating phantom re-resolution on subsequent clean inspections.
+- Upgraded `tools/test_aeromemory_on_dataset_e.py` with dictionary-based ground-truth matching, empty comparison validation, synthetic benchmark disclaimers, and strict non-zero exit codes.
+- Achieved 100% test pass (30/30 inspections) across benchmark scenarios AI-001, AI-002, AI-003, AI-006, and AI-019.
+- Generated 4 high-clarity visual comparison panels and formal engineering report in `outputs/team_demo/`.
