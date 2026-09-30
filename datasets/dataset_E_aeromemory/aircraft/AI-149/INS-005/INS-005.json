@@ -1,0 +1,79 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-149",
+  "component_id": "COMP-09",
+  "panel_id": "PANEL-09",
+  "region_id": "REGION-029",
+  "inspection_id": "INS-005",
+  "inspection_index": 5,
+  "date": "2026-05-01",
+  "previous_inspection_id": "INS-004",
+  "next_inspection_id": "INS-006",
+  "scenario": "crack_new",
+  "source_panel_image": "datasets\\master_dataset_ABC\\test\\images\\B_IMG_20230511_104815_jpg.rf.dc1939a7699e012acc1bce0b61ba6e8f.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-149\\INS-005\\INS-005.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 0,
+      "defect_type": "Crack",
+      "bbox_px": [
+        464,
+        435,
+        558,
+        449
+      ],
+      "bbox_yolo": [
+        0.499023,
+        0.431641,
+        0.091797,
+        0.013672
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "length_mm": 9.4,
+        "width_mm": 0.7
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "increased",
+        "previous_measurement": 8.2,
+        "current_measurement": 9.4,
+        "measurement_change": 1.2
+      },
+      "severity": "Medium",
+      "decision_support": "Schedule engineer review and monitor progression"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "increased",
+      "previous_measurement": 8.2,
+      "current_measurement": 9.4,
+      "measurement_change": 1.2
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

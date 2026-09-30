@@ -1,0 +1,160 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-190",
+  "component_id": "COMP-10",
+  "panel_id": "PANEL-10",
+  "region_id": "REGION-030",
+  "inspection_id": "INS-004",
+  "inspection_index": 4,
+  "date": "2026-04-01",
+  "previous_inspection_id": "INS-003",
+  "next_inspection_id": "INS-005",
+  "scenario": "multi_defect_progression",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\C_IMG_20230511_104834_jpg.rf.ec04cc28924f072380eb15ccddeb371c.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-190\\INS-004\\INS-004.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 0,
+      "defect_type": "Crack",
+      "bbox_px": [
+        484,
+        586,
+        639,
+        600
+      ],
+      "bbox_yolo": [
+        0.54834,
+        0.579102,
+        0.151367,
+        0.013672
+      ],
+      "status": "active",
+      "progression_status": "increased",
+      "measurements": {
+        "length_mm": 15.5,
+        "width_mm": 0.7
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "increased",
+        "previous_measurement": 13.0,
+        "current_measurement": 15.5,
+        "measurement_change": 2.5
+      },
+      "severity": "Medium",
+      "decision_support": "Schedule engineer review and monitor progression"
+    },
+    {
+      "defect_id": "D02",
+      "class_id": 1,
+      "defect_type": "Corrosion",
+      "bbox_px": [
+        313,
+        503,
+        423,
+        586
+      ],
+      "bbox_yolo": [
+        0.359375,
+        0.531738,
+        0.107422,
+        0.081055
+      ],
+      "status": "active",
+      "progression_status": "increased",
+      "measurements": {
+        "area_mm2": 120,
+        "severity_index": 0.45
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D02",
+        "state": "increased",
+        "previous_measurement": 100.0,
+        "current_measurement": 120.0,
+        "measurement_change": 20.0
+      },
+      "severity": "Medium",
+      "decision_support": "Schedule engineer review and monitor progression"
+    },
+    {
+      "defect_id": "D03",
+      "class_id": 2,
+      "defect_type": "Dent",
+      "bbox_px": [
+        257,
+        248,
+        467,
+        408
+      ],
+      "bbox_yolo": [
+        0.353516,
+        0.320312,
+        0.205078,
+        0.15625
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "width_mm": 21,
+        "height_mm": 16,
+        "depth_mm": 2
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D03",
+        "state": "stable",
+        "previous_measurement": 2.0,
+        "current_measurement": 2.0,
+        "measurement_change": 0.0
+      },
+      "severity": "Medium",
+      "decision_support": "Continue monitoring and retain historical record"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "increased",
+      "previous_measurement": 13.0,
+      "current_measurement": 15.5,
+      "measurement_change": 2.5
+    },
+    {
+      "defect_id": "D02",
+      "state": "increased",
+      "previous_measurement": 100.0,
+      "current_measurement": 120.0,
+      "measurement_change": 20.0
+    },
+    {
+      "defect_id": "D03",
+      "state": "stable",
+      "previous_measurement": 2.0,
+      "current_measurement": 2.0,
+      "measurement_change": 0.0
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

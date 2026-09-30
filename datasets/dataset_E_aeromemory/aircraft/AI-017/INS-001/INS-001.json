@@ -1,0 +1,74 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-017",
+  "component_id": "COMP-07",
+  "panel_id": "PANEL-17",
+  "region_id": "REGION-017",
+  "inspection_id": "INS-001",
+  "inspection_index": 1,
+  "date": "2026-01-01",
+  "previous_inspection_id": null,
+  "next_inspection_id": "INS-002",
+  "scenario": "missing_fastener_stable",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\C_IMG_20230512_130730_jpg.rf.cffa0fe17aaa0c3a9089442b82d47cf5.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-017\\INS-001\\INS-001.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 3,
+      "defect_type": "Missing Fastener",
+      "bbox_px": [
+        313,
+        459,
+        373,
+        519
+      ],
+      "bbox_yolo": [
+        0.334961,
+        0.477539,
+        0.058594,
+        0.058594
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "diameter_mm": 6
+      },
+      "matched_previous_defect": false,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "new",
+        "measurement_change": null
+      },
+      "severity": "High",
+      "decision_support": "Prioritize engineer inspection and verification"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "new",
+      "measurement_change": null
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-135",
+  "component_id": "COMP-05",
+  "panel_id": "PANEL-15",
+  "region_id": "REGION-015",
+  "inspection_id": "INS-005",
+  "inspection_index": 5,
+  "date": "2026-05-01",
+  "previous_inspection_id": "INS-004",
+  "next_inspection_id": "INS-006",
+  "scenario": "dent_repair",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\C_IMG_20230511_100623_jpg.rf.f4bf09d32a4ef394b1de168e401f1ae6.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-135\\INS-005\\INS-005.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 2,
+      "defect_type": "Dent",
+      "bbox_px": [
+        566,
+        312,
+        746,
+        442
+      ],
+      "bbox_yolo": [
+        0.640625,
+        0.368164,
+        0.175781,
+        0.126953
+      ],
+      "status": "active",
+      "progression_status": "decreased",
+      "measurements": {
+        "width_mm": 18,
+        "height_mm": 13,
+        "depth_mm": 1.4
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "decreased",
+        "previous_measurement": 3.0,
+        "current_measurement": 1.4,
+        "measurement_change": -1.6
+      },
+      "severity": "Low",
+      "decision_support": "Continue monitoring and retain historical record"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "decreased",
+      "previous_measurement": 3.0,
+      "current_measurement": 1.4,
+      "measurement_change": -1.6
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

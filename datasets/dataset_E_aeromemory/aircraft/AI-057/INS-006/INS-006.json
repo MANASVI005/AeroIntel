@@ -1,0 +1,79 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-057",
+  "component_id": "COMP-07",
+  "panel_id": "PANEL-17",
+  "region_id": "REGION-017",
+  "inspection_id": "INS-006",
+  "inspection_index": 6,
+  "date": "2026-05-31",
+  "previous_inspection_id": "INS-005",
+  "next_inspection_id": null,
+  "scenario": "corrosion_stable",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\B_IMG_20230513_102756_jpg.rf.35abce271dadf46915ada80c6a5023f5.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-057\\INS-006\\INS-006.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 1,
+      "defect_type": "Corrosion",
+      "bbox_px": [
+        641,
+        684,
+        750,
+        766
+      ],
+      "bbox_yolo": [
+        0.679199,
+        0.708008,
+        0.106445,
+        0.080078
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "area_mm2": 120,
+        "severity_index": 0.55
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "stable",
+        "previous_measurement": 120.0,
+        "current_measurement": 120.0,
+        "measurement_change": 0.0
+      },
+      "severity": "Medium",
+      "decision_support": "Continue monitoring and retain historical record"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "stable",
+      "previous_measurement": 120.0,
+      "current_measurement": 120.0,
+      "measurement_change": 0.0
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

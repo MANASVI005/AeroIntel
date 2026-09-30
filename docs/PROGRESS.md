@@ -121,3 +121,4 @@
 - Added `python-dotenv` and `httpx` to `requirements.txt` (backend import crash and TestClient dependency were missing).
 - Verified locally: ONNX loads and detects (Corrosion @ 0.656 on a real test image), FastAPI `/` + `/health` return 200 with DB connected, frontend `tsc --noEmit` + `vite build` pass, phase 1 & 3 exit 0, `mockApi.js` contracts match the backend routes.
 - Not runnable locally (LFS-only data): Dataset E 30/30 suite and phase 2; phase 4 additionally expects a pre-populated dev database (hardcoded `DEF-010`) — flagged for follow-up.
+- Brought all branch data into `main`: checked out `datasets/dataset_D` (1,493 files, plain git) and `datasets/dataset_E_aeromemory` (2,404 files) from `feature/aeromemory`; added an LFS tracking rule for Dataset E PNGs and pulled all 1,200 objects (~1.1 GB, verified as valid PNGs). `main` now fully contains every branch's content, datasets included.

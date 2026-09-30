@@ -1,0 +1,154 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-043",
+  "component_id": "COMP-03",
+  "panel_id": "PANEL-03",
+  "region_id": "REGION-003",
+  "inspection_id": "INS-004",
+  "inspection_index": 4,
+  "date": "2026-04-01",
+  "previous_inspection_id": "INS-003",
+  "next_inspection_id": "INS-005",
+  "scenario": "mixed_progression",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\C_IMG_20230511_102820_jpg.rf.36b87f104e1007dae908be196420acd6.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-043\\INS-004\\INS-004.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 0,
+      "defect_type": "Crack",
+      "bbox_px": [
+        151,
+        459,
+        311,
+        475
+      ],
+      "bbox_yolo": [
+        0.225586,
+        0.456055,
+        0.15625,
+        0.015625
+      ],
+      "status": "active",
+      "progression_status": "increased",
+      "measurements": {
+        "length_mm": 16,
+        "width_mm": 0.8
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "increased",
+        "previous_measurement": 14.0,
+        "current_measurement": 16.0,
+        "measurement_change": 2.0
+      },
+      "severity": "Medium",
+      "decision_support": "Schedule engineer review and monitor progression"
+    },
+    {
+      "defect_id": "D02",
+      "class_id": 1,
+      "defect_type": "Corrosion",
+      "bbox_px": [
+        192,
+        601,
+        286,
+        672
+      ],
+      "bbox_yolo": [
+        0.233398,
+        0.621582,
+        0.091797,
+        0.069336
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "area_mm2": 90,
+        "severity_index": 0.4
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D02",
+        "state": "stable",
+        "previous_measurement": 90.0,
+        "current_measurement": 90.0,
+        "measurement_change": 0.0
+      },
+      "severity": "Medium",
+      "decision_support": "Continue monitoring and retain historical record"
+    },
+    {
+      "defect_id": "D03",
+      "class_id": 3,
+      "defect_type": "Missing Fastener",
+      "bbox_px": [
+        614,
+        675,
+        674,
+        735
+      ],
+      "bbox_yolo": [
+        0.628906,
+        0.688477,
+        0.058594,
+        0.058594
+      ],
+      "status": "active",
+      "progression_status": "new",
+      "measurements": {
+        "diameter_mm": 6
+      },
+      "matched_previous_defect": false,
+      "comparison": {
+        "defect_id": "D03",
+        "state": "new",
+        "measurement_change": null
+      },
+      "severity": "High",
+      "decision_support": "Prioritize engineer inspection and verification"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "increased",
+      "previous_measurement": 14.0,
+      "current_measurement": 16.0,
+      "measurement_change": 2.0
+    },
+    {
+      "defect_id": "D02",
+      "state": "stable",
+      "previous_measurement": 90.0,
+      "current_measurement": 90.0,
+      "measurement_change": 0.0
+    },
+    {
+      "defect_id": "D03",
+      "state": "new",
+      "measurement_change": null
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

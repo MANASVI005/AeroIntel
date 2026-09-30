@@ -1,0 +1,53 @@
+AeroIntel Dataset E v2 - AeroMemory Synthetic Dataset
+==========================================================
+
+Aircraft histories: 200
+Inspections per aircraft: 6
+Expected images: 1200
+Generated images: 1200
+Total defect instances: 1495
+
+CLASS COUNTS
+0: Crack: 619
+1: Corrosion: 356
+2: Dent: 304
+3: Missing Fastener: 216
+
+SCENARIO COVERAGE
+crack_slow_progression: 9 aircraft
+crack_fast_progression: 9 aircraft
+crack_stable: 9 aircraft
+crack_branching: 9 aircraft
+crack_new: 9 aircraft
+crack_resolved: 9 aircraft
+corrosion_slow_progression: 9 aircraft
+corrosion_accelerating: 9 aircraft
+corrosion_stable: 8 aircraft
+corrosion_new: 8 aircraft
+corrosion_resolved: 8 aircraft
+dent_size_progression: 8 aircraft
+dent_depth_progression: 8 aircraft
+dent_stable: 8 aircraft
+dent_repair: 8 aircraft
+missing_fastener_new: 8 aircraft
+missing_fastener_stable: 8 aircraft
+missing_fastener_repaired: 8 aircraft
+mixed_progression: 8 aircraft
+mixed_new_defects: 8 aircraft
+multi_defect_stable: 8 aircraft
+multi_defect_progression: 8 aircraft
+camera_variation: 8 aircraft
+nearby_decoy_region: 8 aircraft
+
+VALIDATION: PASS
+Exact image count: PASS
+Image dimensions: PASS
+Bounding boxes: PASS
+Normalized coordinates: PASS
+Class IDs: PASS
+
+Source master_dataset_ABC was read only.
+No external dataset was downloaded.
+No web scraping was performed.
+Synthetic measurements/severity/decision support are not aircraft maintenance limits.
+Engineer verification remains required.

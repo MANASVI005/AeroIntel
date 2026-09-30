@@ -1,0 +1,79 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-031",
+  "component_id": "COMP-01",
+  "panel_id": "PANEL-11",
+  "region_id": "REGION-031",
+  "inspection_id": "INS-004",
+  "inspection_index": 4,
+  "date": "2026-04-01",
+  "previous_inspection_id": "INS-003",
+  "next_inspection_id": "INS-005",
+  "scenario": "corrosion_slow_progression",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\C_IMG_20230513_102443_jpg.rf.8750de7099c8d69f6dc1aecc8071a3f0.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-031\\INS-004\\INS-004.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 1,
+      "defect_type": "Corrosion",
+      "bbox_px": [
+        165,
+        305,
+        281,
+        392
+      ],
+      "bbox_yolo": [
+        0.217773,
+        0.340332,
+        0.113281,
+        0.084961
+      ],
+      "status": "active",
+      "progression_status": "increased",
+      "measurements": {
+        "area_mm2": 134,
+        "severity_index": 0.47
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "increased",
+        "previous_measurement": 116.0,
+        "current_measurement": 134.0,
+        "measurement_change": 18.0
+      },
+      "severity": "Medium",
+      "decision_support": "Schedule engineer review and monitor progression"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "increased",
+      "previous_measurement": 116.0,
+      "current_measurement": 134.0,
+      "measurement_change": 18.0
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

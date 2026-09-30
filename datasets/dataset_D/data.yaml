@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 5
+names: ['crack', 'dent', 'missing-head', 'paint-peel-off', 'scratch']
+
+roboflow:
+  workspace: ddiisc
+  project: aircraft_skin_defects
+  version: 20
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/ddiisc/aircraft_skin_defects/dataset/20

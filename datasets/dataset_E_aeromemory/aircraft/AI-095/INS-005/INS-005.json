@@ -1,0 +1,79 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-095",
+  "component_id": "COMP-05",
+  "panel_id": "PANEL-15",
+  "region_id": "REGION-015",
+  "inspection_id": "INS-005",
+  "inspection_index": 5,
+  "date": "2026-05-01",
+  "previous_inspection_id": "INS-004",
+  "next_inspection_id": "INS-006",
+  "scenario": "camera_variation",
+  "source_panel_image": "datasets\\master_dataset_ABC\\valid\\images\\C_IMG_20230513_100446_jpg.rf.c9349f8db9616bdb4a5db00a97b8726d.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-095\\INS-005\\INS-005.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 0,
+      "defect_type": "Crack",
+      "bbox_px": [
+        695,
+        282,
+        877,
+        298
+      ],
+      "bbox_yolo": [
+        0.767578,
+        0.283203,
+        0.177734,
+        0.015625
+      ],
+      "status": "active",
+      "progression_status": "increased",
+      "measurements": {
+        "length_mm": 18.2,
+        "width_mm": 0.8
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "increased",
+        "previous_measurement": 16.4,
+        "current_measurement": 18.2,
+        "measurement_change": 1.8
+      },
+      "severity": "Medium",
+      "decision_support": "Schedule engineer review and monitor progression"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "increased",
+      "previous_measurement": 16.4,
+      "current_measurement": 18.2,
+      "measurement_change": 1.8
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

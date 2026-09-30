@@ -1,0 +1,116 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-164",
+  "component_id": "COMP-04",
+  "panel_id": "PANEL-04",
+  "region_id": "REGION-004",
+  "inspection_id": "INS-004",
+  "inspection_index": 4,
+  "date": "2026-04-01",
+  "previous_inspection_id": "INS-003",
+  "next_inspection_id": "INS-005",
+  "scenario": "mixed_new_defects",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\C_IMG_20230512_125915_jpg.rf.b702092539b851705bc05b53a284817d.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-164\\INS-004\\INS-004.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 0,
+      "defect_type": "Crack",
+      "bbox_px": [
+        630,
+        430,
+        720,
+        444
+      ],
+      "bbox_yolo": [
+        0.65918,
+        0.426758,
+        0.087891,
+        0.013672
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "length_mm": 9,
+        "width_mm": 0.7
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "stable",
+        "previous_measurement": 9.0,
+        "current_measurement": 9.0,
+        "measurement_change": 0.0
+      },
+      "severity": "Medium",
+      "decision_support": "Continue monitoring and retain historical record"
+    },
+    {
+      "defect_id": "D02",
+      "class_id": 2,
+      "defect_type": "Dent",
+      "bbox_px": [
+        504,
+        417,
+        704,
+        567
+      ],
+      "bbox_yolo": [
+        0.589844,
+        0.480469,
+        0.195312,
+        0.146484
+      ],
+      "status": "active",
+      "progression_status": "new",
+      "measurements": {
+        "width_mm": 20,
+        "height_mm": 15,
+        "depth_mm": 2
+      },
+      "matched_previous_defect": false,
+      "comparison": {
+        "defect_id": "D02",
+        "state": "new",
+        "measurement_change": null
+      },
+      "severity": "Medium",
+      "decision_support": "Create inspection finding and verify defect"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "stable",
+      "previous_measurement": 9.0,
+      "current_measurement": 9.0,
+      "measurement_change": 0.0
+    },
+    {
+      "defect_id": "D02",
+      "state": "new",
+      "measurement_change": null
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

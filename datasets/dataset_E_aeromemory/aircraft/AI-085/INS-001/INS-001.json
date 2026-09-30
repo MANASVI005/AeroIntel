@@ -1,0 +1,76 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-085",
+  "component_id": "COMP-05",
+  "panel_id": "PANEL-05",
+  "region_id": "REGION-005",
+  "inspection_id": "INS-001",
+  "inspection_index": 1,
+  "date": "2026-01-01",
+  "previous_inspection_id": null,
+  "next_inspection_id": "INS-002",
+  "scenario": "dent_depth_progression",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\C_LINE_ALBUM_220324_61_jpg.rf.3c0f354bc16f9beb7084c27e24190e63.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-085\\INS-001\\INS-001.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 2,
+      "defect_type": "Dent",
+      "bbox_px": [
+        432,
+        405,
+        672,
+        585
+      ],
+      "bbox_yolo": [
+        0.539062,
+        0.483398,
+        0.234375,
+        0.175781
+      ],
+      "status": "active",
+      "progression_status": "increased",
+      "measurements": {
+        "width_mm": 24,
+        "height_mm": 18,
+        "depth_mm": 1.5
+      },
+      "matched_previous_defect": false,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "new",
+        "measurement_change": null
+      },
+      "severity": "Medium",
+      "decision_support": "Create inspection finding and verify defect"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "new",
+      "measurement_change": null
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

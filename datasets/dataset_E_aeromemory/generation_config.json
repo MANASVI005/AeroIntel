@@ -1,0 +1,49 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "seed": 42,
+  "aircraft_histories": 200,
+  "inspections_per_aircraft": 6,
+  "expected_images": 1200,
+  "image_size": [
+    1024,
+    1024
+  ],
+  "pixels_per_mm": 10.0,
+  "inspection_interval_days": 30,
+  "classes": {
+    "0": "Crack",
+    "1": "Corrosion",
+    "2": "Dent",
+    "3": "Missing Fastener"
+  },
+  "scenarios": [
+    "crack_slow_progression",
+    "crack_fast_progression",
+    "crack_stable",
+    "crack_branching",
+    "crack_new",
+    "crack_resolved",
+    "corrosion_slow_progression",
+    "corrosion_accelerating",
+    "corrosion_stable",
+    "corrosion_new",
+    "corrosion_resolved",
+    "dent_size_progression",
+    "dent_depth_progression",
+    "dent_stable",
+    "dent_repair",
+    "missing_fastener_new",
+    "missing_fastener_stable",
+    "missing_fastener_repaired",
+    "mixed_progression",
+    "mixed_new_defects",
+    "multi_defect_stable",
+    "multi_defect_progression",
+    "camera_variation",
+    "nearby_decoy_region"
+  ],
+  "source_dataset": "datasets\\master_dataset_ABC",
+  "source_read_only": true,
+  "not_for_yolo_training": true
+}

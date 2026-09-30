@@ -1,0 +1,120 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-092",
+  "component_id": "COMP-02",
+  "panel_id": "PANEL-12",
+  "region_id": "REGION-012",
+  "inspection_id": "INS-005",
+  "inspection_index": 5,
+  "date": "2026-05-01",
+  "previous_inspection_id": "INS-004",
+  "next_inspection_id": "INS-006",
+  "scenario": "mixed_new_defects",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\C_1620004-29-Cessna-A188B-Wing-Structure-Assembly-RH-Damaged-1D_jpg.rf.287cd3073e711d69a4fb6d5a698346a6.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-092\\INS-005\\INS-005.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 0,
+      "defect_type": "Crack",
+      "bbox_px": [
+        368,
+        711,
+        458,
+        725
+      ],
+      "bbox_yolo": [
+        0.40332,
+        0.701172,
+        0.087891,
+        0.013672
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "length_mm": 9,
+        "width_mm": 0.7
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "stable",
+        "previous_measurement": 9.0,
+        "current_measurement": 9.0,
+        "measurement_change": 0.0
+      },
+      "severity": "Medium",
+      "decision_support": "Continue monitoring and retain historical record"
+    },
+    {
+      "defect_id": "D02",
+      "class_id": 2,
+      "defect_type": "Dent",
+      "bbox_px": [
+        257,
+        694,
+        457,
+        844
+      ],
+      "bbox_yolo": [
+        0.348633,
+        0.750977,
+        0.195312,
+        0.146484
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "width_mm": 20,
+        "height_mm": 15,
+        "depth_mm": 2
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D02",
+        "state": "stable",
+        "previous_measurement": 2.0,
+        "current_measurement": 2.0,
+        "measurement_change": 0.0
+      },
+      "severity": "Medium",
+      "decision_support": "Continue monitoring and retain historical record"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "stable",
+      "previous_measurement": 9.0,
+      "current_measurement": 9.0,
+      "measurement_change": 0.0
+    },
+    {
+      "defect_id": "D02",
+      "state": "stable",
+      "previous_measurement": 2.0,
+      "current_measurement": 2.0,
+      "measurement_change": 0.0
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

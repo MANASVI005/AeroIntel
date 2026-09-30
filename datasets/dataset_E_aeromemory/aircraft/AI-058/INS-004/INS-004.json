@@ -1,0 +1,75 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-058",
+  "component_id": "COMP-08",
+  "panel_id": "PANEL-18",
+  "region_id": "REGION-018",
+  "inspection_id": "INS-004",
+  "inspection_index": 4,
+  "date": "2026-04-01",
+  "previous_inspection_id": "INS-003",
+  "next_inspection_id": "INS-005",
+  "scenario": "corrosion_new",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\B_IMG_20230511_104210_jpg.rf.8764d0983126274fa3667318ae9c3b99.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-058\\INS-004\\INS-004.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 1,
+      "defect_type": "Corrosion",
+      "bbox_px": [
+        681,
+        728,
+        755,
+        783
+      ],
+      "bbox_yolo": [
+        0.701172,
+        0.737793,
+        0.072266,
+        0.053711
+      ],
+      "status": "active",
+      "progression_status": "new",
+      "measurements": {
+        "area_mm2": 55,
+        "severity_index": 0.3
+      },
+      "matched_previous_defect": false,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "new",
+        "measurement_change": null
+      },
+      "severity": "Medium",
+      "decision_support": "Create inspection finding and verify defect"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "new",
+      "measurement_change": null
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-093",
+  "component_id": "COMP-03",
+  "panel_id": "PANEL-13",
+  "region_id": "REGION-013",
+  "inspection_id": "INS-001",
+  "inspection_index": 1,
+  "date": "2026-01-01",
+  "previous_inspection_id": null,
+  "next_inspection_id": "INS-002",
+  "scenario": "multi_defect_stable",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\C_IMG_20230511_103515_jpg.rf.35103cfb9317d174e71c9998ea318091.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-093\\INS-001\\INS-001.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 0,
+      "defect_type": "Crack",
+      "bbox_px": [
+        157,
+        680,
+        297,
+        698
+      ],
+      "bbox_yolo": [
+        0.22168,
+        0.672852,
+        0.136719,
+        0.017578
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "length_mm": 14,
+        "width_mm": 0.9
+      },
+      "matched_previous_defect": false,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "new",
+        "measurement_change": null
+      },
+      "severity": "Medium",
+      "decision_support": "Create inspection finding and verify defect"
+    },
+    {
+      "defect_id": "D02",
+      "class_id": 1,
+      "defect_type": "Corrosion",
+      "bbox_px": [
+        543,
+        429,
+        648,
+        508
+      ],
+      "bbox_yolo": [
+        0.581543,
+        0.45752,
+        0.102539,
+        0.077148
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "area_mm2": 110,
+        "severity_index": 0.45
+      },
+      "matched_previous_defect": false,
+      "comparison": {
+        "defect_id": "D02",
+        "state": "new",
+        "measurement_change": null
+      },
+      "severity": "Medium",
+      "decision_support": "Create inspection finding and verify defect"
+    },
+    {
+      "defect_id": "D03",
+      "class_id": 2,
+      "defect_type": "Dent",
+      "bbox_px": [
+        189,
+        489,
+        389,
+        639
+      ],
+      "bbox_yolo": [
+        0.282227,
+        0.550781,
+        0.195312,
+        0.146484
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "width_mm": 20,
+        "height_mm": 15,
+        "depth_mm": 2
+      },
+      "matched_previous_defect": false,
+      "comparison": {
+        "defect_id": "D03",
+        "state": "new",
+        "measurement_change": null
+      },
+      "severity": "Medium",
+      "decision_support": "Create inspection finding and verify defect"
+    },
+    {
+      "defect_id": "D04",
+      "class_id": 3,
+      "defect_type": "Missing Fastener",
+      "bbox_px": [
+        540,
+        399,
+        600,
+        459
+      ],
+      "bbox_yolo": [
+        0.556641,
+        0.418945,
+        0.058594,
+        0.058594
+      ],
+      "status": "active",
+      "progression_status": "stable",
+      "measurements": {
+        "diameter_mm": 6
+      },
+      "matched_previous_defect": false,
+      "comparison": {
+        "defect_id": "D04",
+        "state": "new",
+        "measurement_change": null
+      },
+      "severity": "High",
+      "decision_support": "Prioritize engineer inspection and verification"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "new",
+      "measurement_change": null
+    },
+    {
+      "defect_id": "D02",
+      "state": "new",
+      "measurement_change": null
+    },
+    {
+      "defect_id": "D03",
+      "state": "new",
+      "measurement_change": null
+    },
+    {
+      "defect_id": "D04",
+      "state": "new",
+      "measurement_change": null
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

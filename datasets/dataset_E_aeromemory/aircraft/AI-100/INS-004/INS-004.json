@@ -1,0 +1,115 @@
+{
+  "dataset": "AeroIntel Dataset E",
+  "version": "2.0",
+  "synthetic": true,
+  "not_for_yolo_training": true,
+  "aircraft_id": "AI-100",
+  "component_id": "COMP-10",
+  "panel_id": "PANEL-20",
+  "region_id": "REGION-020",
+  "inspection_id": "INS-004",
+  "inspection_index": 4,
+  "date": "2026-04-01",
+  "previous_inspection_id": "INS-003",
+  "next_inspection_id": "INS-005",
+  "scenario": "crack_branching",
+  "source_panel_image": "datasets\\master_dataset_ABC\\train\\images\\C_0523005-200-Cessna-172F-RH-Wing-Assembly-2D_jpg.rf.536197235b77cfe01c628729522a6b5f.jpg",
+  "image_path": "datasets\\dataset_E_aeromemory\\aircraft\\AI-100\\INS-004\\INS-004.png",
+  "image_size_px": [
+    1024,
+    1024
+  ],
+  "calibration": {
+    "pixels_per_mm": 10.0,
+    "synthetic": true
+  },
+  "defects": [
+    {
+      "defect_id": "D01",
+      "class_id": 0,
+      "defect_type": "Crack",
+      "bbox_px": [
+        170,
+        511,
+        330,
+        527
+      ],
+      "bbox_yolo": [
+        0.244141,
+        0.506836,
+        0.15625,
+        0.015625
+      ],
+      "status": "active",
+      "progression_status": "increased",
+      "measurements": {
+        "length_mm": 16,
+        "width_mm": 0.8
+      },
+      "matched_previous_defect": true,
+      "comparison": {
+        "defect_id": "D01",
+        "state": "increased",
+        "previous_measurement": 14.0,
+        "current_measurement": 16.0,
+        "measurement_change": 2.0
+      },
+      "severity": "Medium",
+      "decision_support": "Schedule engineer review and monitor progression"
+    },
+    {
+      "defect_id": "D02",
+      "class_id": 0,
+      "defect_type": "Crack",
+      "bbox_px": [
+        309,
+        584,
+        359,
+        596
+      ],
+      "bbox_yolo": [
+        0.326172,
+        0.576172,
+        0.048828,
+        0.011719
+      ],
+      "status": "active",
+      "progression_status": "new",
+      "measurements": {
+        "length_mm": 5,
+        "width_mm": 0.6
+      },
+      "matched_previous_defect": false,
+      "comparison": {
+        "defect_id": "D02",
+        "state": "new",
+        "measurement_change": null
+      },
+      "severity": "Medium",
+      "decision_support": "Create inspection finding and verify defect"
+    }
+  ],
+  "resolved_from_previous": [],
+  "comparison_ground_truth": [
+    {
+      "defect_id": "D01",
+      "state": "increased",
+      "previous_measurement": 14.0,
+      "current_measurement": 16.0,
+      "measurement_change": 2.0
+    },
+    {
+      "defect_id": "D02",
+      "state": "new",
+      "measurement_change": null
+    }
+  ],
+  "notes": [
+    "Synthetic AeroMemory validation data.",
+    "Measurements are synthetic.",
+    "Severity is synthetic.",
+    "Decision support is prototype logic.",
+    "Not aircraft maintenance limits.",
+    "Engineer verification remains required."
+  ]
+}

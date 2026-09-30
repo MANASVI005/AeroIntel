@@ -89,7 +89,7 @@ AeroIntel/
 │   ├── run_aeromemory_team_demo.py  # demo runner + report generator
 │   └── audit_dataset.py             # dataset audit utility
 ├── outputs/team_demo/               # 4 visual comparison panels + engineering report
-├── datasets/                        # Dataset E docs & specs (archives in Drive, not git)
+├── datasets/                        # master_dataset_ABC (training), dataset_D (held-out field), dataset_E_aeromemory (synthetic benchmark, LFS)
 ├── docs/
 │   ├── DECISIONS.md                 # append-only architectural decision log
 │   ├── PROGRESS.md                  # milestone dashboard + changelog
